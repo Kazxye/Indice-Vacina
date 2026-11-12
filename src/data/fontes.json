@@ -1,0 +1,193 @@
+{
+  "data_extracao": "11/11/2026",
+  "incorporadas": [
+    {
+      "id": "sim",
+      "nome": "SIM – Sistema de Informações sobre Mortalidade",
+      "orgao": "Ministério da Saúde / DATASUS (TabNet)",
+      "link": "http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sim/cnv/obt10uf.def",
+      "indicador": "Óbitos por infarto (número) e taxas por 100 mil habitantes",
+      "periodo": "2010–2025 (2025 preliminar)",
+      "recorte": "UF de residência, ano do óbito, faixa etária",
+      "filtros": "Categoria CID-10 I21 (infarto agudo do miocárdio) e I22 (infarto recorrente). Conteúdo: óbitos por residência.",
+      "data_extracao": "11/11/2026",
+      "observacao": "O próprio TabNet informa: “Dados de 2025 – Preliminares – data de extração 28/07/2026”."
+    },
+    {
+      "id": "sih",
+      "nome": "SIH/SUS – Sistema de Informações Hospitalares do SUS",
+      "orgao": "Ministério da Saúde / DATASUS (TabNet)",
+      "link": "http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sih/cnv/nruf.def",
+      "indicador": "Internações por infarto (número) e taxas por 100 mil habitantes",
+      "periodo": "2010–2025 (arquivos de processamento de jan/2010 a ago/2026)",
+      "recorte": "UF de residência, ano de atendimento, faixa etária",
+      "filtros": "Lista de Morbidade CID-10: “Infarto agudo do miocárdio” (I21–I22). Conteúdo: internações.",
+      "data_extracao": "11/11/2026",
+      "observacao": "Cobre só internações pagas pelo SUS. Internações de 2025 ainda podem receber registros de processamento tardio."
+    },
+    {
+      "id": "ibge",
+      "nome": "IBGE – Projeção da População das Unidades da Federação, edição 2024",
+      "orgao": "IBGE, via TabNet/DATASUS",
+      "link": "http://tabnet.datasus.gov.br/cgi/deftohtm.exe?ibge/cnv/projpop2024uf.def",
+      "indicador": "População residente (denominador das taxas e população padrão)",
+      "periodo": "2010–2025",
+      "recorte": "UF, ano, faixas etárias de cinco anos",
+      "filtros": "Ambos os sexos. Total, 60 anos ou mais e faixas para padronização.",
+      "data_extracao": "11/11/2026",
+      "observacao": "A população padrão da padronização por idade é a do Brasil em 2022."
+    },
+    {
+      "id": "pni-campanhas",
+      "nome": "PNI/DATASUS – consulta de campanhas de vacinação",
+      "orgao": "Ministério da Saúde / DATASUS",
+      "link": "http://pni.datasus.gov.br/consulta_influenza_12_selecao.asp?naofechar=N&enviar=ok&grupo=todos&faixa=todos&sel=coberturas",
+      "indicador": "Cobertura da campanha de influenza no grupo Idosos: doses, população-alvo (meta) e cobertura",
+      "periodo": "2011–2014",
+      "recorte": "UF onde a dose foi registrada, por campanha anual",
+      "filtros": "Relatório “Coberturas”, grupo Idosos (60 anos ou mais). Uma página por ano: consulta_influenza_11, _12, _13 e _14.",
+      "data_extracao": "11/11/2026",
+      "observacao": "Método consolidado: os municípios informam o total de doses aplicadas, sem identificar a pessoa."
+    },
+    {
+      "id": "sipni-web",
+      "nome": "SI-PNI Web – cobertura vacinal da campanha de influenza",
+      "orgao": "Ministério da Saúde / DATASUS",
+      "link": "http://sipni.datasus.gov.br/si-pni-web/faces/relatorio/consolidado/coberturaVacinalCampanhaInfluenza.jsf",
+      "indicador": "Cobertura da campanha de influenza no grupo Idosos: doses, população e cobertura",
+      "periodo": "2015–2020",
+      "recorte": "UF onde a dose foi registrada, por campanha anual",
+      "filtros": "Visualizado por: Estado. Ano de 2015 a 2020 (o seletor do sistema não aceita outros anos). Grupo Idosos.",
+      "data_extracao": "11/11/2026",
+      "observacao": "A população-alvo de idosos ficou fixa em 20.889.849 de 2015 a 2020, o que infla a cobertura dos últimos anos."
+    },
+    {
+      "id": "painel-rnds",
+      "nome": "Painel da Estratégia de Vacinação contra a Influenza – Residência",
+      "orgao": "Ministério da Saúde / SEIDIGI-DEMAS, alimentado pela RNDS",
+      "link": "https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_ESTRATEGIA_INFLUENZA_RESIDENCIA/index.html?regiao=nacional",
+      "indicador": "Cobertura de influenza: numerador (doses), denominador (população) e cobertura",
+      "periodo": "2024–2025",
+      "recorte": "UF de residência, por estratégia anual (Região Norte e demais regiões em estratégias separadas)",
+      "filtros": "Aba Cobertura. Grupo prioritário “Idosos com mais de 60 anos”. Estratégias de 2024 e 2025, Norte e demais regiões.",
+      "data_extracao": "11/11/2026 (painel atualizado em 10/11/2026)",
+      "observacao": "Método nominal: cada dose é registrada com a identificação da pessoa. Denominador do Censo 2022. Valores lidos na tela do painel."
+    },
+    {
+      "id": "tabnet-doses",
+      "nome": "TabNet – Imunizações, doses aplicadas",
+      "orgao": "Ministério da Saúde / DATASUS",
+      "link": "http://tabnet.datasus.gov.br/cgi/dhdat.exe?bd_pni/dpnibr.def",
+      "indicador": "Doses de influenza de campanha aplicadas em pessoas de 60 anos ou mais",
+      "periodo": "2010",
+      "recorte": "UF onde a dose foi registrada, ano",
+      "filtros": "Imunobiológico “Influenza (Campanha) (INF)”. Faixas etárias de 60 anos ou mais.",
+      "data_extracao": "11/11/2026",
+      "observacao": "A base só tem doses de campanha em 2010 e 2013, e não traz população-alvo. Usada para registrar as doses de 2010."
+    },
+    {
+      "id": "ms-camara-2025",
+      "nome": "Ministério da Saúde – “Cobertura vacinal contra influenza na pessoa idosa”, audiência pública de 11/06/2025",
+      "orgao": "Ministério da Saúde / DPNI, apresentado à Comissão de Defesa dos Direitos da Pessoa Idosa da Câmara dos Deputados",
+      "link": "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/comissao-de-defesa-dos-direitos-da-pessoa-idosa-cidoso/apresentacoes-em-eventos/apresentacoes-de-convidados-em-audiencias-em-2025/audiencia-publica-11-06-2025-cobertura-vacinal-contra-influenza-na-pessoa-idosa-no-ano-de-2024/eder-gatti/view",
+      "indicador": "Cobertura nacional de influenza no grupo de 60 anos ou mais, 2012 a 2024",
+      "periodo": "2021–2023 (usado só para o Brasil)",
+      "recorte": "Brasil. Não há valores por UF.",
+      "filtros": "Slide “Campanha Nacional de Vacinação contra Influenza: Grupo Prioritário 60 anos ou mais. Brasil, 2012 a 2024”.",
+      "data_extracao": "11/11/2026 (o documento cita dados de junho de 2025, sujeitos a alterações)",
+      "observacao": "O documento indica TabNet como fonte de 2012 a 2022 e DEMAS/RNDS de 2023 a 2024. Os valores de 2012 a 2020 coincidem com os extraídos para este painel."
+    },
+    {
+      "id": "tabnet-cobertura",
+      "nome": "TabNet – Imunizações, cobertura",
+      "orgao": "Ministério da Saúde / DATASUS",
+      "link": "http://tabnet.datasus.gov.br/cgi/dhdat.exe?bd_pni/cpnibr.def",
+      "indicador": "Cobertura de 24 vacinas do calendário de rotina",
+      "periodo": "2010–2022",
+      "recorte": "UF, ano",
+      "filtros": "Uma consulta por imunobiológico, linha UF, coluna ano.",
+      "data_extracao": "11/11/2026",
+      "observacao": "Seção secundária do painel. A base foi encerrada em 2022."
+    },
+    {
+      "id": "vacinometro-covid",
+      "nome": "Vacinômetro COVID-19",
+      "orgao": "Ministério da Saúde / SEIDIGI-DEMAS, alimentado pela RNDS",
+      "link": "https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_Vacina_C19/SEIDIGI_DEMAS_Vacina_C19.html",
+      "indicador": "Doses de COVID-19 aplicadas (vacina monovalente), por tipo de dose",
+      "periodo": "Acumulado até 24/04/2026",
+      "recorte": "UF",
+      "filtros": "Tabela “Doses Aplicadas por Estado”, aba Vacina Monovalente.",
+      "data_extracao": "11/11/2026 (painel atualizado em 10/11/2026)",
+      "observacao": "Seção secundária. A linha do Tocantins não aparece na tabela; o valor foi obtido pela diferença entre o total e a soma das demais UFs e está marcado como derivado."
+    }
+  ],
+  "consultadas": [
+    {
+      "nome": "Informe Técnico da 24ª Campanha Nacional de Vacinação contra a Influenza (2022), reproduzido pela SESA-ES",
+      "link": "https://saude.es.gov.br/Media/sesa/Orient.%20Cidadão/INFORMES_TECNICOS_IMUNIZACOES/20%20-%20INFORME%20TÉCNICO%20DA%2024ª%20CAMPANHA%20NACIONAL%20DE%20VACINACAO%20CONTRA%20INFLUENZA%20NO%20ES.pdf",
+      "achado": "Traz a cobertura nacional de idosos em 2021 (70,9%, LocalizaSUS, dados de 04/02/2022) e a Figura 7, com a cobertura de idosos por UF em 2021 apenas como gráfico de barras, sem os números.",
+      "uso": "Não incorporado por UF: ler valores na altura das barras seria estimativa, não dado oficial. O valor nacional confirma o da apresentação do Ministério."
+    },
+    {
+      "nome": "Informe Técnico da Estratégia de Vacinação contra a Influenza – 2024 (Ministério da Saúde)",
+      "link": "https://www.gov.br/saude/pt-br/vacinacao/informes/estrategia-de-vacinacao-influenza-2024/view",
+      "achado": "Descreve os indicadores e denominadores de 2024 (idosos: Censo 2022). Não traz tabela de cobertura de 2023 por UF.",
+      "uso": "Usado para documentar a mudança de denominador. Sem dados para incorporar."
+    },
+    {
+      "nome": "Portal de Dados Abertos do SUS – doses aplicadas pelo PNI",
+      "link": "https://dadosabertos.saude.gov.br/dataset?q=vacina",
+      "achado": "A busca por influenza no portal não devolveu conjunto agregado de campanha. Os registros de doses existem como microdados individuais em arquivos mensais grandes.",
+      "uso": "Não processado nesta etapa. É o caminho indicado para reconstruir 2023 por UF."
+    },
+    {
+      "nome": "CVE/SES-SP – informe da campanha de influenza de 2011",
+      "link": "https://www.saude.sp.gov.br/resources/cve-centro-de-vigilancia-epidemiologica/areas-de-vigilancia/imunizacao/doc/if11_influenza_vac.pdf",
+      "achado": "Cobertura de 74,95% (3.399.539 doses) ao final da Campanha do Idoso de 2010 em São Paulo.",
+      "uso": "Validação: as doses do TabNet para SP em 2010 (3.399.969) diferem em 430."
+    },
+    {
+      "nome": "SES-PB – Nota Informativa Influenza nº 18, de 17/06/2024",
+      "link": "https://paraiba.pb.gov.br/diretas/saude/arquivos-1/vigilancia-em-saude/nota-informativa-influenza-no-18-de-17-de-junho-de-2024.pdf",
+      "achado": "Idosos na Paraíba em 2024: 288.680 doses sobre 615.328 pessoas, 46,91%, em 17/06/2024.",
+      "uso": "Validação: mesma população-alvo do painel federal; o painel lido em 11/11/2026 mostra 53,2%, com doses registradas depois."
+    },
+    {
+      "nome": "Referências do TCU sobre a campanha de 2010",
+      "link": "https://portal.tcu.gov.br/",
+      "achado": "A busca feita não localizou relatório do TCU com cobertura de idosos por UF em 2010.",
+      "uso": "Nada a incorporar. Continua pendente."
+    }
+  ],
+  "lacunas": [
+    {
+      "ano": "2010",
+      "situacao": "Parcial",
+      "investigado": "Site antigo do PNI (só tem a campanha de H1N1 de 2010, outra vacina e outro público), TabNet de doses aplicadas e busca por referências do TCU.",
+      "resultado": "Doses de campanha em pessoas de 60+ incorporadas para as 27 UFs (TabNet). A população-alvo de 2010 não está publicada nessa fonte, então a cobertura fica nula.",
+      "proximo_passo": "Localizar a população-alvo de 2010 por UF (informe da campanha de 2010 ou relatório do TCU) para calcular a cobertura."
+    },
+    {
+      "ano": "2021",
+      "situacao": "Só nacional",
+      "investigado": "SI-PNI Web (devolve tabela vazia para 2021), informe federal da 24ª campanha e apresentação do Ministério à Câmara.",
+      "resultado": "Cobertura nacional de 70,9% incorporada só para o Brasil. Por UF existe apenas um gráfico sem números (Figura 7 do informe, fonte LocalizaSUS, dados de 04/02/2022).",
+      "proximo_passo": "Pedir ao Ministério a tabela da Figura 7 (LocalizaSUS, 04/02/2022) ou buscar nos boletins estaduais de 2021."
+    },
+    {
+      "ano": "2022",
+      "situacao": "Só nacional",
+      "investigado": "SI-PNI Web (tabela vazia para 2022), busca pelo informe federal da 25ª campanha e boletins estaduais.",
+      "resultado": "Cobertura nacional de 70,2% incorporada só para o Brasil. Os boletins estaduais encontrados (SP, PB) são parciais, de meio de campanha, e não foram usados.",
+      "proximo_passo": "Obter o informe federal da 25ª campanha (seção 2011–2022) e os boletins estaduais de encerramento de 2022."
+    },
+    {
+      "ano": "2023",
+      "situacao": "Só nacional",
+      "investigado": "Painel da RNDS (começa em 2024), informe federal de 2024 e Portal de Dados Abertos do SUS.",
+      "resultado": "Cobertura nacional de 63,3% (DEMAS/RNDS) incorporada só para o Brasil. Não há consolidado por UF publicado.",
+      "proximo_passo": "Agregar os microdados de doses do Portal de Dados Abertos por UF de residência e idade de 60+, com o denominador do Censo 2022."
+    }
+  ]
+}

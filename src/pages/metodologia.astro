@@ -1,0 +1,56 @@
+---
+import fs from 'node:fs';
+import Base from '../layouts/Base.astro';
+
+const painel = JSON.parse(fs.readFileSync(new URL('../../public/data/painel.json', import.meta.url), 'utf8'));
+const pad = painel.padronizacao as { populacao_padrao: string; faixas: string[]; faixas60: string[]; obitos: boolean; intern60: boolean; intern_todas: boolean };
+const periodos = Object.values(painel.periodos) as { rotulo: string; regra: string }[];
+---
+<Base titulo="Metodologia | Vacinação e Infarto no Brasil" descricao="Como o painel define os desfechos, calcula e padroniza as taxas, trata a mudança de método da cobertura de influenza e mede a associação." atual="metodologia">
+  <div class="prosa">
+    <h1>Metodologia</h1>
+    <p class="lead">O painel descreve a associação entre vacinação contra influenza e infarto nas 27 unidades da federação, de 2010 a 2025, com foco na população de 60 anos ou mais.</p>
+
+    <h2>Desfechos</h2>
+    <ul>
+      <li><strong>Óbitos por infarto:</strong> SIM, categorias CID-10 I21 e I22, por UF de residência e ano do óbito. Os óbitos de 2025 são preliminares (extração do Ministério em 28/07/2026) e aparecem marcados no card, no gráfico e na tabela.</li>
+      <li><strong>Internações por infarto:</strong> SIH/SUS, lista de morbidade “Infarto agudo do miocárdio” (I21–I22), por UF de residência e ano de atendimento. A base inclui internações financiadas pelo SUS em hospitais públicos e privados conveniados. Internações pagas exclusivamente por planos de saúde ou particulares ficam de fora.</li>
+    </ul>
+
+    <h2>Taxas</h2>
+    <ul>
+      <li><strong>Taxa bruta:</strong> eventos divididos pela população residente do IBGE (projeção, edição 2024), por 100 mil habitantes.</li>
+      <li><strong>Taxa padronizada por idade:</strong> método direto. Calcula-se a taxa em cada faixa etária e faz-se a média ponderada pela população padrão: {pad.populacao_padrao}. Faixas usadas: {pad.faixas.join('; ')}. Para 60 anos ou mais, só as faixas {pad.faixas60.join('; ')}.</li>
+      <li><strong>Disponibilidade:</strong> óbitos padronizados: {pad.obitos ? 'sim' : 'não'}. Internações padronizadas em 60 anos ou mais: {pad.intern60 ? 'sim' : 'não'}. Internações padronizadas em todas as idades: {pad.intern_todas ? 'sim' : 'não; o painel mostra a taxa bruta e avisa'}.</li>
+      <li>Eventos com idade ignorada entram na taxa bruta e ficam fora da padronizada.</li>
+    </ul>
+
+    <h2>Cobertura da vacina da gripe</h2>
+    <ul>
+      <li><strong>Grupo:</strong> pessoas de 60 anos ou mais. Cobertura é o número de doses dividido pela população-alvo definida pela própria fonte. O painel mostra doses, população-alvo, fonte e data de referência junto de cada valor.</li>
+      <li><strong>2011–2020 (SI-PNI e PNI/DATASUS):</strong> método consolidado. Os municípios informam o total de doses, sem identificar a pessoa, e a dose conta no estado onde foi aplicada.</li>
+      <li><strong>2024–2025 (painel do Ministério, RNDS):</strong> método nominal. Cada dose é registrada com a identificação da pessoa e conta no estado de residência. O denominador é do Censo 2022.</li>
+      <li><strong>Mudança de método:</strong> os dois trechos medem coisas diferentes. No gráfico ficam em cores distintas, com um marcador vertical, e nunca são ligados por linha. Na série do Brasil, 2021 e 2022 ainda são do método consolidado e 2023 já é da RNDS, conforme o Ministério.</li>
+      <li><strong>Valores acima de 100%:</strong> acontecem quando as doses superam a população-alvo estimada. De 2015 a 2020 o SI-PNI manteve a mesma população de idosos (20.889.849 no país) enquanto ela crescia, e doses aplicadas em não residentes contam no numerador.</li>
+      <li><strong>Ausências:</strong> anos sem valor oficial por estado ficam nulos. 2010 tem só doses; 2021–2023 têm só o valor nacional. Um valor do Brasil nunca é atribuído a um estado. Detalhes em <a href="/fontes/#t-lac">Fontes</a>.</li>
+    </ul>
+
+    <h2>Associação</h2>
+    <ul>
+      <li><strong>Medida:</strong> coeficiente de correlação de Pearson entre a cobertura da gripe em 60 anos ou mais e a taxa de infarto em 60 anos ou mais, com as UFs como unidades. Óbitos e internações são calculados e mostrados separadamente.</li>
+      {periodos.map((p) => <li><strong>{p.rotulo}:</strong> {p.regra}</li>)}
+      <li><strong>Sem mistura de métodos:</strong> um mesmo coeficiente nunca combina pares do SI-PNI com pares da RNDS. Na comparação por variação anual, os dois anos do par precisam ser do mesmo método e consecutivos.</li>
+      <li><strong>Níveis ou variação:</strong> “níveis” compara cobertura e taxa de cada estado em cada ano. “Variação anual” compara a mudança da cobertura com a mudança da taxa no mesmo estado, de um ano para o seguinte, o que desconta diferenças fixas entre estados.</li>
+      <li><strong>O que o painel informa junto do coeficiente:</strong> período, número de UFs, número de observações, tipo de taxa e regra de seleção. Quando um estado está destacado no gráfico, o coeficiente continua usando todas as UFs.</li>
+      <li><strong>Leitura do valor:</strong> abaixo de 0,2 em módulo, muito fraca; de 0,2 a 0,4, fraca; de 0,4 a 0,6, moderada; acima disso, forte. São faixas descritivas, não testes de significância.</li>
+    </ul>
+
+    <h2>Limites e etapa causal</h2>
+    <ul>
+      <li>O resultado é uma associação populacional (ecológica): compara estados e anos, não pessoas. Não permite concluir que a vacina evita ou não evita infarto.</li>
+      <li>Envelhecimento, acesso a serviços, qualidade do registro e a pandemia de COVID-19 afetam vacinação e infarto ao mesmo tempo.</li>
+      <li>A investigação causal é uma etapa própria e não faz parte deste painel. Ela pediria dados mensais (a relação descrita na literatura é sazonal), dados individuais vinculados ou desenhos como séries de casos autocontrolados.</li>
+      <li>Vacinas de rotina e COVID-19 aparecem em seção secundária, só de forma descritiva.</li>
+    </ul>
+  </div>
+</Base>

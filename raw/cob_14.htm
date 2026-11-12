@@ -1,0 +1,1983 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<link rel="icon" href="img/pni1.ico">
+<link rel="shortcut icon" href="img/pni1.ico">
+<html lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+<title> SI-PNI &nbsp;&nbsp;&nbsp; Sistema de Informação do Programa Nacional de Imunização</title>
+
+<link href="Estilo.css" rel="stylesheet" type="text/css" >
+
+<script type="text/javascript">
+
+function nota_tec_rubeola()
+{
+  window.open('nota_tec_rubeola.htm','Links','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=440,height=185, top=110, left=150');
+}
+
+function nota_tec_gripe()
+{
+  window.open('nota_tec_gripe.htm','Links','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=440,height=185, top=110, left=150');
+}
+
+//destaque do governo
+function nova_jan(newwindow)
+{
+var desktop = window.open(newwindow,'new_window','toolbar=yes,location=yes,directories=yes,status=yes,scrollbars=yes,menubar=yes,resizable=yes');
+}
+
+//combo acesso rapido
+function acesso_rapido(newwindow)
+{
+var desktop = window.open(newwindow,'new_window','toolbar=yes,location=yes,directories=yes,status=yes,scrollbars=yes,menubar=yes,resizable=yes');
+}
+
+//aumenta e diminui a fonte
+var tgs = new Array( 'div' );
+var szs = new Array( '13px','16px','18px','20px','22px','24' );
+var startSz = 0;
+
+function ts( trgt,inc )
+{
+  if (!document.getElementById) return
+  var d = document,cEl = null,sz = startSz,i,j,cTags;
+  sz += inc;
+  if ( sz < 0 ) sz = 0;
+  if ( sz > 6 ) sz = 6;
+  startSz = sz;
+  if ( !( cEl = d.getElementById( trgt ) ) ) cEl = d.getElementsByTagName( trgt )[ 0 ];
+
+  cEl.style.fontSize = szs[ sz ];
+
+  for ( i = 0; i < tgs.length; i++ )
+  {
+    cTags = cEl.getElementsByTagName( tgs[ i ] );
+    for ( j = 0; j < cTags.length; j++ ) cTags[ j ].style.fontSize = szs[ sz ];
+  }
+}
+
+//Mudar de cor
+function teste()
+{
+alert("vou escrever em preto e branco")
+document.location = "index.asp?cor=P"
+}
+
+</script>
+
+</head>
+
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<div style="position:absolute; width:202px; height:20px; left: 442px; top: -3px; visibilty: visible">
+  <table border="0" id="tb_dest_gov">
+	<tr>
+	  <td>
+		<label for="se"></label>
+		<select id="sel" name="opcoes" style="background-color: #F8c400; cursor:hand; list-style-image: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; font-weight: normal" tabindex="1" onChange="if(options[selectedIndex].value) window.location.href= (options[selectedIndex].value)" >
+         <option value="selecione a opção">Destaques do governo</option>
+         <option value="javascript:nova_jan('http://www.caixa.gov.br/_redirect/combo_governo/r_gov_federal.asp')">Portal do Governo Federal</option>
+         <option value="javascript:nova_jan('http://www.caixa.gov.br/_redirect/combo_governo/r_servico_governo.asp')">Portal de Servi&ccedil;os do Governo</option>
+         <option value="javascript:nova_jan('http://www.caixa.gov.br/_redirect/combo_governo/r_agencia_noticia.asp')">Portal da Ag&ecirc;ncia de Not&iacute;cias</option>
+         <option value="javascript:nova_jan('http://www.caixa.gov.br/_redirect/combo_governo/r_reforma_previdencia.asp')">Reforma da Previd&ecirc;ncia</option>
+         <option value="javascript:nova_jan('http://www.caixa.gov.br/_redirect/combo_governo/r_fome_zero.asp')">Programa Fome Zero</option>
+        </select>
+      </td>
+	<tr>
+  </table>
+</div>
+
+<table width="780"  border="0" cellspacing="0" cellpadding="0" id="tb_tudo">
+  <tr>
+    <td>
+      <!--IMG COLORIDA<img border="0" src="/img/topo_sipni.jpg" alt="(Testeira) Imagem do Portal do SI-PNI (Sistema de Informação do Programa Nacional de Imunizações)"usemap="#Map" longdesc='SI-PNI' /> -->
+      <img border="0" src="/img/MS.gif" alt="(Testeira) Imagem do Ministério da Saúde" usemap="#Map" longdesc="http://www.saude.gov.br" />
+    </td>
+  </tr>
+  <tr>
+    <!-- td>
+    <div style='height:26px; background-image: url("img/topo_pni_claro.jpg"); font-family:Verdana, Arial, sans-serif; font-size:12px;'>
+			&nbsp;<b>SI-PNI - Sistema de Informação do Programa Nacional de Imunizações</b>
+		</div>
+	<div class="subtitulo2" style="position:absolute; width:232px;  height:10px; left: 477px; top: 23px; visibilty: visible">
+	<table border="0" id="tb_opcao">
+	<tr>
+	  <td>
+	    <label for="acesso"></label>
+		<select id="acesso" name="nova_opcoes" style="background-color: #FFFFFF; bgcolor cursor:hand; list-style-image: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; font-weight: normal" tabindex="1" onChange="if(options[selectedIndex].value) window.location.href= (options[selectedIndex].value)" >
+         <option value="acesso rapido">Acesso Rápido - Selecione a opção</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/index.asp')">Index</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/apresentacao.asp')">apresentação</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Dúvidas SI-PNI Campanha de Vacinação</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Dúvidas SI-API</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Dúvidas SI-EDI</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Dúvidas SI-EAPVI</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Fale Conosco</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Download</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Enviar Arquivo / SI-API</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Enviar Arquivo / SI-EDI</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Enviar Arquivo / SI-EAPV</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Enviar Arquivo / SI-CRIE</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Enviar Arquivo / PAIS</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Cadastro de Senha / Incluir Senha</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Cadastro de Senha / Esqueceu a Senha</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Cadastro de Senha / Alterar Senha</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Enviar Dados da Campanha</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Consulta / Campanha de Vacinação Polio 2005 / 1ºFase </option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Consulta / Campanha de Vacinação Polio 2005 / 2ºFase </option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Consulta / Campanha de Vacinação Influenza 2006</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Consulta / Campanha de Vacinação Polio 2006 / 1ºFase </option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2004 / SI-API</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2004 / SI-EDI</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2004 / SI-EAPV</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2004 / SI-CRIE</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2004 / SI-PAISSV</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2005 / SI-API</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2005 / SI-EDI</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2005 / SI-EAPV</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2005 / SI-AIU</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2006 / SI-API</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Controle de Arquivos Enviados 2006 / SI-EAPV</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Informações Estatística Cobertura</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Informações Estatística Doses Aplicadas</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Calendario de Vacinação Criança</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Calendario de Vacinação Adolescente</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Calendario de Vacinação Adulto / Idoso</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Suporte Técnico / DATASUS nos Estados</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Suporte Técnico / S.E.S.</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Suporte Técnico / Central</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">Suporte Técnico / Grupo de Apoio</option>
+         <option value="javascript:acesso_rapido('http://pni.datasus.gov.br/')">CGPNI / Grupo de Apoio</option>
+         <option value="javascript:acesso_rapido('http://portal.saude.gov.br/saude/')">Links / Ministério da Saúde</option>
+         <option value="javascript:acesso_rapido('http://portal.saude.gov.br/portal/svs/visualizar_texto.cfm?idtxt=21461')">Links / S.V.S Imunizações</option>
+         <option value="javascript:acesso_rapido('http://portal.saude.gov.br/portal/svs/default.cfm')">Links / S.V.S</option>
+         <option value="javascript:acesso_rapido('http://www.datasus.gov.br')">Links / DATASUS</option>
+       	</select>
+      </td -->
+	<tr>
+    </table>
+    </div>
+
+    </div>
+
+    </td>
+  </tr>
+
+  <tr>
+    <td> <img src="/img/datasus.gif" usemap="#MapMap" alt="Imagem DATASUS" border="0" longdesc="http://www.datasus.gov.br" />
+      <map name="MapMap">
+        <area shape="rect" coords="10,6,123,25" href="http://www.datasus.gov.br" alt="Clique para acessar o Portal do DATASUS" title="Clique para acessar o Portal do DATASUS">
+		<area shape="rect" coords="480,10,525,23" href="http://pni.datasus.gov.br/index.asp" alt="Clique para acessar a pagina inicial do site do SI-PNI" title="Clique para acessar a pagina inicial do site do SI-PNI">
+		<area shape="rect" coords="535,10,614,23" href="http://pni.datasus.gov.br/fale_conosco.asp" alt="Clique para acessar a pagina Fale Conosco para enviar seu E-mail" title="Clique para acessar a pagina Fale Conosco para enviar seu E-mail">
+		<area shape="rect" coords="626,8,676,25" href="http://msbbs.datasus.gov.br" target="_blank" alt="Clique para acessa MSBBS" title="Clique para acessar o site MSBBS">
+		<area shape="rect" coords="693,4,715,23" href="javascript:ts('conteudo',+1)" alt="Aumentar tamanho do texto" title="Aumentar tamanho do texto" longdesc="javascript:ts('conteudo',+1)">
+		<area shape="rect" coords="717,6,737,23" href="javascript:ts('conteudo',-1)" alt="Diminuir tamanho do texto" title="Diminuir tamanho do texto" longdesc="javascript:ts('conteudo',-1)">
+		<area shape="rect" coords="740,3,763,22" href="#"  title="Converte para Preto e Branco" alt="Preto e Branco" title="Preto e Branco" longdesc="#">
+      </map>
+    </td>
+  </tr>
+
+</table>
+
+<script language="JavaScript" type="text/javascript">
+
+function Go(){return}
+
+</script>
+
+<!--IMG COLORIDA <script language="JavaScript" type="text/javascript" src='/config-menu-horizontal.js'></script>-->
+<!--IMG COLORIDA<scriptlanguage="JavaScript" type="text/javascript" src='/menu_com.js'></script>-->
+<script language="JavaScript" type="text/javascript" src='config-menu-horizontal.js'></script>
+<script language="JavaScript" type="text/javascript" src='menu_com.js'></script>
+
+<map name="Map">
+  <area shape="rect" coords="13,41,148,62" href="http://www.datasus.gov.br" target="_blank" alt="Clique para acessar o Portal do DATASUS" title="Clique para acessar o Portal do DATASUS">
+  <area shape="rect" coords="34,5,152,18" href="http://www.saude.gov.br" alt="Clique para acessar o Portal do Minist&eacute;rio da Sa&uacute;de" title="Clique para acessar o Portal do Minist&eacute;rio da Sa&uacute;de">
+  <area shape="rect" coords="2,1,31,20"  alt="(Testeira) Imagem  bandeira do Brasil." title="(Testeira) Imagem  bandeira do Brasil.">
+  <area shape="rect" coords="775,85,560,30" href="javascript:favorito()"  alt="Imagem do Portal do SI-PNI. Clique para Adicionar a Favoritos" title="Imagem do Portal do SI-PNI">
+</map>
+
+
+	<div id="geral" style="width: 780; ">
+		<div class="titulo1_consulta">
+		 CAMPANHA NACIONAL DE VACINAÇÃO CONTRA GRIPE 2014<br />
+		 26/04/2014 (Dia D)<br />
+		</div>
+		<br />
+
+
+
+			<div class="titulo1_consulta">
+				COBERTURAS VACINAIS<br />
+				TOTAL BRASIL
+				
+				   	  
+			</div>
+			<br />
+
+			
+			<!--
+			<table border=0>
+				<tr>
+					<td align=left >
+						<a href="consulta_Influenza_13_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&Imprimir=S" target="_blank">
+							<img src="img/imprimir1.gif" border=0 alt="Clique para impressão do relatório">
+						</a>
+					</td>
+					<td align=left >
+						<a href="consulta_Influenza_13_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&csv=S">
+							<img src="img/csv.gif" border=0 alt="Clique para gerar o CSV">
+						</a>
+					</td>
+					<td align=left >
+						<a href=consulta_Influenza_13_selecao.asp?sel=mapas&enviar=ok>
+						<img src="img/mapa.GIF" border=0 alt="Clique visualizar o mapa">
+						</a>
+					</td>										
+				</tr>
+			</table>
+			-->
+			
+
+			<table border=0  width="780" >
+
+			<tr>
+				<td colspan="2">
+					<table border=1 align=center>
+						<tr>
+							<td width=5% class="pni_tit_tabela" rowspan="2"><b>UF</b></td>
+					
+							<td class="pni_tit_tabela" colspan="3"><b>Crianças</b></td>
+					
+							<td class="pni_tit_tabela" colspan="3"><b>T.Saúde</b></td>
+					
+							<td class="pni_tit_tabela" colspan="3"><b>Gestantes</b></td>
+					
+							<td class="pni_tit_tabela" colspan="3"><b>Puérperas</b></td>
+					
+							<td class="pni_tit_tabela" colspan="3"><b>Indígenas</b></td>
+					
+							<td class="pni_tit_tabela" colspan="3"><b>Idosos</b></td>
+					
+							<td class="pni_tit_tabela" colspan="3"><b>Total</b></td>
+						</tr>
+						<tr>
+			
+							<td class="pni_tit_tabela"><b>Pop.</b></td>
+							<td class="pni_tit_tabela"><b>Doses</b></td>
+							<td class="pni_tit_tabela"><b>Cob.</b></td>
+			
+							<td class="pni_tit_tabela"><b>Pop.</b></td>
+							<td class="pni_tit_tabela"><b>Doses</b></td>
+							<td class="pni_tit_tabela"><b>Cob.</b></td>
+			
+							<td class="pni_tit_tabela"><b>Pop.</b></td>
+							<td class="pni_tit_tabela"><b>Doses</b></td>
+							<td class="pni_tit_tabela"><b>Cob.</b></td>
+			
+							<td class="pni_tit_tabela"><b>Pop.</b></td>
+							<td class="pni_tit_tabela"><b>Doses</b></td>
+							<td class="pni_tit_tabela"><b>Cob.</b></td>
+			
+							<td class="pni_tit_tabela"><b>Pop.</b></td>
+							<td class="pni_tit_tabela"><b>Doses</b></td>
+							<td class="pni_tit_tabela"><b>Cob.</b></td>
+			
+							<td class="pni_tit_tabela"><b>Pop.</b></td>
+							<td class="pni_tit_tabela"><b>Doses</b></td>
+							<td class="pni_tit_tabela"><b>Cob.</b></td>
+			
+							<td class="pni_tit_tabela"><b>Pop.</b></td>
+							<td class="pni_tit_tabela"><b>Doses</b></td>
+							<td class="pni_tit_tabela"><b>Cob.</b></td>
+			
+						</tr>
+
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=AC&sel_parcial=&dataParcial=">
+										AC
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">72.867</td>
+								
+								<td class="pni_dados">51.468</td>
+								<td class="pni_dados">70,63</td>
+
+			
+									<td class="pni_dados">14.074</td>
+								
+								<td class="pni_dados">12.331</td>
+								<td class="pni_dados">87,62</td>
+
+			
+									<td class="pni_dados">12.515</td>
+								
+								<td class="pni_dados">9.167</td>
+								<td class="pni_dados">73,25</td>
+
+			
+									<td class="pni_dados">2.057</td>
+								
+								<td class="pni_dados">1.847</td>
+								<td class="pni_dados">89,79</td>
+
+			
+									<td class="pni_dados">19.131</td>
+								
+								<td class="pni_dados">14.954</td>
+								<td class="pni_dados">78,17</td>
+
+			
+									<td class="pni_dados">48.514</td>
+								
+								<td class="pni_dados">39.523</td>
+								<td class="pni_dados">81,47</td>
+
+			
+									<td class="pni_dados">169.158</td>
+								
+								<td class="pni_dados">129.290</td>
+								<td class="pni_dados">76,43</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=AM&sel_parcial=&dataParcial=">
+										AM
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">344.642</td>
+								
+								<td class="pni_dados">319.118</td>
+								<td class="pni_dados">92,59</td>
+
+			
+									<td class="pni_dados">74.027</td>
+								
+								<td class="pni_dados">73.695</td>
+								<td class="pni_dados">99,55</td>
+
+			
+									<td class="pni_dados">58.043</td>
+								
+								<td class="pni_dados">45.994</td>
+								<td class="pni_dados">79,24</td>
+
+			
+									<td class="pni_dados">9.539</td>
+								
+								<td class="pni_dados">9.255</td>
+								<td class="pni_dados">97,02</td>
+
+			
+									<td class="pni_dados">154.720</td>
+								
+								<td class="pni_dados">136.897</td>
+								<td class="pni_dados">88,48</td>
+
+			
+									<td class="pni_dados">216.699</td>
+								
+								<td class="pni_dados">209.099</td>
+								<td class="pni_dados">96,49</td>
+
+			
+									<td class="pni_dados">857.670</td>
+								
+								<td class="pni_dados">794.058</td>
+								<td class="pni_dados">92,58</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=AP&sel_parcial=&dataParcial=">
+										AP
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">65.525</td>
+								
+								<td class="pni_dados">48.254</td>
+								<td class="pni_dados">73,64</td>
+
+			
+									<td class="pni_dados">14.866</td>
+								
+								<td class="pni_dados">13.264</td>
+								<td class="pni_dados">89,22</td>
+
+			
+									<td class="pni_dados">11.166</td>
+								
+								<td class="pni_dados">9.253</td>
+								<td class="pni_dados">82,87</td>
+
+			
+									<td class="pni_dados">1.835</td>
+								
+								<td class="pni_dados">1.762</td>
+								<td class="pni_dados">96,02</td>
+
+			
+									<td class="pni_dados">7.111</td>
+								
+								<td class="pni_dados">6.237</td>
+								<td class="pni_dados">87,71</td>
+
+			
+									<td class="pni_dados">35.752</td>
+								
+								<td class="pni_dados">30.988</td>
+								<td class="pni_dados">86,67</td>
+
+			
+									<td class="pni_dados">136.255</td>
+								
+								<td class="pni_dados">109.758</td>
+								<td class="pni_dados">80,55</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=PA&sel_parcial=&dataParcial=">
+										PA
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">663.733</td>
+								
+								<td class="pni_dados">554.901</td>
+								<td class="pni_dados">83,60</td>
+
+			
+									<td class="pni_dados">112.644</td>
+								
+								<td class="pni_dados">116.334</td>
+								<td class="pni_dados">103,28</td>
+
+			
+									<td class="pni_dados">103.362</td>
+								
+								<td class="pni_dados">97.054</td>
+								<td class="pni_dados">93,90</td>
+
+			
+									<td class="pni_dados">16.982</td>
+								
+								<td class="pni_dados">17.509</td>
+								<td class="pni_dados">103,10</td>
+
+			
+									<td class="pni_dados">29.551</td>
+								
+								<td class="pni_dados">26.276</td>
+								<td class="pni_dados">88,92</td>
+
+			
+									<td class="pni_dados">549.470</td>
+								
+								<td class="pni_dados">512.124</td>
+								<td class="pni_dados">93,20</td>
+
+			
+									<td class="pni_dados">1.475.742</td>
+								
+								<td class="pni_dados">1.324.198</td>
+								<td class="pni_dados">89,73</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=RO&sel_parcial=&dataParcial=">
+										RO
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">118.180</td>
+								
+								<td class="pni_dados">105.392</td>
+								<td class="pni_dados">89,18</td>
+
+			
+									<td class="pni_dados">33.199</td>
+								
+								<td class="pni_dados">32.228</td>
+								<td class="pni_dados">97,08</td>
+
+			
+									<td class="pni_dados">19.891</td>
+								
+								<td class="pni_dados">19.180</td>
+								<td class="pni_dados">96,43</td>
+
+			
+									<td class="pni_dados">3.266</td>
+								
+								<td class="pni_dados">3.722</td>
+								<td class="pni_dados">113,96</td>
+
+			
+									<td class="pni_dados">10.729</td>
+								
+								<td class="pni_dados">10.804</td>
+								<td class="pni_dados">100,70</td>
+
+			
+									<td class="pni_dados">114.247</td>
+								
+								<td class="pni_dados">103.150</td>
+								<td class="pni_dados">90,29</td>
+
+			
+									<td class="pni_dados">299.512</td>
+								
+								<td class="pni_dados">274.476</td>
+								<td class="pni_dados">91,64</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=RR&sel_parcial=&dataParcial=">
+										RR
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">45.462</td>
+								
+								<td class="pni_dados">37.082</td>
+								<td class="pni_dados">81,57</td>
+
+			
+									<td class="pni_dados">9.304</td>
+								
+								<td class="pni_dados">8.253</td>
+								<td class="pni_dados">88,70</td>
+
+			
+									<td class="pni_dados">7.951</td>
+								
+								<td class="pni_dados">6.282</td>
+								<td class="pni_dados">79,01</td>
+
+			
+									<td class="pni_dados">1.304</td>
+								
+								<td class="pni_dados">1.139</td>
+								<td class="pni_dados">87,35</td>
+
+			
+									<td class="pni_dados">54.867</td>
+								
+								<td class="pni_dados">53.999</td>
+								<td class="pni_dados">98,42</td>
+
+			
+									<td class="pni_dados">25.702</td>
+								
+								<td class="pni_dados">21.987</td>
+								<td class="pni_dados">85,55</td>
+
+			
+									<td class="pni_dados">144.590</td>
+								
+								<td class="pni_dados">128.742</td>
+								<td class="pni_dados">89,04</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=TO&sel_parcial=&dataParcial=">
+										TO
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">111.804</td>
+								
+								<td class="pni_dados">94.822</td>
+								<td class="pni_dados">84,81</td>
+
+			
+									<td class="pni_dados">24.862</td>
+								
+								<td class="pni_dados">23.612</td>
+								<td class="pni_dados">94,97</td>
+
+			
+									<td class="pni_dados">18.308</td>
+								
+								<td class="pni_dados">16.020</td>
+								<td class="pni_dados">87,50</td>
+
+			
+									<td class="pni_dados">3.009</td>
+								
+								<td class="pni_dados">3.285</td>
+								<td class="pni_dados">109,17</td>
+
+			
+									<td class="pni_dados">11.925</td>
+								
+								<td class="pni_dados">11.283</td>
+								<td class="pni_dados">94,62</td>
+
+			
+									<td class="pni_dados">119.856</td>
+								
+								<td class="pni_dados">99.434</td>
+								<td class="pni_dados">82,96</td>
+
+			
+									<td class="pni_dados">289.764</td>
+								
+								<td class="pni_dados">248.456</td>
+								<td class="pni_dados">85,74</td>
+
+			
+					</tr>
+			
+
+					<tr>
+							<td class="pni_subtotal">NORTE</td>
+
+			
+							<td class="pni_subtotal_dados">1.422.213</td>
+							<td class="pni_subtotal_dados">1.211.037</td>
+							<td class="pni_subtotal_dados">85,15</td>
+			
+							<td class="pni_subtotal_dados">282.976</td>
+							<td class="pni_subtotal_dados">279.717</td>
+							<td class="pni_subtotal_dados">98,85</td>
+			
+							<td class="pni_subtotal_dados">231.236</td>
+							<td class="pni_subtotal_dados">202.950</td>
+							<td class="pni_subtotal_dados">87,77</td>
+			
+							<td class="pni_subtotal_dados">37.992</td>
+							<td class="pni_subtotal_dados">38.519</td>
+							<td class="pni_subtotal_dados">101,39</td>
+			
+							<td class="pni_subtotal_dados">288.034</td>
+							<td class="pni_subtotal_dados">260.450</td>
+							<td class="pni_subtotal_dados">90,42</td>
+			
+							<td class="pni_subtotal_dados">1.110.240</td>
+							<td class="pni_subtotal_dados">1.016.305</td>
+							<td class="pni_subtotal_dados">91,54</td>
+			
+							<td class="pni_subtotal_dados">3.372.691</td>
+							<td class="pni_subtotal_dados">3.008.978</td>
+							<td class="pni_subtotal_dados">89,22</td>
+			
+					</tr>
+
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=AL&sel_parcial=&dataParcial=">
+										AL
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">243.997</td>
+								
+								<td class="pni_dados">205.458</td>
+								<td class="pni_dados">84,21</td>
+
+			
+									<td class="pni_dados">57.034</td>
+								
+								<td class="pni_dados">55.929</td>
+								<td class="pni_dados">98,06</td>
+
+			
+									<td class="pni_dados">39.391</td>
+								
+								<td class="pni_dados">33.474</td>
+								<td class="pni_dados">84,98</td>
+
+			
+									<td class="pni_dados">6.473</td>
+								
+								<td class="pni_dados">5.970</td>
+								<td class="pni_dados">92,23</td>
+
+			
+									<td class="pni_dados">13.137</td>
+								
+								<td class="pni_dados">12.439</td>
+								<td class="pni_dados">94,69</td>
+
+			
+									<td class="pni_dados">280.517</td>
+								
+								<td class="pni_dados">232.568</td>
+								<td class="pni_dados">82,91</td>
+
+			
+									<td class="pni_dados">640.549</td>
+								
+								<td class="pni_dados">545.838</td>
+								<td class="pni_dados">85,21</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=BA&sel_parcial=&dataParcial=">
+										BA
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">965.456</td>
+								
+								<td class="pni_dados">784.980</td>
+								<td class="pni_dados">81,31</td>
+
+			
+									<td class="pni_dados">275.455</td>
+								
+								<td class="pni_dados">248.529</td>
+								<td class="pni_dados">90,22</td>
+
+			
+									<td class="pni_dados">157.537</td>
+								
+								<td class="pni_dados">126.360</td>
+								<td class="pni_dados">80,21</td>
+
+			
+									<td class="pni_dados">25.875</td>
+								
+								<td class="pni_dados">27.803</td>
+								<td class="pni_dados">107,45</td>
+
+			
+									<td class="pni_dados">29.522</td>
+								
+								<td class="pni_dados">25.635</td>
+								<td class="pni_dados">86,83</td>
+
+			
+									<td class="pni_dados">1.463.931</td>
+								
+								<td class="pni_dados">1.176.719</td>
+								<td class="pni_dados">80,38</td>
+
+			
+									<td class="pni_dados">2.917.776</td>
+								
+								<td class="pni_dados">2.390.026</td>
+								<td class="pni_dados">81,91</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=CE&sel_parcial=&dataParcial=">
+										CE
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">573.429</td>
+								
+								<td class="pni_dados">484.362</td>
+								<td class="pni_dados">84,47</td>
+
+			
+									<td class="pni_dados">138.800</td>
+								
+								<td class="pni_dados">127.287</td>
+								<td class="pni_dados">91,71</td>
+
+			
+									<td class="pni_dados">95.163</td>
+								
+								<td class="pni_dados">85.197</td>
+								<td class="pni_dados">89,53</td>
+
+			
+									<td class="pni_dados">15.642</td>
+								
+								<td class="pni_dados">16.357</td>
+								<td class="pni_dados">104,57</td>
+
+			
+									<td class="pni_dados">21.404</td>
+								
+								<td class="pni_dados">20.073</td>
+								<td class="pni_dados">93,78</td>
+
+			
+									<td class="pni_dados">924.727</td>
+								
+								<td class="pni_dados">757.535</td>
+								<td class="pni_dados">81,92</td>
+
+			
+									<td class="pni_dados">1.769.165</td>
+								
+								<td class="pni_dados">1.490.811</td>
+								<td class="pni_dados">84,27</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=MA&sel_parcial=&dataParcial=">
+										MA
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">562.702</td>
+								
+								<td class="pni_dados">473.206</td>
+								<td class="pni_dados">84,10</td>
+
+			
+									<td class="pni_dados">112.053</td>
+								
+								<td class="pni_dados">110.789</td>
+								<td class="pni_dados">98,87</td>
+
+			
+									<td class="pni_dados">87.020</td>
+								
+								<td class="pni_dados">79.901</td>
+								<td class="pni_dados">91,82</td>
+
+			
+									<td class="pni_dados">14.301</td>
+								
+								<td class="pni_dados">15.674</td>
+								<td class="pni_dados">109,60</td>
+
+			
+									<td class="pni_dados">29.647</td>
+								
+								<td class="pni_dados">28.456</td>
+								<td class="pni_dados">95,98</td>
+
+			
+									<td class="pni_dados">579.919</td>
+								
+								<td class="pni_dados">516.551</td>
+								<td class="pni_dados">89,07</td>
+
+			
+									<td class="pni_dados">1.385.642</td>
+								
+								<td class="pni_dados">1.224.577</td>
+								<td class="pni_dados">88,38</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=PB&sel_parcial=&dataParcial=">
+										PB
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">262.008</td>
+								
+								<td class="pni_dados">227.182</td>
+								<td class="pni_dados">86,71</td>
+
+			
+									<td class="pni_dados">69.834</td>
+								
+								<td class="pni_dados">65.485</td>
+								<td class="pni_dados">93,77</td>
+
+			
+									<td class="pni_dados">42.598</td>
+								
+								<td class="pni_dados">37.136</td>
+								<td class="pni_dados">87,18</td>
+
+			
+									<td class="pni_dados">7.000</td>
+								
+								<td class="pni_dados">7.015</td>
+								<td class="pni_dados">100,21</td>
+
+			
+									<td class="pni_dados">12.700</td>
+								
+								<td class="pni_dados">12.694</td>
+								<td class="pni_dados">99,95</td>
+
+			
+									<td class="pni_dados">456.717</td>
+								
+								<td class="pni_dados">376.974</td>
+								<td class="pni_dados">82,54</td>
+
+			
+									<td class="pni_dados">850.857</td>
+								
+								<td class="pni_dados">726.486</td>
+								<td class="pni_dados">85,38</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=PE&sel_parcial=&dataParcial=">
+										PE
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">625.552</td>
+								
+								<td class="pni_dados">556.871</td>
+								<td class="pni_dados">89,02</td>
+
+			
+									<td class="pni_dados">148.372</td>
+								
+								<td class="pni_dados">172.886</td>
+								<td class="pni_dados">116,52</td>
+
+			
+									<td class="pni_dados">106.058</td>
+								
+								<td class="pni_dados">100.391</td>
+								<td class="pni_dados">94,66</td>
+
+			
+									<td class="pni_dados">17.428</td>
+								
+								<td class="pni_dados">18.361</td>
+								<td class="pni_dados">105,35</td>
+
+			
+									<td class="pni_dados">34.026</td>
+								
+								<td class="pni_dados">34.450</td>
+								<td class="pni_dados">101,25</td>
+
+			
+									<td class="pni_dados">951.169</td>
+								
+								<td class="pni_dados">835.529</td>
+								<td class="pni_dados">87,84</td>
+
+			
+									<td class="pni_dados">1.882.605</td>
+								
+								<td class="pni_dados">1.718.488</td>
+								<td class="pni_dados">91,28</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=PI&sel_parcial=&dataParcial=">
+										PI
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">222.359</td>
+								
+								<td class="pni_dados">193.215</td>
+								<td class="pni_dados">86,89</td>
+
+			
+									<td class="pni_dados">45.224</td>
+								
+								<td class="pni_dados">41.561</td>
+								<td class="pni_dados">91,90</td>
+
+			
+									<td class="pni_dados">36.000</td>
+								
+								<td class="pni_dados">28.123</td>
+								<td class="pni_dados">78,12</td>
+
+			
+									<td class="pni_dados">5.912</td>
+								
+								<td class="pni_dados">5.387</td>
+								<td class="pni_dados">91,12</td>
+
+			
+									<td class="pni_tit_tabela">&nbsp;</td>
+								
+								<td class="pni_dados">8</td>
+								<td class="pni_dados">0,00</td>
+
+			
+									<td class="pni_dados">336.029</td>
+								
+								<td class="pni_dados">285.949</td>
+								<td class="pni_dados">85,10</td>
+
+			
+									<td class="pni_dados">645.524</td>
+								
+								<td class="pni_dados">554.243</td>
+								<td class="pni_dados">85,86</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=RN&sel_parcial=&dataParcial=">
+										RN
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">214.034</td>
+								
+								<td class="pni_dados">164.366</td>
+								<td class="pni_dados">76,79</td>
+
+			
+									<td class="pni_dados">60.160</td>
+								
+								<td class="pni_dados">54.196</td>
+								<td class="pni_dados">90,09</td>
+
+			
+									<td class="pni_dados">35.259</td>
+								
+								<td class="pni_dados">29.248</td>
+								<td class="pni_dados">82,95</td>
+
+			
+									<td class="pni_dados">5.793</td>
+								
+								<td class="pni_dados">5.188</td>
+								<td class="pni_dados">89,56</td>
+
+			
+									<td class="pni_tit_tabela">&nbsp;</td>
+								
+								<td class="pni_dados">47</td>
+								<td class="pni_dados">0,00</td>
+
+			
+									<td class="pni_dados">348.688</td>
+								
+								<td class="pni_dados">254.020</td>
+								<td class="pni_dados">72,85</td>
+
+			
+									<td class="pni_dados">663.934</td>
+								
+								<td class="pni_dados">507.065</td>
+								<td class="pni_dados">76,37</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=SE&sel_parcial=&dataParcial=">
+										SE
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">152.355</td>
+								
+								<td class="pni_dados">132.380</td>
+								<td class="pni_dados">86,89</td>
+
+			
+									<td class="pni_dados">36.157</td>
+								
+								<td class="pni_dados">33.527</td>
+								<td class="pni_dados">92,73</td>
+
+			
+									<td class="pni_dados">25.593</td>
+								
+								<td class="pni_dados">20.698</td>
+								<td class="pni_dados">80,87</td>
+
+			
+									<td class="pni_dados">4.205</td>
+								
+								<td class="pni_dados">4.115</td>
+								<td class="pni_dados">97,86</td>
+
+			
+									<td class="pni_dados">445</td>
+								
+								<td class="pni_dados">383</td>
+								<td class="pni_dados">86,07</td>
+
+			
+									<td class="pni_dados">189.592</td>
+								
+								<td class="pni_dados">149.309</td>
+								<td class="pni_dados">78,75</td>
+
+			
+									<td class="pni_dados">408.347</td>
+								
+								<td class="pni_dados">340.412</td>
+								<td class="pni_dados">83,36</td>
+
+			
+					</tr>
+			
+
+					<tr>
+							<td class="pni_subtotal">NORDESTE</td>
+
+			
+							<td class="pni_subtotal_dados">3.821.892</td>
+							<td class="pni_subtotal_dados">3.222.020</td>
+							<td class="pni_subtotal_dados">84,30</td>
+			
+							<td class="pni_subtotal_dados">943.089</td>
+							<td class="pni_subtotal_dados">910.189</td>
+							<td class="pni_subtotal_dados">96,51</td>
+			
+							<td class="pni_subtotal_dados">624.619</td>
+							<td class="pni_subtotal_dados">540.528</td>
+							<td class="pni_subtotal_dados">86,54</td>
+			
+							<td class="pni_subtotal_dados">102.629</td>
+							<td class="pni_subtotal_dados">105.870</td>
+							<td class="pni_subtotal_dados">103,16</td>
+			
+							<td class="pni_subtotal_dados">140.881</td>
+							<td class="pni_subtotal_dados">134.185</td>
+							<td class="pni_subtotal_dados">95,25</td>
+			
+							<td class="pni_subtotal_dados">5.531.289</td>
+							<td class="pni_subtotal_dados">4.585.154</td>
+							<td class="pni_subtotal_dados">82,89</td>
+			
+							<td class="pni_subtotal_dados">11.164.399</td>
+							<td class="pni_subtotal_dados">9.497.946</td>
+							<td class="pni_subtotal_dados">85,07</td>
+			
+					</tr>
+
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=ES&sel_parcial=&dataParcial=">
+										ES
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">227.682</td>
+								
+								<td class="pni_dados">208.350</td>
+								<td class="pni_dados">91,51</td>
+
+			
+									<td class="pni_dados">65.830</td>
+								
+								<td class="pni_dados">63.579</td>
+								<td class="pni_dados">96,58</td>
+
+			
+									<td class="pni_dados">39.627</td>
+								
+								<td class="pni_dados">31.753</td>
+								<td class="pni_dados">80,13</td>
+
+			
+									<td class="pni_dados">6.511</td>
+								
+								<td class="pni_dados">6.820</td>
+								<td class="pni_dados">104,75</td>
+
+			
+									<td class="pni_dados">3.396</td>
+								
+								<td class="pni_dados">2.983</td>
+								<td class="pni_dados">87,84</td>
+
+			
+									<td class="pni_dados">370.769</td>
+								
+								<td class="pni_dados">325.924</td>
+								<td class="pni_dados">87,90</td>
+
+			
+									<td class="pni_dados">713.815</td>
+								
+								<td class="pni_dados">639.409</td>
+								<td class="pni_dados">89,58</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=MG&sel_parcial=&dataParcial=">
+										MG
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">1.163.749</td>
+								
+								<td class="pni_dados">1.015.410</td>
+								<td class="pni_dados">87,25</td>
+
+			
+									<td class="pni_dados">363.083</td>
+								
+								<td class="pni_dados">372.980</td>
+								<td class="pni_dados">102,73</td>
+
+			
+									<td class="pni_dados">194.942</td>
+								
+								<td class="pni_dados">164.475</td>
+								<td class="pni_dados">84,37</td>
+
+			
+									<td class="pni_dados">32.024</td>
+								
+								<td class="pni_dados">35.047</td>
+								<td class="pni_dados">109,44</td>
+
+			
+									<td class="pni_dados">10.238</td>
+								
+								<td class="pni_dados">10.037</td>
+								<td class="pni_dados">98,04</td>
+
+			
+									<td class="pni_dados">2.337.624</td>
+								
+								<td class="pni_dados">2.043.407</td>
+								<td class="pni_dados">87,41</td>
+
+			
+									<td class="pni_dados">4.101.660</td>
+								
+								<td class="pni_dados">3.641.356</td>
+								<td class="pni_dados">88,78</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=RJ&sel_parcial=&dataParcial=">
+										RJ
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">927.069</td>
+								
+								<td class="pni_dados">717.673</td>
+								<td class="pni_dados">77,41</td>
+
+			
+									<td class="pni_dados">385.301</td>
+								
+								<td class="pni_dados">386.931</td>
+								<td class="pni_dados">100,42</td>
+
+			
+									<td class="pni_dados">167.134</td>
+								
+								<td class="pni_dados">121.562</td>
+								<td class="pni_dados">72,73</td>
+
+			
+									<td class="pni_dados">27.473</td>
+								
+								<td class="pni_dados">33.019</td>
+								<td class="pni_dados">120,19</td>
+
+			
+									<td class="pni_dados">610</td>
+								
+								<td class="pni_dados">839</td>
+								<td class="pni_dados">137,54</td>
+
+			
+									<td class="pni_dados">2.110.043</td>
+								
+								<td class="pni_dados">1.777.893</td>
+								<td class="pni_dados">84,26</td>
+
+			
+									<td class="pni_dados">3.617.630</td>
+								
+								<td class="pni_dados">3.037.917</td>
+								<td class="pni_dados">83,98</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=SP&sel_parcial=&dataParcial=">
+										SP
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">2.527.814</td>
+								
+								<td class="pni_dados">2.102.321</td>
+								<td class="pni_dados">83,17</td>
+
+			
+									<td class="pni_dados">1.065.593</td>
+								
+								<td class="pni_dados">978.866</td>
+								<td class="pni_dados">91,86</td>
+
+			
+									<td class="pni_dados">462.527</td>
+								
+								<td class="pni_dados">379.935</td>
+								<td class="pni_dados">82,14</td>
+
+			
+									<td class="pni_dados">76.019</td>
+								
+								<td class="pni_dados">94.456</td>
+								<td class="pni_dados">124,25</td>
+
+			
+									<td class="pni_dados">4.688</td>
+								
+								<td class="pni_dados">6.166</td>
+								<td class="pni_dados">131,53</td>
+
+			
+									<td class="pni_dados">4.841.080</td>
+								
+								<td class="pni_dados">4.025.944</td>
+								<td class="pni_dados">83,16</td>
+
+			
+									<td class="pni_dados">8.977.721</td>
+								
+								<td class="pni_dados">7.587.688</td>
+								<td class="pni_dados">84,52</td>
+
+			
+					</tr>
+			
+
+					<tr>
+							<td class="pni_subtotal">SUDESTE</td>
+
+			
+							<td class="pni_subtotal_dados">4.846.314</td>
+							<td class="pni_subtotal_dados">4.043.754</td>
+							<td class="pni_subtotal_dados">83,44</td>
+			
+							<td class="pni_subtotal_dados">1.879.807</td>
+							<td class="pni_subtotal_dados">1.802.356</td>
+							<td class="pni_subtotal_dados">95,88</td>
+			
+							<td class="pni_subtotal_dados">864.230</td>
+							<td class="pni_subtotal_dados">697.725</td>
+							<td class="pni_subtotal_dados">80,73</td>
+			
+							<td class="pni_subtotal_dados">142.027</td>
+							<td class="pni_subtotal_dados">169.342</td>
+							<td class="pni_subtotal_dados">119,23</td>
+			
+							<td class="pni_subtotal_dados">18.932</td>
+							<td class="pni_subtotal_dados">20.025</td>
+							<td class="pni_subtotal_dados">105,77</td>
+			
+							<td class="pni_subtotal_dados">9.659.516</td>
+							<td class="pni_subtotal_dados">8.173.168</td>
+							<td class="pni_subtotal_dados">84,61</td>
+			
+							<td class="pni_subtotal_dados">17.410.826</td>
+							<td class="pni_subtotal_dados">14.906.370</td>
+							<td class="pni_subtotal_dados">85,62</td>
+			
+					</tr>
+
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=PR&sel_parcial=&dataParcial=">
+										PR
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">657.284</td>
+								
+								<td class="pni_dados">596.190</td>
+								<td class="pni_dados">90,71</td>
+
+			
+									<td class="pni_dados">236.751</td>
+								
+								<td class="pni_dados">220.522</td>
+								<td class="pni_dados">93,15</td>
+
+			
+									<td class="pni_dados">115.510</td>
+								
+								<td class="pni_dados">105.749</td>
+								<td class="pni_dados">91,55</td>
+
+			
+									<td class="pni_dados">18.986</td>
+								
+								<td class="pni_dados">21.995</td>
+								<td class="pni_dados">115,85</td>
+
+			
+									<td class="pni_dados">14.004</td>
+								
+								<td class="pni_dados">15.058</td>
+								<td class="pni_dados">107,53</td>
+
+			
+									<td class="pni_dados">1.184.212</td>
+								
+								<td class="pni_dados">1.118.918</td>
+								<td class="pni_dados">94,49</td>
+
+			
+									<td class="pni_dados">2.226.747</td>
+								
+								<td class="pni_dados">2.078.432</td>
+								<td class="pni_dados">93,34</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=RS&sel_parcial=&dataParcial=">
+										RS
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">596.093</td>
+								
+								<td class="pni_dados">478.904</td>
+								<td class="pni_dados">80,34</td>
+
+			
+									<td class="pni_dados">299.533</td>
+								
+								<td class="pni_dados">273.704</td>
+								<td class="pni_dados">91,38</td>
+
+			
+									<td class="pni_dados">104.270</td>
+								
+								<td class="pni_dados">82.119</td>
+								<td class="pni_dados">78,76</td>
+
+			
+									<td class="pni_dados">17.124</td>
+								
+								<td class="pni_dados">19.292</td>
+								<td class="pni_dados">112,66</td>
+
+			
+									<td class="pni_dados">21.269</td>
+								
+								<td class="pni_dados">20.626</td>
+								<td class="pni_dados">96,98</td>
+
+			
+									<td class="pni_dados">1.467.957</td>
+								
+								<td class="pni_dados">1.291.352</td>
+								<td class="pni_dados">87,97</td>
+
+			
+									<td class="pni_dados">2.506.246</td>
+								
+								<td class="pni_dados">2.165.997</td>
+								<td class="pni_dados">86,42</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=SC&sel_parcial=&dataParcial=">
+										SC
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">377.717</td>
+								
+								<td class="pni_dados">330.434</td>
+								<td class="pni_dados">87,48</td>
+
+			
+									<td class="pni_dados">123.865</td>
+								
+								<td class="pni_dados">114.877</td>
+								<td class="pni_dados">92,74</td>
+
+			
+									<td class="pni_dados">66.609</td>
+								
+								<td class="pni_dados">51.355</td>
+								<td class="pni_dados">77,10</td>
+
+			
+									<td class="pni_dados">10.947</td>
+								
+								<td class="pni_dados">11.254</td>
+								<td class="pni_dados">102,80</td>
+
+			
+									<td class="pni_dados">10.161</td>
+								
+								<td class="pni_dados">8.592</td>
+								<td class="pni_dados">84,56</td>
+
+			
+									<td class="pni_dados">670.028</td>
+								
+								<td class="pni_dados">627.527</td>
+								<td class="pni_dados">93,66</td>
+
+			
+									<td class="pni_dados">1.259.327</td>
+								
+								<td class="pni_dados">1.144.039</td>
+								<td class="pni_dados">90,85</td>
+
+			
+					</tr>
+			
+
+					<tr>
+							<td class="pni_subtotal">SUL</td>
+
+			
+							<td class="pni_subtotal_dados">1.631.094</td>
+							<td class="pni_subtotal_dados">1.405.528</td>
+							<td class="pni_subtotal_dados">86,17</td>
+			
+							<td class="pni_subtotal_dados">660.149</td>
+							<td class="pni_subtotal_dados">609.103</td>
+							<td class="pni_subtotal_dados">92,27</td>
+			
+							<td class="pni_subtotal_dados">286.389</td>
+							<td class="pni_subtotal_dados">239.223</td>
+							<td class="pni_subtotal_dados">83,53</td>
+			
+							<td class="pni_subtotal_dados">47.057</td>
+							<td class="pni_subtotal_dados">52.541</td>
+							<td class="pni_subtotal_dados">111,65</td>
+			
+							<td class="pni_subtotal_dados">45.434</td>
+							<td class="pni_subtotal_dados">44.276</td>
+							<td class="pni_subtotal_dados">97,45</td>
+			
+							<td class="pni_subtotal_dados">3.322.197</td>
+							<td class="pni_subtotal_dados">3.037.797</td>
+							<td class="pni_subtotal_dados">91,44</td>
+			
+							<td class="pni_subtotal_dados">5.992.320</td>
+							<td class="pni_subtotal_dados">5.388.468</td>
+							<td class="pni_subtotal_dados">89,92</td>
+			
+					</tr>
+
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=DF&sel_parcial=&dataParcial=">
+										DF
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">182.211</td>
+								
+								<td class="pni_dados">158.163</td>
+								<td class="pni_dados">86,80</td>
+
+			
+									<td class="pni_dados">72.065</td>
+								
+								<td class="pni_dados">73.236</td>
+								<td class="pni_dados">101,62</td>
+
+			
+									<td class="pni_dados">32.623</td>
+								
+								<td class="pni_dados">29.052</td>
+								<td class="pni_dados">89,05</td>
+
+			
+									<td class="pni_dados">5.363</td>
+								
+								<td class="pni_dados">4.773</td>
+								<td class="pni_dados">89,00</td>
+
+			
+									<td class="pni_tit_tabela">&nbsp;</td>
+								
+								<td class="pni_dados">121</td>
+								<td class="pni_dados">0,00</td>
+
+			
+									<td class="pni_dados">203.639</td>
+								
+								<td class="pni_dados">189.286</td>
+								<td class="pni_dados">92,95</td>
+
+			
+									<td class="pni_dados">495.901</td>
+								
+								<td class="pni_dados">454.631</td>
+								<td class="pni_dados">91,68</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=GO&sel_parcial=&dataParcial=">
+										GO
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">409.009</td>
+								
+								<td class="pni_dados">353.421</td>
+								<td class="pni_dados">86,41</td>
+
+			
+									<td class="pni_dados">139.350</td>
+								
+								<td class="pni_dados">154.007</td>
+								<td class="pni_dados">110,52</td>
+
+			
+									<td class="pni_dados">69.959</td>
+								
+								<td class="pni_dados">64.715</td>
+								<td class="pni_dados">92,50</td>
+
+			
+									<td class="pni_dados">11.490</td>
+								
+								<td class="pni_dados">14.712</td>
+								<td class="pni_dados">128,04</td>
+
+			
+									<td class="pni_dados">436</td>
+								
+								<td class="pni_dados">858</td>
+								<td class="pni_dados">196,79</td>
+
+			
+									<td class="pni_dados">573.809</td>
+								
+								<td class="pni_dados">537.252</td>
+								<td class="pni_dados">93,63</td>
+
+			
+									<td class="pni_dados">1.204.053</td>
+								
+								<td class="pni_dados">1.124.965</td>
+								<td class="pni_dados">93,43</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=MS&sel_parcial=&dataParcial=">
+										MS
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">179.051</td>
+								
+								<td class="pni_dados">148.594</td>
+								<td class="pni_dados">82,99</td>
+
+			
+									<td class="pni_dados">48.158</td>
+								
+								<td class="pni_dados">50.560</td>
+								<td class="pni_dados">104,99</td>
+
+			
+									<td class="pni_dados">31.692</td>
+								
+								<td class="pni_dados">24.138</td>
+								<td class="pni_dados">76,16</td>
+
+			
+									<td class="pni_dados">5.208</td>
+								
+								<td class="pni_dados">4.679</td>
+								<td class="pni_dados">89,84</td>
+
+			
+									<td class="pni_dados">66.504</td>
+								
+								<td class="pni_dados">59.895</td>
+								<td class="pni_dados">90,06</td>
+
+			
+									<td class="pni_dados">244.384</td>
+								
+								<td class="pni_dados">215.570</td>
+								<td class="pni_dados">88,21</td>
+
+			
+									<td class="pni_dados">574.997</td>
+								
+								<td class="pni_dados">503.436</td>
+								<td class="pni_dados">87,55</td>
+
+			
+					</tr>
+			
+					<tr>
+						 <td class="pni_tit_col_uf">
+						 		
+									 <a href="consulta_Influenza_14_selecao.asp?enviar=ok&sel=coberturas&grupo=todos&faixa=todos&UF=MT&sel_parcial=&dataParcial=">
+										MT
+									 </a>
+								
+						 </td>
+			
+									<td class="pni_dados">225.624</td>
+								
+								<td class="pni_dados">187.700</td>
+								<td class="pni_dados">83,19</td>
+
+			
+									<td class="pni_dados">55.508</td>
+								
+								<td class="pni_dados">63.863</td>
+								<td class="pni_dados">115,05</td>
+
+			
+									<td class="pni_dados">38.462</td>
+								
+								<td class="pni_dados">31.827</td>
+								<td class="pni_dados">82,75</td>
+
+			
+									<td class="pni_dados">6.318</td>
+								
+								<td class="pni_dados">7.475</td>
+								<td class="pni_dados">118,31</td>
+
+			
+									<td class="pni_dados">40.272</td>
+								
+								<td class="pni_dados">30.243</td>
+								<td class="pni_dados">75,10</td>
+
+			
+									<td class="pni_dados">244.775</td>
+								
+								<td class="pni_dados">224.964</td>
+								<td class="pni_dados">91,91</td>
+
+			
+									<td class="pni_dados">610.959</td>
+								
+								<td class="pni_dados">546.072</td>
+								<td class="pni_dados">89,38</td>
+
+			
+					</tr>
+			
+
+					<tr>
+							<td class="pni_subtotal">C.OESTE</td>
+
+			
+							<td class="pni_subtotal_dados">995.895</td>
+							<td class="pni_subtotal_dados">847.878</td>
+							<td class="pni_subtotal_dados">85,14</td>
+			
+							<td class="pni_subtotal_dados">315.081</td>
+							<td class="pni_subtotal_dados">341.666</td>
+							<td class="pni_subtotal_dados">108,44</td>
+			
+							<td class="pni_subtotal_dados">172.736</td>
+							<td class="pni_subtotal_dados">149.732</td>
+							<td class="pni_subtotal_dados">86,68</td>
+			
+							<td class="pni_subtotal_dados">28.379</td>
+							<td class="pni_subtotal_dados">31.639</td>
+							<td class="pni_subtotal_dados">111,49</td>
+			
+							<td class="pni_subtotal_dados">107.212</td>
+							<td class="pni_subtotal_dados">91.117</td>
+							<td class="pni_subtotal_dados">84,99</td>
+			
+							<td class="pni_subtotal_dados">1.266.607</td>
+							<td class="pni_subtotal_dados">1.167.072</td>
+							<td class="pni_subtotal_dados">92,14</td>
+			
+							<td class="pni_subtotal_dados">2.885.910</td>
+							<td class="pni_subtotal_dados">2.629.104</td>
+							<td class="pni_subtotal_dados">91,10</td>
+			
+					</tr>
+
+			
+
+				<tr>
+						<td class="pni_tit_tabela"><b>BRASIL</b></td>
+
+			
+							<td class="pni_total">12.717.408</td>
+							<td class="pni_total">10.730.217</td>
+							<td class="pni_total">84,37</td>
+			
+							<td class="pni_total">4.081.102</td>
+							<td class="pni_total">3.943.031</td>
+							<td class="pni_total">96,62</td>
+			
+							<td class="pni_total">2.179.210</td>
+							<td class="pni_total">1.830.158</td>
+							<td class="pni_total">83,98</td>
+			
+							<td class="pni_total">358.084</td>
+							<td class="pni_total">397.911</td>
+							<td class="pni_total">111,12</td>
+			
+							<td class="pni_total">600.493</td>
+							<td class="pni_total">550.053</td>
+							<td class="pni_total">91,60</td>
+			
+							<td class="pni_total">20.889.849</td>
+							<td class="pni_total">17.979.496</td>
+							<td class="pni_total">86,07</td>
+			
+							<td class="pni_total">40.826.146</td>
+							<td class="pni_total">35.430.866</td>
+							<td class="pni_total">86,78</td>
+			
+				</tr>
+
+			</table>
+			<br />
+			
+		<br />
+		
+		<div class="pni_texto">
+			
+		<b>Popula&ccedil;&atilde;o</b>                                                                                                                                                  <br />
+		<br />	                                                                                                                                                                        <br />
+		1) Crian&ccedil;as de 6 meses a &lt;2 anos: ( Uma vez e meia ) dados dispon&iacute;veis do SINASC, banco proje&ccedil;&atilde;o 2012 preliminar, crian&ccedil;as de 2 a 4 anos estimativas do IBGE dispon&iacute;vel site DATASUS para o ano de 2012.<br />
+		2) Trabalhadores de sa&uacute;de: Doses aplicadas do ano de 2013 acrescido de 10%.<br />
+		3) Gestantes: 9/12 avos do total de nascidos vivos, banco SINASC preliminar 2012.<br /> 	 
+		4) Popula&ccedil;&atilde;o Ind&iacute;gena disponibilizada pelo DESAI em 20 mar&ccedil;o de 2014. Idosos 60 anos e +: IBGE - Estimativa 2012 - Dispon&iacute;vel site DATASUS.<br />
+		5) Puerperas at&eacute; 45 dias ap&oacute;s o parto ( pop &lt; 1 ano / 365 d * 45 d )<br />
+		6) Crian&ccedil;as de 2 a 4 anos - IBGE estimativa 2012 - dispon&iacute;vel site DATASUS<br /> 	 	 
+		7) Comorbidades 5 a 59 anos de idade: total de doses aplicadas na campanha  do ano de 2013 acrescido de 10%<br />
+		8) Popula&ccedil;&atilde;o privada de liberdade e Funcion&aacute;rios - dados fornecidos p/ Minist&eacute;rio da Justi&ccedil;a 2014.<br />
+		Atualizado : 20 Mar 2014<br />
+		<br />
+		<br />
+		<b>Cobertura</b>                                                                                                                                                                <br />
+		<br />                                                                                                                                                                          <br />
+		1) Crian&ccedil;as: soma de doses administradas DU e D1 em crian&ccedil;as ind&iacute;genas e n&atilde;o ind&iacute;genas entre 6M e 4 anos; e desagregadas nas idades de 6meses a &lt;2 anos e 2 a 4 anos<br /> 
+		2) Trabalhador de Sa&uacute;de: soma das doses administradas no total de trabalhadores de sa&uacute;de<br /> 
+		3) Gestantes: soma das doses administradas em gestantes - registro priorit&aacute;rio<br />
+		4) Pu&eacute;rperas: soma das doses administradas em pu&eacute;rperas - registro priorit&aacute;rio<br />
+		5) Ind&iacute;genas: doses administradas em toda a popula&ccedil;&atilde;o ind&iacute;gena, independente da faixa et&aacute;ria<br />
+		6) Idosos: soma de doses administradas na popula&ccedil;&atilde;o &gt;= 60 anos de idade entre os trabalhadores de sa&uacute;de, ind&iacute;genas e n&atilde;o ind&iacute;genas<br />
+		<br />
+	
+		</div>
+		
+		</HTML>
+
+
+	</HTML>

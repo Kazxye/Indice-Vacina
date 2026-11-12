@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  titulo: string;
+  descricao: string;
+  atual: 'painel' | 'fontes' | 'metodologia';
+}
+const { titulo, descricao, atual } = Astro.props;
+const itens = [
+  { id: 'painel', rotulo: 'Painel', href: '/' },
+  { id: 'fontes', rotulo: 'Fontes', href: '/fontes/' },
+  { id: 'metodologia', rotulo: 'Metodologia', href: '/metodologia/' },
+];
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descricao} />
+  </head>
+  <body>
+    <a class="sr" href="#conteudo">Ir para o conteúdo</a>
+    <header class="topo">
+      <div class="wrap">
+        <a class="marca" href="/">Vacinação e Infarto no Brasil</a>
+        <nav class="nav" aria-label="Páginas">
+          {itens.map((i) => <a href={i.href} aria-current={i.id === atual ? 'page' : undefined}>{i.rotulo}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main class="wrap" id="conteudo">
+      <slot />
+    </main>
+    <footer class="rodape">
+      <div class="wrap">
+        Dados públicos do Ministério da Saúde (SIM, SIH/SUS, SI-PNI, RNDS) e do IBGE, extraídos em 11/11/2026. Associação populacional entre estados e anos; não demonstra causa.
+      </div>
+    </footer>
+  </body>
+</html>

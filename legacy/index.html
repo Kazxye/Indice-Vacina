@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vacinação e Infarto no Brasil</title>
+<meta name="description" content="Cobertura vacinal e infarto (óbitos e internações) nas 27 unidades da federação, 2010 a 2025, com dados do SIM, SIH/SUS, SI-PNI e RNDS.">
+<style>
+:root{
+  color-scheme:light;
+  --color-fg:#14181d;--color-fg-muted:#5b6470;--color-bg:#f6f7f8;--color-panel:#ffffff;--color-border-line:#dfe3e8;
+  --color-ok:#0ca30c;--color-warn:#e09400;--color-bad:#d03b3b;
+  --s1:#2a78d6;--s2:#eb6834;
+  --font-anthropic-sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-anthropic-serif:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --cds-font-size-caption:12px;--cds-font-size-body:14px;--cds-font-size-heading:17px;--cds-font-size-title:22px;--cds-font-weight-medium:600;
+  --cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:12px;--cds-gap-lg:20px;--cds-gap-xl:40px;
+  --cds-pad-md:12px;--cds-pad-lg:18px;--cds-radius:10px;
+  --cds-chart-muted:#8a929c;--cds-chart-grid:#e6e9ed;--cds-chart-axis:#bcc3cb;--cds-chart-reference:#7a828c;
+  --cds-text-secondary:#5b6470;--cds-surface-popover:#ffffff;--cds-border:#cfd5dc;--cds-shadow-popover:0 4px 14px rgba(20,24,29,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --color-fg:#eef0f2;--color-fg-muted:#a3abb5;--color-bg:#0f1215;--color-panel:#181c21;--color-border-line:#2a3038;
+    --s1:#3987e5;--s2:#d95926;
+    --cds-chart-muted:#7d858f;--cds-chart-grid:#252b32;--cds-chart-axis:#3a424b;--cds-chart-reference:#8b939d;
+    --cds-text-secondary:#a3abb5;--cds-surface-popover:#20252b;--cds-border:#363d46;--cds-shadow-popover:0 4px 14px rgba(0,0,0,.5);
+  }
+}
+html{background:var(--color-bg)}
+body{margin:0;background:var(--color-bg);color:var(--color-fg);font:14px/1.4 var(--font-anthropic-sans)}
+#dash-root{padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dash-select{font:inherit;color:var(--color-fg);background-color:var(--color-bg);border:1px solid var(--color-border-line);border-radius:6px;padding:6px 8px;max-width:100%}
+.dash-select:focus-visible{outline:2px solid var(--s1);outline-offset:1px}
+.site-foot{max-width:1120px;margin:32px auto 0;font-size:12px;color:var(--color-fg-muted)}
+</style>
+<style>
+.vi-page{display:flex;flex-direction:column;gap:var(--cds-gap-xl);max-width:1120px;margin:0 auto;font-family:var(--font-anthropic-sans);color:var(--color-fg)}
+.vi-head{display:flex;flex-direction:column;gap:var(--cds-gap-sm)}
+.vi-eyebrow{font-size:var(--cds-font-size-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--color-fg-muted)}
+.vi-title{font-family:var(--font-anthropic-serif);font-weight:400;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.1;margin:0;text-wrap:balance}
+.vi-lead{font-size:var(--cds-font-size-heading);line-height:1.45;margin:0;max-width:70ch}
+.vi-lead b,.vi-note b{font-variant-numeric:tabular-nums}
+.vi-note{border:1px solid var(--color-border-line);border-left:3px solid var(--color-warn);border-radius:var(--cds-radius);padding:var(--cds-pad-md);background:var(--color-panel);font-size:var(--cds-font-size-body);line-height:1.5;margin:0;max-width:90ch}
+.vi-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--cds-gap-md)}
+.vi-kpi{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
+.vi-kpi-l{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.vi-kpi-v{font-family:var(--font-anthropic-serif);font-weight:400;font-size:2rem;line-height:1.1}
+.vi-kpi-s{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}
+.vi-bar{display:flex;flex-wrap:wrap;gap:var(--cds-gap-md);align-items:flex-end;padding:var(--cds-pad-md);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);background:var(--color-panel)}
+.vi-field{display:flex;flex-direction:column;gap:4px;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);min-width:0}
+.vi-field .dash-select{max-width:100%}
+.vi-check{display:flex;align-items:center;gap:8px;font-size:var(--cds-font-size-body);color:var(--color-fg);padding-bottom:6px}
+.vi-sec{display:flex;flex-direction:column;gap:var(--cds-gap-md)}
+.vi-h2{font-size:var(--cds-font-size-title);font-weight:var(--cds-font-weight-medium);margin:0;text-wrap:balance}
+.vi-sub{font-size:var(--cds-font-size-body);color:var(--color-fg-muted);margin:0;max-width:80ch;line-height:1.5}
+.vi-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--cds-gap-lg)}
+.vi-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-sm);min-width:0}
+.vi-h3{font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium);margin:0}
+.vi-chart{position:relative;min-height:220px}
+.vi-chart-tall{min-height:340px}
+.vi-ax{font-size:11px;fill:var(--cds-text-secondary);font-family:var(--font-anthropic-sans);font-variant-numeric:tabular-nums}
+.vi-end{font-size:12px;fill:var(--color-fg);font-family:var(--font-anthropic-sans);font-weight:600}
+.vi-tip{position:absolute;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);box-shadow:var(--cds-shadow-popover);border-radius:6px;padding:6px 9px;font-size:12px;line-height:1.35;white-space:nowrap;z-index:2;font-variant-numeric:tabular-nums}
+.vi-tip span{color:var(--cds-text-secondary)}
+.vi-empty{font-size:var(--cds-font-size-body);color:var(--color-fg-muted);padding:var(--cds-pad-lg) 0}
+.vi-map{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;max-width:420px}
+.vi-tile{appearance:none;border:1px solid var(--color-border-line);background:var(--color-bg);border-radius:6px;padding:0;cursor:pointer;display:flex;flex-direction:column;overflow:hidden;font-family:inherit;color:var(--color-fg);min-width:0}
+.vi-tile:hover,.vi-tile:focus-visible{outline:2px solid var(--color-fg);outline-offset:1px}
+.vi-tile[aria-pressed="true"]{outline:2px solid var(--color-fg);outline-offset:1px}
+.vi-sw{display:block;height:16px}
+.vi-tl{font-size:11px;font-weight:600;padding:3px 0 0;text-align:center}
+.vi-tv{font-size:10px;color:var(--color-fg-muted);padding:0 0 3px;text-align:center;font-variant-numeric:tabular-nums}
+.vi-legend{display:flex;align-items:center;gap:8px;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums;max-width:420px}
+.vi-grad{flex:1;height:8px;border-radius:4px}
+.vi-rank{display:flex;flex-direction:column;gap:3px}
+.vi-rrow{display:grid;grid-template-columns:28px 1fr 52px;gap:8px;align-items:center;font-size:12px;font-variant-numeric:tabular-nums}
+.vi-rbar{height:10px;border-radius:0 4px 4px 0;min-width:2px}
+.vi-rrow[data-sel="1"]{font-weight:700}
+.vi-rval{text-align:right;color:var(--color-fg-muted)}
+.vi-range{width:min(260px,100%)}
+.vi-year{font-family:var(--font-anthropic-serif);font-size:1.4rem;color:var(--color-fg)}
+.vi-corr{display:flex;flex-wrap:wrap;gap:var(--cds-gap-lg);align-items:baseline}
+.vi-r{font-family:var(--font-anthropic-serif);font-size:2.4rem;line-height:1}
+.vi-tablewrap{overflow-x:auto}
+.vi-table{border-collapse:collapse;width:100%;font-size:var(--cds-font-size-body);min-width:640px}
+.vi-table th,.vi-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--color-border-line);vertical-align:top;line-height:1.4}
+.vi-table th{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-weight:var(--cds-font-weight-medium)}
+.vi-table a{color:inherit}
+.vi-pill{display:inline-block;font-size:11px;padding:1px 8px;border-radius:99px;border:1px solid var(--color-border-line);white-space:nowrap}
+.vi-pill-ok{border-color:var(--color-ok)}
+.vi-pill-warn{border-color:var(--color-warn)}
+.vi-details{font-size:var(--cds-font-size-body);line-height:1.55;max-width:90ch}
+.vi-details summary{cursor:pointer;font-weight:var(--cds-font-weight-medium)}
+.vi-details li{margin:6px 0}
+.vi-page [data-dash-source-state=refreshing]{opacity:.5}
+</style>
+</head>
+<body>
+<div id="dash-root">
+
+
+<div class="vi-page">
+  <header class="vi-head" id="topo">
+    <span class="vi-eyebrow">Brasil · 27 unidades da federação · 2010–2025</span>
+    <h1 class="vi-title">Vacinação e infarto no Brasil</h1>
+    <p class="vi-lead">Entre 2011 e 2020, a cobertura da vacina da gripe em idosos foi de <b data-draw="cell" data-source="painel" data-field="gripe_idosos" data-where="uf=BR&amp;ano=2011" data-fmt="pct">—</b> para <b data-draw="cell" data-source="painel" data-field="gripe_idosos" data-where="uf=BR&amp;ano=2020" data-fmt="pct">—</b>. No mesmo período, a taxa de óbitos por infarto em pessoas com 60 anos ou mais foi de <b data-draw="cell" data-source="painel" data-field="tx_obitos60" data-where="uf=BR&amp;ano=2011" data-fmt="dec">—</b> para <b data-draw="cell" data-source="painel" data-field="tx_obitos60" data-where="uf=BR&amp;ano=2020" data-fmt="dec">—</b> por 100 mil, e a de internações no SUS foi de <b data-draw="cell" data-source="painel" data-field="tx_intern60" data-where="uf=BR&amp;ano=2011" data-fmt="dec">—</b> para <b data-draw="cell" data-source="painel" data-field="tx_intern60" data-where="uf=BR&amp;ano=2020" data-fmt="dec">—</b>.</p>
+    <p class="vi-note"><b>Quebra de série na gripe.</b> De 2011 a 2020 a cobertura vem dos consolidados de campanha do SI-PNI. Em 2024 e 2025 vem do registro nominal na RNDS, com outra população-alvo, e fica perto de 50%. Os dois trechos não são comparáveis entre si. Os anos de 2010 e de 2021 a 2023 não estão disponíveis nas fontes consultadas. As vacinas de rotina vão de 2010 a 2022. Este painel descreve associações entre estados e anos. Ele não demonstra causa.</p>
+  </header>
+
+  <div class="vi-kpis" id="resumo">
+    <div class="vi-kpi"><span class="vi-kpi-l">Óbitos por infarto, Brasil, 2025</span><span class="vi-kpi-v" data-draw="cell" data-source="painel" data-field="obitos" data-where="uf=BR&amp;ano=2025" data-fmt="int">—</span><span class="vi-kpi-s">2010: <span data-draw="cell" data-source="painel" data-field="obitos" data-where="uf=BR&amp;ano=2010" data-fmt="int">—</span> · SIM, CID-10 I21–I22</span></div>
+    <div class="vi-kpi"><span class="vi-kpi-l">Internações por infarto no SUS, 2025</span><span class="vi-kpi-v" data-draw="cell" data-source="painel" data-field="intern" data-where="uf=BR&amp;ano=2025" data-fmt="int">—</span><span class="vi-kpi-s">2010: <span data-draw="cell" data-source="painel" data-field="intern" data-where="uf=BR&amp;ano=2010" data-fmt="int">—</span> · SIH/SUS</span></div>
+    <div class="vi-kpi"><span class="vi-kpi-l">Cobertura da gripe em idosos, 2025</span><span class="vi-kpi-v" data-draw="cell" data-source="painel" data-field="gripe_idosos" data-where="uf=BR&amp;ano=2025" data-fmt="pct">—</span><span class="vi-kpi-s">2024: <span data-draw="cell" data-source="painel" data-field="gripe_idosos" data-where="uf=BR&amp;ano=2024" data-fmt="pct">—</span> · RNDS, registro nominal</span></div>
+    <div class="vi-kpi"><span class="vi-kpi-l">Esquema primário COVID-19 por 100 habitantes</span><span class="vi-kpi-v" data-draw="cell" data-source="covid" data-field="esquema_por100" data-where="uf=BR" data-fmt="dec">—</span><span class="vi-kpi-s">acumulado até abr/2026 · RNDS</span></div>
+  </div>
+
+  <div class="vi-bar" id="filtros">
+    <label class="vi-field">Vacina<select class="dash-select" id="vi-vac" data-draw="sel-vac" data-source="rotina" aria-label="Vacina"></select></label>
+    <label class="vi-field">Desfecho<select class="dash-select vi-ctl" id="vi-des" data-k="des" aria-label="Desfecho"><option value="obitos">Óbitos por infarto</option><option value="intern">Internações por infarto (SUS)</option></select></label>
+    <label class="vi-field">Faixa etária do desfecho<select class="dash-select vi-ctl" id="vi-fx" data-k="fx" aria-label="Faixa etária"><option value="60">60 anos ou mais</option><option value="todas">Todas as idades</option></select></label>
+    <label class="vi-field">Local<select class="dash-select vi-ctl" id="vi-uf" data-k="uf" aria-label="Local"><option value="BR">Brasil</option><option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option></select></label>
+    <label class="vi-check"><input type="checkbox" id="vi-pand" checked> Incluir 2020–2022 na correlação</label>
+  </div>
+
+  <section class="vi-sec" id="serie">
+    <h2 class="vi-h2">Linha do tempo: <span data-draw="lbl-local">—</span></h2>
+    <p class="vi-sub">Os dois gráficos usam o mesmo eixo de anos, cada um com a sua escala, para comparar as trajetórias sem misturá-las. A faixa cinza marca 2020–2022. Na gripe, a linha é interrompida entre 2020 e 2024 porque a fonte e o método mudam.</p>
+    <div class="vi-two">
+      <div class="vi-card"><h3 class="vi-h3">Cobertura vacinal (%): <span data-draw="lbl-vac">—</span></h3><div class="vi-chart" id="g-cob" data-draw="serie-cob" data-source="painel rotina"></div></div>
+      <div class="vi-card"><h3 class="vi-h3"><span data-draw="lbl-des">—</span>, por 100 mil habitantes</h3><div class="vi-chart" id="g-tx" data-draw="serie-tx" data-source="painel"></div></div>
+    </div>
+  </section>
+
+  <section class="vi-sec" id="mapa">
+    <h2 class="vi-h2">Por estado</h2>
+    <p class="vi-sub">Cada quadrado é um estado, na posição aproximada do mapa. Clique em um estado para vê-lo na linha do tempo e destacá-lo na correlação.</p>
+    <div class="vi-bar">
+      <label class="vi-field">Colorir por<select class="dash-select vi-ctl" id="vi-cor" data-k="cor" aria-label="Colorir por"><option value="cob">Cobertura vacinal (%)</option><option value="tx">Taxa de infarto por 100 mil</option></select></label>
+      <label class="vi-field">Ano<input type="range" class="vi-range" id="vi-ano" min="2010" max="2025" step="1" value="2019" aria-label="Ano"></label>
+      <span class="vi-year" data-draw="lbl-ano">—</span>
+    </div>
+    <div class="vi-two">
+      <div class="vi-card"><div class="vi-legend" data-draw="map-legend" data-source="painel rotina"></div><div class="vi-map" id="g-mapa" data-draw="map" data-source="painel rotina"></div></div>
+      <div class="vi-card"><h3 class="vi-h3">Ranking dos estados</h3><div class="vi-rank" id="g-rank" data-draw="rank" data-source="painel rotina"></div></div>
+    </div>
+  </section>
+
+  <section class="vi-sec" id="correlacao">
+    <h2 class="vi-h2">Correlação entre cobertura e infarto</h2>
+    <p class="vi-sub">Cada ponto é um estado em um ano. Em “variação anual”, o ponto compara a mudança da cobertura com a mudança da taxa de infarto no mesmo estado, de um ano para o seguinte, o que desconta diferenças fixas entre estados (idade da população, rede hospitalar). Na gripe, a comparação por níveis usa só 2011–2020, para não misturar os dois métodos de medição.</p>
+    <div class="vi-bar">
+      <label class="vi-field">Comparar<select class="dash-select vi-ctl" id="vi-modo" data-k="modo" aria-label="Modo de comparação"><option value="variacao">Variação anual dentro de cada estado</option><option value="nivel">Níveis (estado e ano)</option></select></label>
+      <div class="vi-corr"><span class="vi-field">Coeficiente de Pearson (r)<span class="vi-r" data-draw="corr-r" data-source="correlacoes" data-field="r">—</span></span><span class="vi-field">Pontos<span class="vi-year" data-draw="corr-n" data-source="correlacoes" data-field="n">—</span></span><span class="vi-field">Leitura<span class="vi-year" data-draw="corr-word" data-source="correlacoes">—</span></span></div>
+    </div>
+    <div class="vi-card"><div class="vi-chart vi-chart-tall" id="g-corr" data-draw="scatter" data-source="painel rotina"></div></div>
+  </section>
+
+  <section class="vi-sec" id="covid">
+    <h2 class="vi-h2">COVID-19: vacinação e mudança no infarto</h2>
+    <p class="vi-sub">A vacina da COVID-19 só existe desde 2021, então não há série de 2010 a 2025. A comparação possível é entre estados: esquema primário aplicado por 100 habitantes (acumulado até abril de 2026) contra a variação percentual da taxa de infarto entre a média de 2015–2019 e a média de 2022–2025. Usa o desfecho e a faixa etária escolhidos acima.</p>
+    <div class="vi-bar"><div class="vi-corr"><span class="vi-field">Coeficiente de Pearson (r)<span class="vi-r" data-draw="covid-r" data-source="correlacoes" data-field="r">—</span></span><span class="vi-field">Leitura<span class="vi-year" data-draw="covid-word" data-source="correlacoes">—</span></span></div></div>
+    <div class="vi-card"><div class="vi-chart vi-chart-tall" id="g-covid" data-draw="covid-scatter" data-source="covid"></div></div>
+  </section>
+
+  <section class="vi-sec" id="fontes">
+    <h2 class="vi-h2">Fontes oficiais usadas</h2>
+    <div class="vi-tablewrap"><table class="vi-table">
+      <thead><tr><th>Tema</th><th>Sistema e caminho</th><th>Período usado</th><th>Situação</th></tr></thead>
+      <tbody>
+        <tr><td>Óbitos por infarto</td><td><a href="http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sim/cnv/obt10uf.def" target="_blank" rel="noopener">SIM, via TabNet/DATASUS</a>. Categorias CID-10 I21 e I22, por UF de residência e ano do óbito.</td><td>2010–2025</td><td><span class="vi-pill vi-pill-ok">Extraído</span></td></tr>
+        <tr><td>Internações por infarto</td><td><a href="http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sih/cnv/nruf.def" target="_blank" rel="noopener">SIH/SUS, via TabNet</a>. Lista de morbidade CID-10 “Infarto agudo do miocárdio”, por UF de residência e ano de atendimento.</td><td>2010–2025</td><td><span class="vi-pill vi-pill-ok">Extraído</span></td></tr>
+        <tr><td>População</td><td><a href="http://tabnet.datasus.gov.br/cgi/deftohtm.exe?ibge/cnv/projpop2024uf.def" target="_blank" rel="noopener">IBGE, Projeção da População das UF, edição 2024</a>, via TabNet. Total e 60 anos ou mais.</td><td>2010–2025</td><td><span class="vi-pill vi-pill-ok">Extraído</span></td></tr>
+        <tr><td>Gripe, campanhas 2011–2014</td><td><a href="http://pni.datasus.gov.br/consulta_influenza_12_selecao.asp" target="_blank" rel="noopener">PNI/DATASUS, consulta de campanhas</a>. Cobertura do grupo Idosos por UF.</td><td>2011–2014</td><td><span class="vi-pill vi-pill-ok">Extraído</span></td></tr>
+        <tr><td>Gripe, campanhas 2015–2020</td><td><a href="http://sipni.datasus.gov.br/si-pni-web/faces/relatorio/consolidado/coberturaVacinalCampanhaInfluenza.jsf" target="_blank" rel="noopener">SI-PNI Web, cobertura vacinal da campanha de influenza</a>. Grupo Idosos por UF.</td><td>2015–2020</td><td><span class="vi-pill vi-pill-ok">Extraído</span></td></tr>
+        <tr><td>Gripe, 2024–2025</td><td><a href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_ESTRATEGIA_INFLUENZA_RESIDENCIA/index.html?regiao=nacional" target="_blank" rel="noopener">Painel da Estratégia de Vacinação contra a Influenza</a>, Ministério da Saúde, alimentado pela RNDS. Aba Cobertura, grupo “Idosos com mais de 60 anos”, por UF de residência.</td><td>2024–2025</td><td><span class="vi-pill vi-pill-ok">Extraído</span></td></tr>
+        <tr><td>Gripe, 2010 e 2021–2023</td><td>Não constam no SI-PNI Web (que devolve 2015–2020) nem no painel da RNDS (que começa em 2024). Podem ser pedidos ao Ministério da Saúde ou buscados nos boletins estaduais.</td><td>—</td><td><span class="vi-pill vi-pill-warn">Não disponível</span></td></tr>
+        <tr><td>Vacinas de rotina (24)</td><td><a href="http://tabnet.datasus.gov.br/cgi/dhdat.exe?bd_pni/cpnibr.def" target="_blank" rel="noopener">SI-PNI, Imunizações – Cobertura, via TabNet</a>. Por UF e ano.</td><td>2010–2022</td><td><span class="vi-pill vi-pill-ok">Extraído</span></td></tr>
+        <tr><td>COVID-19</td><td><a href="https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_Vacina_C19/SEIDIGI_DEMAS_Vacina_C19.html" target="_blank" rel="noopener">Vacinômetro COVID-19</a>, Ministério da Saúde, RNDS. Doses aplicadas por UF (vacina monovalente).</td><td>acumulado até 24/04/2026</td><td><span class="vi-pill vi-pill-ok">Extraído</span></td></tr>
+      </tbody>
+    </table></div>
+    <details class="vi-details"><summary>Limites dos dados e como ler os números</summary>
+      <ul>
+        <li>O integrador nacional de vacinação é a RNDS (Rede Nacional de Dados em Saúde). Os boletins estaduais de vigilância epidemiológica e imunização variam de formato e não foram usados; servem para conferência.</li>
+        <li>Internações cobrem apenas a rede SUS. Infartos atendidos em hospitais privados não aparecem, e a cobertura do SUS difere entre estados.</li>
+        <li>Os valores de gripe de 2024 e 2025 contam doses com registro nominal na RNDS sobre uma população-alvo atualizada. Os de 2011 a 2020 contam doses consolidadas informadas pelos municípios. A diferença de cerca de 120% para cerca de 50% reflete, em boa parte, essa mudança de método e não só uma queda real.</li>
+        <li>Na gripe, a população-alvo de idosos usada pelo SI-PNI ficou fixa entre 2015 e 2020, enquanto a população idosa cresceu. Por isso coberturas acima de 100% aparecem e a alta recente está superestimada.</li>
+        <li>As coberturas de rotina são, na maioria, de crianças. Elas entram como comparação: não há razão biológica direta para que expliquem infarto em adultos.</li>
+        <li>Óbitos e internações de 2025 podem ser revistos pelo Ministério da Saúde.</li>
+        <li>O valor de COVID-19 do Tocantins foi obtido pela diferença entre o total nacional e a soma dos demais estados, porque a linha não apareceu na tabela do painel.</li>
+        <li>As taxas não são padronizadas por idade. Estados mais envelhecidos têm mais infarto por esse motivo. A opção 60 anos ou mais reduz esse efeito, sem eliminá-lo.</li>
+        <li>Correlação entre estados não identifica causa. Envelhecimento, acesso a hospital, qualidade do registro e a própria pandemia afetam vacinação e infarto ao mesmo tempo.</li>
+      </ul>
+    </details>
+  </section>
+</div>
+
+
+<p class="site-foot">Dados extraídos em 11/11/2026 de sistemas públicos do Ministério da Saúde e do IBGE. As tabelas completas estão em <a href="data/painel.csv">painel.csv</a>, <a href="data/rotina.csv">rotina.csv</a>, <a href="data/correlacoes.csv">correlacoes.csv</a> e <a href="data/covid.csv">covid.csv</a>.</p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+const DATA = {}, draws = {};
+const dash = {
+  colors: ['var(--s1)', 'var(--s2)'],
+  data: (id) => DATA[id] ? {status: 'ok', data: DATA[id]} : {status: 'loading', data: []},
+  draw: (name, fn) => { if (fn) draws[name] = fn; else runDraw(name); },
+  onData: (fn) => fn(), params: () => ({}), setParams() {}, resetParams() {}, setLink() {},
+};
+function runDraw(name) {
+  if (!draws[name]) return;
+  document.querySelectorAll('[data-draw="' + name + '"]').forEach((el) => { try { draws[name](el); } catch (e) { console.error('desenho ' + name, e); } });
+}
+const runAll = () => Object.keys(draws).forEach(runDraw);
+window.addEventListener('DOMContentLoaded', () => {
+  Promise.all(['painel', 'rotina', 'correlacoes', 'covid'].map((id) => d3.csv('data/' + id + '.csv').then((rows) => { DATA[id] = rows; })))
+    .then(runAll)
+    .catch((e) => { console.error(e); document.querySelectorAll('.vi-note').forEach((n) => { n.textContent = 'Não foi possível carregar os dados (pasta data/). Abra o site por um servidor web, não pelo arquivo direto.'; }); });
+});
+let resizeTimer = 0;
+window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(runAll, 150); });
+</script>
+<script>
+
+const loc = d3.formatLocale({decimal: ',', thousands: '.', grouping: [3], currency: ['R$', '']});
+const fInt = loc.format(',.0f'), fDec = loc.format(',.1f'), fR = loc.format('+.2f');
+const GRIPE = 'Gripe (idosos, campanha)';
+const S = window.viState = {vac: GRIPE, des: 'obitos', fx: '60', uf: 'BR', pand: true, ano: 2019, cor: 'cob', modo: 'variacao'};
+const YEARS = d3.range(2010, 2026);
+const PAND = new Set([2020, 2021, 2022]);
+const UFS = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
+const GRID = {RR:[1,0],AP:[3,0],AM:[1,1],PA:[2,1],MA:[3,1],CE:[4,1],RN:[5,1],AC:[0,2],RO:[1,2],TO:[2,2],PI:[3,2],PB:[4,2],PE:[5,2],MT:[1,3],GO:[2,3],BA:[3,3],SE:[4,3],AL:[5,3],MS:[1,4],DF:[2,4],MG:[3,4],ES:[4,4],SP:[2,5],RJ:[3,5],PR:[2,6],SC:[2,7],RS:[2,8]};
+const DRAWS = ['sel-vac','lbl-local','lbl-vac','lbl-des','lbl-ano','serie-cob','serie-tx','map-legend','map','rank','corr-r','corr-n','corr-word','scatter','covid-r','covid-word','covid-scatter'];
+const MAPA = ['map-legend', 'map', 'rank'], CORR = ['corr-r', 'corr-n', 'corr-word', 'scatter'], COVID = ['covid-r', 'covid-word', 'covid-scatter'];
+const GROUPS = {
+  ano: ['lbl-ano', ...MAPA],
+  cor: MAPA,
+  uf: ['lbl-local', 'serie-cob', 'serie-tx', 'map', 'rank', 'scatter', 'covid-scatter'],
+  modo: CORR,
+  pand: CORR,
+  des: ['lbl-des', 'serie-tx', ...MAPA, ...CORR, ...COVID],
+  fx: ['lbl-des', 'serie-tx', ...MAPA, ...CORR, ...COVID],
+  vac: ['lbl-vac', 'serie-cob', ...MAPA, ...CORR],
+};
+const pending = new Set();
+let frame = 0;
+function redraw(names) {
+  (names || DRAWS).forEach((n) => pending.add(n));
+  if (frame) return;
+  frame = requestAnimationFrame(() => { frame = 0; const p = Array.from(pending); pending.clear(); p.forEach((n) => dash.draw(n)); });
+}
+const num = (v) => (v === '' || v == null) ? null : +v;
+const memo = {};
+function index(id, keyfn) {
+  const g = dash.data(id);
+  if (g.status !== 'ok') return null;
+  if (!memo[id] || memo[id].src !== g.data) memo[id] = {src: g.data, map: new Map(g.data.map((x) => [keyfn(x), x]))};
+  return memo[id].map;
+}
+const painel = () => index('painel', (x) => x.uf + '|' + x.ano);
+const rotina = () => index('rotina', (x) => x.vacina + '|' + x.uf + '|' + x.ano);
+const corr = () => index('correlacoes', (x) => x.chave);
+const covid = () => index('covid', (x) => x.uf);
+const txCol = () => 'tx_' + S.des + (S.fx === '60' ? '60' : '');
+const desLabel = () => (S.des === 'obitos' ? 'Óbitos por infarto' : 'Internações por infarto no SUS') + (S.fx === '60' ? ', 60 anos ou mais' : ', todas as idades');
+function ready() { return painel() && (S.vac === GRIPE || rotina()); }
+function cob(uf, ano) {
+  if (S.vac === GRIPE) { const r = painel().get(uf + '|' + ano); return r ? num(r.gripe_idosos) : null; }
+  const r = rotina().get(S.vac + '|' + uf + '|' + ano); return r ? num(r.cobertura) : null;
+}
+function tx(uf, ano) { const r = painel().get(uf + '|' + ano); return r ? num(r[txCol()]) : null; }
+function nome(uf) { const r = painel() && painel().get(uf + '|2010'); return r ? r.nome : uf; }
+function dashOut(el) { el.replaceChildren(document.createTextNode('—')); }
+function tipOf(box) { const t = document.createElement('div'); t.className = 'vi-tip'; t.hidden = true; box.appendChild(t); return t; }
+function placeTip(t, box, px, py) {
+  t.hidden = false;
+  const w = t.offsetWidth, bw = box.clientWidth;
+  t.style.left = Math.max(0, Math.min(bw - w, px + 12)) + 'px';
+  t.style.top = Math.max(0, py - 34) + 'px';
+}
+function tipLines(t, lines) {
+  t.replaceChildren();
+  lines.forEach(([a, b], i) => { if (i) t.appendChild(document.createElement('br')); const s = document.createElement('span'); s.textContent = a; t.appendChild(s); t.appendChild(document.createTextNode(b)); });
+}
+
+dash.draw('cell', (el) => {
+  const g = dash.data(el.dataset.source);
+  if (g.status !== 'ok') { if (g.status !== 'loading') el.classList.remove('dash-skeleton'); return dashOut(el); }
+  const cond = Object.fromEntries(el.dataset.where.split('&').map((p) => p.split('=')));
+  const row = g.data.find((r) => Object.keys(cond).every((k) => String(r[k]) === cond[k]));
+  const v = row ? num(row[el.dataset.field]) : null;
+  if (v == null) return dashOut(el);
+  el.textContent = el.dataset.fmt === 'int' ? fInt(v) : el.dataset.fmt === 'pct' ? fDec(v) + '%' : fDec(v);
+});
+
+dash.draw('sel-vac', (sel) => {
+  const g = dash.data('rotina');
+  const names = g.status === 'ok' ? Array.from(new Set(g.data.map((r) => r.vacina))).sort((a, b) => a.localeCompare(b, 'pt-BR')) : [];
+  sel.replaceChildren(new Option(GRIPE, GRIPE), ...names.map((n) => new Option(n + ' (rotina)', n)));
+  sel.value = S.vac;
+  sel.onchange = () => { S.vac = sel.value; redraw(GROUPS.vac); };
+});
+dash.draw('lbl-local', (el) => { el.textContent = painel() ? nome(S.uf) : '—'; });
+dash.draw('lbl-vac', (el) => { el.textContent = S.vac; });
+dash.draw('lbl-des', (el) => { el.textContent = desLabel(); });
+dash.draw('lbl-ano', (el) => { el.textContent = String(S.ano); });
+
+function lineChart(el, pts, o) {
+  el.replaceChildren();
+  const vals = pts.filter((p) => p.v != null);
+  if (!vals.length) { const d = document.createElement('div'); d.className = 'vi-empty'; d.textContent = 'Sem dados desta vacina para este local.'; el.appendChild(d); return; }
+  const W = Math.max(260, el.clientWidth), H = 230, m = {t: 16, r: 46, b: 26, l: 44};
+  const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('width', '100%').attr('role', 'img').attr('aria-label', o.aria);
+  const x = d3.scaleLinear([2010, 2025], [m.l, W - m.r]);
+  const ext = d3.extent(vals, (p) => p.v), pad = (ext[1] - ext[0]) * 0.18 || 1;
+  const y = d3.scaleLinear([Math.max(0, ext[0] - pad), ext[1] + pad], [H - m.b, m.t]).nice(4);
+  svg.append('rect').attr('x', x(2019.5)).attr('width', x(2022.5) - x(2019.5)).attr('y', m.t).attr('height', H - m.b - m.t).style('fill', 'var(--cds-chart-muted)').style('opacity', 0.16);
+  y.ticks(4).forEach((t) => {
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(t)).attr('y2', y(t)).style('stroke', 'var(--cds-chart-grid)');
+    svg.append('text').attr('class', 'vi-ax').attr('x', m.l - 6).attr('y', y(t) + 4).attr('text-anchor', 'end').text(fInt(t));
+  });
+  (W < 430 ? [2010, 2015, 2020, 2025] : [2010, 2013, 2016, 2019, 2022, 2025]).forEach((t) => svg.append('text').attr('class', 'vi-ax').attr('x', x(t)).attr('y', H - 8).attr('text-anchor', 'middle').text(t));
+  svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', H - m.b).attr('y2', H - m.b).style('stroke', 'var(--cds-chart-axis)');
+  svg.append('path').attr('d', d3.line().defined((p) => p.v != null).x((p) => x(p.ano)).y((p) => y(p.v))(pts)).style('fill', 'none').style('stroke', o.color).style('stroke-width', 2).style('stroke-linejoin', 'round');
+  svg.selectAll('circle.pt').data(vals).join('circle').attr('class', 'pt').attr('cx', (p) => x(p.ano)).attr('cy', (p) => y(p.v)).attr('r', 3).style('fill', o.color).style('stroke', 'var(--color-panel)').style('stroke-width', 1.5);
+  const last = vals[vals.length - 1];
+  svg.append('text').attr('class', 'vi-end').attr('x', x(last.ano) + 7).attr('y', y(last.v) + 4).text(fDec(last.v));
+  const rule = svg.append('line').attr('y1', m.t).attr('y2', H - m.b).style('stroke', 'var(--cds-chart-reference)').style('display', 'none');
+  const dot = svg.append('circle').attr('r', 5).style('fill', o.color).style('stroke', 'var(--color-panel)').style('stroke-width', 2).style('display', 'none');
+  const tip = tipOf(el);
+  svg.append('rect').attr('x', m.l).attr('y', m.t).attr('width', W - m.l - m.r).attr('height', H - m.t - m.b).style('fill', 'transparent')
+    .on('pointermove', (ev) => {
+      const px = d3.pointer(ev)[0];
+      const p = d3.least(vals, (q) => Math.abs(x(q.ano) - px));
+      rule.attr('x1', x(p.ano)).attr('x2', x(p.ano)).style('display', null);
+      dot.attr('cx', x(p.ano)).attr('cy', y(p.v)).style('display', null);
+      tipLines(tip, [[p.ano + '  ', fDec(p.v) + o.unit]]);
+      placeTip(tip, el, x(p.ano) * el.clientWidth / W, y(p.v) * el.clientWidth / W);
+    })
+    .on('pointerleave', () => { rule.style('display', 'none'); dot.style('display', 'none'); tip.hidden = true; });
+}
+dash.draw('serie-cob', (el) => {
+  if (!ready()) return dashOut(el);
+  lineChart(el, YEARS.map((a) => ({ano: a, v: cob(S.uf, a)})), {color: dash.colors[0], unit: '%', aria: 'Cobertura vacinal por ano'});
+});
+dash.draw('serie-tx', (el) => {
+  if (!painel()) return dashOut(el);
+  lineChart(el, YEARS.map((a) => ({ano: a, v: tx(S.uf, a)})), {color: dash.colors[1], unit: ' por 100 mil', aria: 'Taxa de infarto por ano'});
+});
+
+function mapVals() {
+  const f = S.cor === 'cob' ? cob : tx;
+  const v = UFS.map((u) => ({uf: u, v: f(u, S.ano)}));
+  const ok = v.filter((d) => d.v != null);
+  return {v, ok, ext: d3.extent(ok, (d) => d.v), color: S.cor === 'cob' ? dash.colors[0] : dash.colors[1]};
+}
+const shade = (color, t) => `color-mix(in oklab, ${color} ${Math.round(14 + 80 * t)}%, var(--color-panel))`;
+const tOf = (v, ext) => ext[1] === ext[0] ? 0.5 : (v - ext[0]) / (ext[1] - ext[0]);
+dash.draw('map-legend', (el) => {
+  if (!ready()) return dashOut(el);
+  const M = mapVals();
+  el.replaceChildren();
+  if (!M.ok.length) { el.textContent = 'Sem dados desta vacina em ' + S.ano + '. Escolha outro ano.'; return; }
+  const a = document.createElement('span'); a.textContent = fDec(M.ext[0]);
+  const g = document.createElement('span'); g.className = 'vi-grad'; g.style.background = `linear-gradient(90deg, ${shade(M.color, 0)}, ${shade(M.color, 1)})`;
+  const b = document.createElement('span'); b.textContent = fDec(M.ext[1]) + (S.cor === 'cob' ? '%' : ' por 100 mil');
+  el.append(a, g, b);
+});
+dash.draw('map', (el) => {
+  if (!ready()) return dashOut(el);
+  const M = mapVals();
+  el.replaceChildren();
+  M.v.forEach((d) => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'vi-tile';
+    b.style.gridColumn = GRID[d.uf][0] + 1; b.style.gridRow = GRID[d.uf][1] + 1;
+    b.setAttribute('aria-pressed', String(S.uf === d.uf));
+    b.setAttribute('aria-label', nome(d.uf) + ': ' + (d.v == null ? 'sem dado' : fDec(d.v)));
+    const sw = document.createElement('span'); sw.className = 'vi-sw'; sw.style.background = d.v == null ? 'transparent' : shade(M.color, tOf(d.v, M.ext));
+    const l = document.createElement('span'); l.className = 'vi-tl'; l.textContent = d.uf;
+    const v = document.createElement('span'); v.className = 'vi-tv'; v.textContent = d.v == null ? '—' : fInt(d.v);
+    b.append(sw, l, v);
+    b.onclick = () => { S.uf = S.uf === d.uf ? 'BR' : d.uf; document.querySelectorAll('#vi-uf').forEach((s) => { s.value = S.uf; }); redraw(GROUPS.uf); };
+    el.appendChild(b);
+  });
+});
+dash.draw('rank', (el) => {
+  if (!ready()) return dashOut(el);
+  const M = mapVals();
+  el.replaceChildren();
+  if (!M.ok.length) { el.textContent = '—'; return; }
+  const max = M.ext[1];
+  M.ok.sort((a, b) => b.v - a.v).forEach((d) => {
+    const r = document.createElement('div'); r.className = 'vi-rrow'; if (d.uf === S.uf) r.dataset.sel = '1';
+    const a = document.createElement('span'); a.textContent = d.uf;
+    const w = document.createElement('span'); const bar = document.createElement('span'); bar.className = 'vi-rbar'; bar.style.display = 'block'; bar.style.width = (100 * d.v / max) + '%'; bar.style.background = d.uf === S.uf ? 'var(--color-fg)' : M.color; w.appendChild(bar);
+    const v = document.createElement('span'); v.className = 'vi-rval'; v.textContent = fDec(d.v);
+    r.append(a, w, v); el.appendChild(r);
+  });
+});
+
+const corrKey = () => [S.vac, S.des, S.fx === '60' ? '60' : 'todas', S.modo, S.pand ? 'com' : 'sem'].join('|');
+const covidKey = () => ['COVID-19', S.des, S.fx === '60' ? '60' : 'todas', 'transversal', '-'].join('|');
+const enc = (s) => s.replace(/%/g, '%25').replace(/&/g, '%26').replace(/=/g, '%3D');
+function word(r) {
+  if (r == null) return 'sem pontos suficientes';
+  const a = Math.abs(r);
+  const f = a < 0.2 ? 'muito fraca' : a < 0.4 ? 'fraca' : a < 0.6 ? 'moderada' : 'forte';
+  return f + (a < 0.05 ? '' : r < 0 ? ', negativa' : ', positiva');
+}
+function corrCell(keyFn, field, fmt) {
+  return (el) => {
+    const m = corr();
+    if (!m) return dashOut(el);
+    const row = m.get(keyFn());
+    el.dataset.where = 'chave=' + enc(keyFn());
+    const v = row ? num(row[field]) : null;
+    el.textContent = v == null ? '—' : fmt(v);
+  };
+}
+dash.draw('corr-r', corrCell(corrKey, 'r', fR));
+dash.draw('corr-n', corrCell(corrKey, 'n', fInt));
+dash.draw('covid-r', corrCell(covidKey, 'r', fR));
+dash.draw('corr-word', (el) => { const m = corr(); if (!m) return dashOut(el); const row = m.get(corrKey()); el.textContent = word(row ? num(row.r) : null); });
+dash.draw('covid-word', (el) => { const m = corr(); if (!m) return dashOut(el); const row = m.get(covidKey()); el.textContent = word(row ? num(row.r) : null); });
+
+function scatter(el, pts, o) {
+  el.replaceChildren();
+  if (pts.length < 3) { const d = document.createElement('div'); d.className = 'vi-empty'; d.textContent = 'Sem pontos suficientes para esta combinação.'; el.appendChild(d); return; }
+  const W = Math.max(260, el.clientWidth), H = Math.min(420, Math.max(300, W * 0.5)), m = {t: 14, r: 18, b: 42, l: 54};
+  const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('width', '100%').attr('role', 'img').attr('aria-label', o.aria);
+  const x = d3.scaleLinear(d3.extent(pts, (p) => p.x), [m.l, W - m.r]).nice();
+  const y = d3.scaleLinear(d3.extent(pts, (p) => p.y), [H - m.b, m.t]).nice();
+  y.ticks(5).forEach((t) => {
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(t)).attr('y2', y(t)).style('stroke', t === 0 ? 'var(--cds-chart-axis)' : 'var(--cds-chart-grid)');
+    svg.append('text').attr('class', 'vi-ax').attr('x', m.l - 6).attr('y', y(t) + 4).attr('text-anchor', 'end').text(fInt(t));
+  });
+  x.ticks(W < 430 ? 4 : 7).forEach((t) => {
+    if (t === 0) svg.append('line').attr('x1', x(t)).attr('x2', x(t)).attr('y1', m.t).attr('y2', H - m.b).style('stroke', 'var(--cds-chart-axis)');
+    svg.append('text').attr('class', 'vi-ax').attr('x', x(t)).attr('y', H - m.b + 15).attr('text-anchor', 'middle').text(fInt(t));
+  });
+  svg.append('text').attr('class', 'vi-ax').attr('x', (m.l + W - m.r) / 2).attr('y', H - 6).attr('text-anchor', 'middle').text(o.xl);
+  svg.append('text').attr('class', 'vi-ax').attr('transform', `translate(12,${(m.t + H - m.b) / 2}) rotate(-90)`).attr('text-anchor', 'middle').text(o.yl);
+  const mx = d3.mean(pts, (p) => p.x), my = d3.mean(pts, (p) => p.y);
+  const sxx = d3.sum(pts, (p) => (p.x - mx) ** 2), sxy = d3.sum(pts, (p) => (p.x - mx) * (p.y - my));
+  if (sxx > 0) {
+    const b = sxy / sxx, a = my - b * mx, d = x.domain();
+    const clip = (v) => Math.max(y.domain()[0], Math.min(y.domain()[1], v));
+    svg.append('line').attr('x1', x(d[0])).attr('x2', x(d[1])).attr('y1', y(clip(a + b * d[0]))).attr('y2', y(clip(a + b * d[1]))).style('stroke', 'var(--color-fg)').style('stroke-width', 1.5).style('stroke-dasharray', '5 4');
+  }
+  const ord = pts.slice().sort((p, q) => (p.hl ? 1 : 0) - (q.hl ? 1 : 0));
+  svg.selectAll('circle.pt').data(ord).join('circle').attr('class', 'pt').attr('cx', (p) => x(p.x)).attr('cy', (p) => y(p.y)).attr('r', (p) => p.hl ? 5 : (o.big ? 5 : 3.5))
+    .style('fill', (p) => p.hl ? dash.colors[1] : dash.colors[0]).style('fill-opacity', (p) => p.hl || o.big ? 0.95 : 0.5).style('stroke', 'var(--color-panel)').style('stroke-width', 1);
+  if (o.big) svg.selectAll('text.lb').data(pts).join('text').attr('class', 'vi-ax lb').attr('x', (p) => x(p.x) + 7).attr('y', (p) => y(p.y) + 4).text((p) => p.uf);
+  const ring = svg.append('circle').attr('r', 7).style('fill', 'none').style('stroke', 'var(--color-fg)').style('stroke-width', 2).style('display', 'none');
+  const tip = tipOf(el), del = d3.Delaunay.from(pts, (p) => x(p.x), (p) => y(p.y));
+  svg.append('rect').attr('x', 0).attr('y', 0).attr('width', W).attr('height', H).style('fill', 'transparent')
+    .on('pointermove', (ev) => {
+      const [px, py] = d3.pointer(ev), p = pts[del.find(px, py)];
+      ring.attr('cx', x(p.x)).attr('cy', y(p.y)).style('display', null);
+      tipLines(tip, [[p.label + '  ', ''], [o.xs + ' ', o.fx(p.x)], [o.ys + ' ', o.fy(p.y)]]);
+      placeTip(tip, el, x(p.x) * el.clientWidth / W, y(p.y) * el.clientWidth / W - 24);
+    })
+    .on('pointerleave', () => { ring.style('display', 'none'); tip.hidden = true; });
+}
+dash.draw('scatter', (el) => {
+  if (!ready()) return dashOut(el);
+  const pts = [];
+  UFS.forEach((u) => YEARS.forEach((a, j) => {
+    if (!S.pand && PAND.has(a)) return;
+    const c = cob(u, a), t = tx(u, a);
+    if (c == null || t == null) return;
+    if (S.modo === 'nivel' && S.vac === GRIPE && a > 2020) return;
+    if (S.modo === 'nivel') { pts.push({x: c, y: t, uf: u, label: u + ' ' + a, hl: u === S.uf}); return; }
+    if (j === 0 || (!S.pand && PAND.has(a - 1))) return;
+    const c0 = cob(u, a - 1), t0 = tx(u, a - 1);
+    if (c0 == null || t0 == null) return;
+    pts.push({x: c - c0, y: t - t0, uf: u, label: u + ' ' + (a - 1) + '→' + a, hl: u === S.uf});
+  }));
+  const dv = S.modo === 'variacao', sg = loc.format('+,.1f');
+  scatter(el, pts, {aria: 'Dispersão entre cobertura vacinal e taxa de infarto', xl: dv ? 'Variação da cobertura (pontos percentuais)' : 'Cobertura vacinal (%)', yl: dv ? 'Variação da taxa (por 100 mil)' : 'Taxa por 100 mil', xs: 'Cobertura', ys: 'Infarto', fx: (v) => (dv ? sg(v) + ' p.p.' : fDec(v) + '%'), fy: (v) => (dv ? sg(v) : fDec(v))});
+});
+dash.draw('covid-scatter', (el) => {
+  const m = covid();
+  if (!m) return dashOut(el);
+  const col = 'var_' + S.des + (S.fx === '60' ? '60' : ''), sg = loc.format('+,.1f');
+  const pts = UFS.map((u) => m.get(u)).filter(Boolean).map((r) => ({x: num(r.esquema_por100), y: num(r[col]), uf: r.uf, label: r.nome, hl: r.uf === S.uf}));
+  scatter(el, pts, {big: true, aria: 'Dispersão entre vacinação contra COVID-19 e variação do infarto por estado', xl: 'Esquema primário COVID-19 por 100 habitantes', yl: 'Variação da taxa de infarto (%)', xs: 'Esquema primário', ys: 'Variação', fx: (v) => fDec(v) + ' por 100 hab.', fy: (v) => sg(v) + '%'});
+});
+
+document.querySelectorAll('.vi-page .vi-ctl').forEach((s) => s.addEventListener('change', () => { S[s.dataset.k] = s.value; redraw(GROUPS[s.dataset.k]); }));
+document.querySelectorAll('#vi-pand').forEach((c) => c.addEventListener('change', () => { S.pand = c.checked; redraw(GROUPS.pand); }));
+document.querySelectorAll('#vi-ano').forEach((r) => r.addEventListener('input', () => { S.ano = +r.value; redraw(GROUPS.ano); }));
+
+</script>
+</body>
+</html>

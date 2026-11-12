@@ -1,0 +1,79 @@
+---
+import fs from 'node:fs';
+import Base from '../layouts/Base.astro';
+import cat from '../data/fontes.json';
+
+const painel = JSON.parse(fs.readFileSync(new URL('../../public/data/painel.json', import.meta.url), 'utf8'));
+const validacoes: { indicador: string; ano: number; valor_painel: number; fonte_painel: string; valor_outro: number; fonte_outro: string; diferenca: number; leitura: string }[] = painel.validacoes;
+const num = (v: number) => v.toLocaleString('pt-BR');
+---
+<Base titulo="Fontes | Vacinação e Infarto no Brasil" descricao="Catálogo das fontes oficiais usadas no painel, com link, indicador, período, recorte, filtros e data de extração, e o estado das lacunas de influenza." atual="fontes">
+  <div class="prosa">
+    <h1>Fontes</h1>
+    <p class="lead">Todos os números do painel vêm de sistemas públicos do Ministério da Saúde e do IBGE. Esta página registra de onde cada um saiu, com que filtros, e o que ainda falta. Extração feita em {cat.data_extracao}.</p>
+  </div>
+
+  <section class="stack" aria-labelledby="t-inc">
+    <h2 id="t-inc">Fontes incorporadas ao painel</h2>
+    {cat.incorporadas.map((f) => (
+      <article class="card fonte" id={f.id}>
+        <h3>{f.nome}</h3>
+        <dl>
+          <dt>Órgão</dt><dd>{f.orgao}</dd>
+          <dt>Indicador</dt><dd>{f.indicador}</dd>
+          <dt>Período usado</dt><dd>{f.periodo}</dd>
+          <dt>Recorte</dt><dd>{f.recorte}</dd>
+          <dt>Filtros aplicados</dt><dd>{f.filtros}</dd>
+          <dt>Data de extração</dt><dd>{f.data_extracao}</dd>
+          <dt>Observação</dt><dd>{f.observacao}</dd>
+          <dt>Link</dt><dd><a href={f.link} target="_blank" rel="noopener">{f.link}</a></dd>
+        </dl>
+      </article>
+    ))}
+  </section>
+
+  <section class="stack" aria-labelledby="t-lac">
+    <h2 id="t-lac">Lacunas de influenza investigadas</h2>
+    <p class="lead">A cobertura por estado no grupo de 60 anos ou mais existe para 2011–2020 e 2024–2025. Os anos abaixo foram investigados; só entraram valores oficiais que puderam ser conferidos. O que não foi encontrado fica em branco no painel, sem estimativa, e um valor do Brasil nunca é usado como valor de estado.</p>
+    <div class="rolagem">
+      <table class="cat">
+        <thead><tr><th>Ano</th><th>Situação</th><th>O que foi investigado</th><th>Resultado</th><th>Próximo passo</th></tr></thead>
+        <tbody>
+          {cat.lacunas.map((l) => (
+            <tr><td><strong>{l.ano}</strong></td><td><span class="selo">{l.situacao}</span></td><td>{l.investigado}</td><td>{l.resultado}</td><td>{l.proximo_passo}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="stack" aria-labelledby="t-cons">
+    <h2 id="t-cons">Fontes consultadas para validar ou complementar</h2>
+    <p class="lead">A base federal responde pelo recorte nacional. Boletins estaduais e outros documentos servem para conferir valores e procurar o que falta.</p>
+    <div class="rolagem">
+      <table class="cat">
+        <thead><tr><th>Documento</th><th>O que traz</th><th>Como foi usado</th></tr></thead>
+        <tbody>
+          {cat.consultadas.map((c) => (
+            <tr><td><a href={c.link} target="_blank" rel="noopener">{c.nome}</a></td><td>{c.achado}</td><td>{c.uso}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="stack" aria-labelledby="t-div">
+    <h2 id="t-div">Conferências e divergências entre fontes</h2>
+    <p class="lead">Cada linha compara o valor usado no painel com o de outra fonte oficial, com a definição e a data de cada uma.</p>
+    <div class="rolagem">
+      <table class="cat">
+        <thead><tr><th>Indicador</th><th>Ano</th><th>Valor no painel</th><th>Outra fonte</th><th>Diferença</th><th>Leitura</th></tr></thead>
+        <tbody>
+          {validacoes.map((v) => (
+            <tr><td>{v.indicador}</td><td>{v.ano}</td><td>{num(v.valor_painel)}<br /><small>{v.fonte_painel}</small></td><td>{num(v.valor_outro)}<br /><small>{v.fonte_outro}</small></td><td>{num(v.diferenca)}</td><td>{v.leitura}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Base>

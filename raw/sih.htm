@@ -1,0 +1,966 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="pt-BR"><HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<TITLE>TabNet Win32 3.3:  Morbidade Hospitalar do SUS - por local de resid&ecirc;ncia - Brasil</TITLE>
+<LINK REL="stylesheet" HREF="/TABNET/tabnet2.css" TYPE="text/css"><!-- com a opção JCSS -->
+<LINK REL="stylesheet" HREF="/tabnet/tabnetp2.css" MEDIA="print"  TYPE="text/css"><!-- com a opção JCSSP -->
+<script type="text/javascript" src="/TABNET/tabalfa.js"></script>
+</HEAD><BODY>
+ <div name="governo" class="todalargura">
+ <div class="testeira" cellspacing="0" cellpadding="0">
+   <div class="Escondido" style="background-color: #ffcc00;">
+      <div>
+         <a href="http://www.saude.gov.br" target="_blank">
+            <img alt="Ministério da Saúde" src="/cgi/imagem/principal_r1_c1_res.gif" height="21" id="img1" />
+         </a>
+     </div>
+ </div>
+ <div class="testeira" cellspacing="0" cellpadding="0">
+    <div class="info_saude">
+         <a href="/tabnet/tabnet.htm" alt="Informações de Saúde" title="Informações de Saúde">Informa&ccedil;&otilde;es de Sa&uacute;de</a>
+   </div>
+      <div class="marca_tabnet">
+       <p>DATASUS<span>&nbsp;&nbsp;Tecnologia da Informa&ccedil;&atilde;o a Servi&ccedil;o do SUS<a href="http://www.datasus.gov.br" alt="MS/SE/Datasus" title="MS/SE/Datasus"></a></span></p>
+   </div>
+        <div class="ajuda">
+          <a href="/tabnet/tabdescr.htm">Ajuda</a>
+      </div>
+           <div class="notific">
+        <a href="sih/Morb_geral_loc_res_2008.pdf">Notas T&eacute;cnicas</a></p>
+   </div>       <div class="datasus">
+       <p>DATASUS</p>
+   </div>
+   </div>
+<CENTER>
+<div class="container">
+<FORM ACTION="/cgi/tabcgi.exe?sih/cnv/nruf.def" METHOD=POST target = "_blank">
+<div class="titulo">
+  <H2 class="Nivel0"> Morbidade Hospitalar do SUS - por local de resid&ecirc;ncia - Brasil</H2>
+</div>
+<div class="borda">
+  <div class="corpoperiodo">
+    <div class="linha">
+    <LABEL for="L"><b>Linha</b></LABEL>
+    <SELECT NAME="Linha" ID="L" SIZE=4 >
+    <OPTION VALUE="Região" SELECTED>Regi&atilde;o
+    <OPTION VALUE="Região/Unidade_da_Federação">Regi&atilde;o/Unidade da Federa&ccedil;&atilde;o
+    <OPTION VALUE="Unidade_da_Federação">Unidade da Federa&ccedil;&atilde;o
+    <OPTION VALUE="Ano/mês_processamento">Ano/m&ecirc;s processamento
+    <OPTION VALUE="Ano_processamento">Ano processamento
+    <OPTION VALUE="Ano/mês_atendimento">Ano/m&ecirc;s atendimento
+    <OPTION VALUE="Ano_atendimento">Ano atendimento
+    <OPTION VALUE="Caráter_atendimento">Car&aacute;ter atendimento
+    <OPTION VALUE="Regime">Regime
+    <OPTION VALUE="Capítulo_CID-10">Cap&iacute;tulo CID-10
+    <OPTION VALUE="Lista_Morb__CID-10">Lista Morb  CID-10
+    <OPTION VALUE="Faixa_Etária_1">Faixa Et&aacute;ria 1
+    <OPTION VALUE="Faixa_Etária_2">Faixa Et&aacute;ria 2
+    <OPTION VALUE="Sexo">Sexo
+    <OPTION VALUE="Cor/raça">Cor/ra&ccedil;a
+    </SELECT>
+    </div>
+    <div class="coluna">
+    <LABEL for="C"><b>Coluna</b></LABEL>
+    <SELECT NAME="Coluna" ID="C" SIZE=4 >
+    <OPTION VALUE="--Não-Ativa--" SELECTED>N&atilde;o ativa
+    <OPTION VALUE="Região">Regi&atilde;o
+    <OPTION VALUE="Unidade_da_Federação">Unidade da Federa&ccedil;&atilde;o
+    <OPTION VALUE="Ano/mês_processamento">Ano/m&ecirc;s processamento
+    <OPTION VALUE="Ano_processamento">Ano processamento
+    <OPTION VALUE="Ano/mês_atendimento">Ano/m&ecirc;s atendimento
+    <OPTION VALUE="Ano_atendimento">Ano atendimento
+    <OPTION VALUE="Caráter_atendimento">Car&aacute;ter atendimento
+    <OPTION VALUE="Regime">Regime
+    <OPTION VALUE="Capítulo_CID-10">Cap&iacute;tulo CID-10
+    <OPTION VALUE="Faixa_Etária_1">Faixa Et&aacute;ria 1
+    <OPTION VALUE="Faixa_Etária_2">Faixa Et&aacute;ria 2
+    <OPTION VALUE="Sexo">Sexo
+    <OPTION VALUE="Cor/raça">Cor/ra&ccedil;a
+    </SELECT>
+    </div>
+    <div class="conteudo">
+    <LABEL for="I"><b>Conte&uacute;do</b></LABEL>
+    <SELECT NAME="Incremento" ID="I" SIZE=4 MULTIPLE>
+    <OPTION VALUE="Internações" SELECTED>Interna&ccedil;&otilde;es
+    <OPTION VALUE="AIH_aprovadas">AIH aprovadas
+    <OPTION VALUE="Valor_total">Valor total
+    <OPTION VALUE="Valor_serviços_hospitalares">Valor servi&ccedil;os hospitalares
+    <OPTION VALUE="Val_serv_hosp_-_compl_federal">Val serv hosp - compl federal
+    <OPTION VALUE="Val_serv_hosp_-_compl_gestor">Val serv hosp - compl gestor
+    <OPTION VALUE="Valor_serviços_profissionais">Valor servi&ccedil;os profissionais
+    <OPTION VALUE="Val_serv_prof_-_compl_federal">Val serv prof - compl federal
+    <OPTION VALUE="Val_serv_prof_-_compl_gestor">Val serv prof - compl gestor
+    <OPTION VALUE="Valor_médio_AIH">Valor m&eacute;dio AIH
+    <OPTION VALUE="Valor_médio_intern">Valor m&eacute;dio intern
+    <OPTION VALUE="Dias_permanência">Dias perman&ecirc;ncia
+    <OPTION VALUE="Média_permanência">M&eacute;dia perman&ecirc;ncia
+    <OPTION VALUE="Óbitos">&Oacute;bitos
+    <OPTION VALUE="Taxa_mortalidade">Taxa mortalidade
+    </SELECT> <P>
+    </div>
+  </div>
+</div>
+<div class="periodo">
+  <LABEL for="A"><H2 class="Nivel0">Per&iacute;odos Dispon&iacute;veis</H2></LABEL>
+  <div class="corpoperiodo">
+  <SELECT NAME="Arquivos" ID="A" SIZE=4 MULTIPLE>
+    <OPTION VALUE="nruf2608.dbf" SELECTED >Ago/2026
+    <OPTION VALUE="nruf2607.dbf">Jul/2026
+    <OPTION VALUE="nruf2606.dbf">Jun/2026
+    <OPTION VALUE="nruf2605.dbf">Mai/2026
+    <OPTION VALUE="nruf2604.dbf">Abr/2026
+    <OPTION VALUE="nruf2603.dbf">Mar/2026
+    <OPTION VALUE="nruf2602.dbf">Fev/2026
+    <OPTION VALUE="nruf2601.dbf">Jan/2026
+    <OPTION VALUE="nruf2512.dbf">Dez/2025
+    <OPTION VALUE="nruf2511.dbf">Nov/2025
+    <OPTION VALUE="nruf2510.dbf">Out/2025
+    <OPTION VALUE="nruf2509.dbf">Set/2025
+    <OPTION VALUE="nruf2508.dbf">Ago/2025
+    <OPTION VALUE="nruf2507.dbf">Jul/2025
+    <OPTION VALUE="nruf2506.dbf">Jun/2025
+    <OPTION VALUE="nruf2505.dbf">Mai/2025
+    <OPTION VALUE="nruf2504.dbf">Abr/2025
+    <OPTION VALUE="nruf2503.dbf">Mar/2025
+    <OPTION VALUE="nruf2502.dbf">Fev/2025
+    <OPTION VALUE="nruf2501.dbf">Jan/2025
+    <OPTION VALUE="nruf2412.dbf">Dez/2024
+    <OPTION VALUE="nruf2411.dbf">Nov/2024
+    <OPTION VALUE="nruf2410.dbf">Out/2024
+    <OPTION VALUE="nruf2409.dbf">Set/2024
+    <OPTION VALUE="nruf2408.dbf">Ago/2024
+    <OPTION VALUE="nruf2407.dbf">Jul/2024
+    <OPTION VALUE="nruf2406.dbf">Jun/2024
+    <OPTION VALUE="nruf2405.dbf">Mai/2024
+    <OPTION VALUE="nruf2404.dbf">Abr/2024
+    <OPTION VALUE="nruf2403.dbf">Mar/2024
+    <OPTION VALUE="nruf2402.dbf">Fev/2024
+    <OPTION VALUE="nruf2401.dbf">Jan/2024
+    <OPTION VALUE="nruf2312.dbf">Dez/2023
+    <OPTION VALUE="nruf2311.dbf">Nov/2023
+    <OPTION VALUE="nruf2310.dbf">Out/2023
+    <OPTION VALUE="nruf2309.dbf">Set/2023
+    <OPTION VALUE="nruf2308.dbf">Ago/2023
+    <OPTION VALUE="nruf2307.dbf">Jul/2023
+    <OPTION VALUE="nruf2306.dbf">Jun/2023
+    <OPTION VALUE="nruf2305.dbf">Mai/2023
+    <OPTION VALUE="nruf2304.dbf">Abr/2023
+    <OPTION VALUE="nruf2303.dbf">Mar/2023
+    <OPTION VALUE="nruf2302.dbf">Fev/2023
+    <OPTION VALUE="nruf2301.dbf">Jan/2023
+    <OPTION VALUE="nruf2212.dbf">Dez/2022
+    <OPTION VALUE="nruf2211.dbf">Nov/2022
+    <OPTION VALUE="nruf2210.dbf">Out/2022
+    <OPTION VALUE="nruf2209.dbf">Set/2022
+    <OPTION VALUE="nruf2208.dbf">Ago/2022
+    <OPTION VALUE="nruf2207.dbf">Jul/2022
+    <OPTION VALUE="nruf2206.dbf">Jun/2022
+    <OPTION VALUE="nruf2205.dbf">Mai/2022
+    <OPTION VALUE="nruf2204.dbf">Abr/2022
+    <OPTION VALUE="nruf2203.dbf">Mar/2022
+    <OPTION VALUE="nruf2202.dbf">Fev/2022
+    <OPTION VALUE="nruf2201.dbf">Jan/2022
+    <OPTION VALUE="nruf2112.dbf">Dez/2021
+    <OPTION VALUE="nruf2111.dbf">Nov/2021
+    <OPTION VALUE="nruf2110.dbf">Out/2021
+    <OPTION VALUE="nruf2109.dbf">Set/2021
+    <OPTION VALUE="nruf2108.dbf">Ago/2021
+    <OPTION VALUE="nruf2107.dbf">Jul/2021
+    <OPTION VALUE="nruf2106.dbf">Jun/2021
+    <OPTION VALUE="nruf2105.dbf">Mai/2021
+    <OPTION VALUE="nruf2104.dbf">Abr/2021
+    <OPTION VALUE="nruf2103.dbf">Mar/2021
+    <OPTION VALUE="nruf2102.dbf">Fev/2021
+    <OPTION VALUE="nruf2101.dbf">Jan/2021
+    <OPTION VALUE="nruf2012.dbf">Dez/2020
+    <OPTION VALUE="nruf2011.dbf">Nov/2020
+    <OPTION VALUE="nruf2010.dbf">Out/2020
+    <OPTION VALUE="nruf2009.dbf">Set/2020
+    <OPTION VALUE="nruf2008.dbf">Ago/2020
+    <OPTION VALUE="nruf2007.dbf">Jul/2020
+    <OPTION VALUE="nruf2006.dbf">Jun/2020
+    <OPTION VALUE="nruf2005.dbf">Mai/2020
+    <OPTION VALUE="nruf2004.dbf">Abr/2020
+    <OPTION VALUE="nruf2003.dbf">Mar/2020
+    <OPTION VALUE="nruf2002.dbf">Fev/2020
+    <OPTION VALUE="nruf2001.dbf">Jan/2020
+    <OPTION VALUE="nruf1912.dbf">Dez/2019
+    <OPTION VALUE="nruf1911.dbf">Nov/2019
+    <OPTION VALUE="nruf1910.dbf">Out/2019
+    <OPTION VALUE="nruf1909.dbf">Set/2019
+    <OPTION VALUE="nruf1908.dbf">Ago/2019
+    <OPTION VALUE="nruf1907.dbf">Jul/2019
+    <OPTION VALUE="nruf1906.dbf">Jun/2019
+    <OPTION VALUE="nruf1905.dbf">Mai/2019
+    <OPTION VALUE="nruf1904.dbf">Abr/2019
+    <OPTION VALUE="nruf1903.dbf">Mar/2019
+    <OPTION VALUE="nruf1902.dbf">Fev/2019
+    <OPTION VALUE="nruf1901.dbf">Jan/2019
+    <OPTION VALUE="nruf1812.dbf">Dez/2018
+    <OPTION VALUE="nruf1811.dbf">Nov/2018
+    <OPTION VALUE="nruf1810.dbf">Out/2018
+    <OPTION VALUE="nruf1809.dbf">Set/2018
+    <OPTION VALUE="nruf1808.dbf">Ago/2018
+    <OPTION VALUE="nruf1807.dbf">Jul/2018
+    <OPTION VALUE="nruf1806.dbf">Jun/2018
+    <OPTION VALUE="nruf1805.dbf">Mai/2018
+    <OPTION VALUE="nruf1804.dbf">Abr/2018
+    <OPTION VALUE="nruf1803.dbf">Mar/2018
+    <OPTION VALUE="nruf1802.dbf">Fev/2018
+    <OPTION VALUE="nruf1801.dbf">Jan/2018
+    <OPTION VALUE="nruf1712.dbf">Dez/2017
+    <OPTION VALUE="nruf1711.dbf">Nov/2017
+    <OPTION VALUE="nruf1710.dbf">Out/2017
+    <OPTION VALUE="nruf1709.dbf">Set/2017
+    <OPTION VALUE="nruf1708.dbf">Ago/2017
+    <OPTION VALUE="nruf1707.dbf">Jul/2017
+    <OPTION VALUE="nruf1706.dbf">Jun/2017
+    <OPTION VALUE="nruf1705.dbf">Mai/2017
+    <OPTION VALUE="nruf1704.dbf">Abr/2017
+    <OPTION VALUE="nruf1703.dbf">Mar/2017
+    <OPTION VALUE="nruf1702.dbf">Fev/2017
+    <OPTION VALUE="nruf1701.dbf">Jan/2017
+    <OPTION VALUE="nruf1612.dbf">Dez/2016
+    <OPTION VALUE="nruf1611.dbf">Nov/2016
+    <OPTION VALUE="nruf1610.dbf">Out/2016
+    <OPTION VALUE="nruf1609.dbf">Set/2016
+    <OPTION VALUE="nruf1608.dbf">Ago/2016
+    <OPTION VALUE="nruf1607.dbf">Jul/2016
+    <OPTION VALUE="nruf1606.dbf">Jun/2016
+    <OPTION VALUE="nruf1605.dbf">Mai/2016
+    <OPTION VALUE="nruf1604.dbf">Abr/2016
+    <OPTION VALUE="nruf1603.dbf">Mar/2016
+    <OPTION VALUE="nruf1602.dbf">Fev/2016
+    <OPTION VALUE="nruf1601.dbf">Jan/2016
+    <OPTION VALUE="nruf1512.dbf">Dez/2015
+    <OPTION VALUE="nruf1511.dbf">Nov/2015
+    <OPTION VALUE="nruf1510.dbf">Out/2015
+    <OPTION VALUE="nruf1509.dbf">Set/2015
+    <OPTION VALUE="nruf1508.dbf">Ago/2015
+    <OPTION VALUE="nruf1507.dbf">Jul/2015
+    <OPTION VALUE="nruf1506.dbf">Jun/2015
+    <OPTION VALUE="nruf1505.dbf">Mai/2015
+    <OPTION VALUE="nruf1504.dbf">Abr/2015
+    <OPTION VALUE="nruf1503.dbf">Mar/2015
+    <OPTION VALUE="nruf1502.dbf">Fev/2015
+    <OPTION VALUE="nruf1501.dbf">Jan/2015
+    <OPTION VALUE="nruf1412.dbf">Dez/2014
+    <OPTION VALUE="nruf1411.dbf">Nov/2014
+    <OPTION VALUE="nruf1410.dbf">Out/2014
+    <OPTION VALUE="nruf1409.dbf">Set/2014
+    <OPTION VALUE="nruf1408.dbf">Ago/2014
+    <OPTION VALUE="nruf1407.dbf">Jul/2014
+    <OPTION VALUE="nruf1406.dbf">Jun/2014
+    <OPTION VALUE="nruf1405.dbf">Mai/2014
+    <OPTION VALUE="nruf1404.dbf">Abr/2014
+    <OPTION VALUE="nruf1403.dbf">Mar/2014
+    <OPTION VALUE="nruf1402.dbf">Fev/2014
+    <OPTION VALUE="nruf1401.dbf">Jan/2014
+    <OPTION VALUE="nruf1312.dbf">Dez/2013
+    <OPTION VALUE="nruf1311.dbf">Nov/2013
+    <OPTION VALUE="nruf1310.dbf">Out/2013
+    <OPTION VALUE="nruf1309.dbf">Set/2013
+    <OPTION VALUE="nruf1308.dbf">Ago/2013
+    <OPTION VALUE="nruf1307.dbf">Jul/2013
+    <OPTION VALUE="nruf1306.dbf">Jun/2013
+    <OPTION VALUE="nruf1305.dbf">Mai/2013
+    <OPTION VALUE="nruf1304.dbf">Abr/2013
+    <OPTION VALUE="nruf1303.dbf">Mar/2013
+    <OPTION VALUE="nruf1302.dbf">Fev/2013
+    <OPTION VALUE="nruf1301.dbf">Jan/2013
+    <OPTION VALUE="nruf1212.dbf">Dez/2012
+    <OPTION VALUE="nruf1211.dbf">Nov/2012
+    <OPTION VALUE="nruf1210.dbf">Out/2012
+    <OPTION VALUE="nruf1209.dbf">Set/2012
+    <OPTION VALUE="nruf1208.dbf">Ago/2012
+    <OPTION VALUE="nruf1207.dbf">Jul/2012
+    <OPTION VALUE="nruf1206.dbf">Jun/2012
+    <OPTION VALUE="nruf1205.dbf">Mai/2012
+    <OPTION VALUE="nruf1204.dbf">Abr/2012
+    <OPTION VALUE="nruf1203.dbf">Mar/2012
+    <OPTION VALUE="nruf1202.dbf">Fev/2012
+    <OPTION VALUE="nruf1201.dbf">Jan/2012
+    <OPTION VALUE="nruf1112.dbf">Dez/2011
+    <OPTION VALUE="nruf1111.dbf">Nov/2011
+    <OPTION VALUE="nruf1110.dbf">Out/2011
+    <OPTION VALUE="nruf1109.dbf">Set/2011
+    <OPTION VALUE="nruf1108.dbf">Ago/2011
+    <OPTION VALUE="nruf1107.dbf">Jul/2011
+    <OPTION VALUE="nruf1106.dbf">Jun/2011
+    <OPTION VALUE="nruf1105.dbf">Mai/2011
+    <OPTION VALUE="nruf1104.dbf">Abr/2011
+    <OPTION VALUE="nruf1103.dbf">Mar/2011
+    <OPTION VALUE="nruf1102.dbf">Fev/2011
+    <OPTION VALUE="nruf1101.dbf">Jan/2011
+    <OPTION VALUE="nruf1012.dbf">Dez/2010
+    <OPTION VALUE="nruf1011.dbf">Nov/2010
+    <OPTION VALUE="nruf1010.dbf">Out/2010
+    <OPTION VALUE="nruf1009.dbf">Set/2010
+    <OPTION VALUE="nruf1008.dbf">Ago/2010
+    <OPTION VALUE="nruf1007.dbf">Jul/2010
+    <OPTION VALUE="nruf1006.dbf">Jun/2010
+    <OPTION VALUE="nruf1005.dbf">Mai/2010
+    <OPTION VALUE="nruf1004.dbf">Abr/2010
+    <OPTION VALUE="nruf1003.dbf">Mar/2010
+    <OPTION VALUE="nruf1002.dbf">Fev/2010
+    <OPTION VALUE="nruf1001.dbf">Jan/2010
+    <OPTION VALUE="nruf0912.dbf">Dez/2009
+    <OPTION VALUE="nruf0911.dbf">Nov/2009
+    <OPTION VALUE="nruf0910.dbf">Out/2009
+    <OPTION VALUE="nruf0909.dbf">Set/2009
+    <OPTION VALUE="nruf0908.dbf">Ago/2009
+    <OPTION VALUE="nruf0907.dbf">Jul/2009
+    <OPTION VALUE="nruf0906.dbf">Jun/2009
+    <OPTION VALUE="nruf0905.dbf">Mai/2009
+    <OPTION VALUE="nruf0904.dbf">Abr/2009
+    <OPTION VALUE="nruf0903.dbf">Mar/2009
+    <OPTION VALUE="nruf0902.dbf">Fev/2009
+    <OPTION VALUE="nruf0901.dbf">Jan/2009
+    <OPTION VALUE="nruf0812.dbf">Dez/2008
+    <OPTION VALUE="nruf0811.dbf">Nov/2008
+    <OPTION VALUE="nruf0810.dbf">Out/2008
+    <OPTION VALUE="nruf0809.dbf">Set/2008
+    <OPTION VALUE="nruf0808.dbf">Ago/2008
+    <OPTION VALUE="nruf0807.dbf">Jul/2008
+    <OPTION VALUE="nruf0806.dbf">Jun/2008
+    <OPTION VALUE="nruf0805.dbf">Mai/2008
+    <OPTION VALUE="nruf0804.dbf">Abr/2008
+    <OPTION VALUE="nruf0803.dbf">Mar/2008
+    <OPTION VALUE="nruf0802.dbf">Fev/2008
+    <OPTION VALUE="nruf0801.dbf">Jan/2008
+  </SELECT>
+  </div>
+</div>
+<P>
+<div class="selecoes">
+<H2 class="Nivel0">Sele&ccedil;&otilde;es Dispon&iacute;veis</H2><P>
+<div class="corposelecoes">
+<div class="opcoes">
+<div class="titulo_select"><img id="fig1" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S1','fig1','','','')">
+  <LABEL for="S1">Regi&atilde;o
+  </LABEL>
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SRegião" ID="S1" SIZE=7 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">1 Regi&atilde;o Norte
+    <OPTION VALUE="2">2 Regi&atilde;o Nordeste
+    <OPTION VALUE="3">3 Regi&atilde;o Sudeste
+    <OPTION VALUE="4">4 Regi&atilde;o Sul
+    <OPTION VALUE="5">5 Regi&atilde;o Centro-Oeste
+    <OPTION VALUE="6">0 Ignorado/Exterior
+  </SELECT>
+</div>
+<P>
+<div class="titulo_select"><img id="fig2" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S2','fig2','pesqmes2','listahidden2','bt_selecionar2')">
+  <LABEL for="S2">Unidade da Federa&ccedil;&atilde;o
+  </LABEL>
+  <LABEL for="pesqmes2">&nbsp;
+  </LABEL><br />
+  <input name="pesqmes2" class="achefacil" id="pesqmes2"  value="Digite o texto e ache fácil"
+    onkeyup="acha(this,'S2',listahidden2,bt_selecionar2);"
+    onfocus="this.value = '';"
+    onkeypress="if(event.keyCode==13)return false;" />
+  <select name="listahidden2" id="listahidden2" class="boxescondido" multiple size=10
+    onblur="achaopcao(this,'S2',pesqmes2,bt_selecionar2);">
+  </select>
+  <input type="button" class="botaoescondido" name="bt_selecionar2" id="bt_selecionar2" value="" />
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SUnidade_da_Federação" ID="S2" SIZE=10 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">Acre
+    <OPTION VALUE="2">Alagoas
+    <OPTION VALUE="3">Amap&aacute;
+    <OPTION VALUE="4">Amazonas
+    <OPTION VALUE="5">Bahia
+    <OPTION VALUE="6">Cear&aacute;
+    <OPTION VALUE="7">Distrito Federal
+    <OPTION VALUE="8">Esp&iacute;rito Santo
+    <OPTION VALUE="9">Goi&aacute;s
+    <OPTION VALUE="10">Maranh&atilde;o
+    <OPTION VALUE="11">Mato Grosso
+    <OPTION VALUE="12">Mato Grosso do Sul
+    <OPTION VALUE="13">Minas Gerais
+    <OPTION VALUE="14">Par&aacute;
+    <OPTION VALUE="15">Para&iacute;ba
+    <OPTION VALUE="16">Paran&aacute;
+    <OPTION VALUE="17">Pernambuco
+    <OPTION VALUE="18">Piau&iacute;
+    <OPTION VALUE="19">Rio de Janeiro
+    <OPTION VALUE="20">Rio Grande do Norte
+    <OPTION VALUE="21">Rio Grande do Sul
+    <OPTION VALUE="22">Rond&ocirc;nia
+    <OPTION VALUE="23">Roraima
+    <OPTION VALUE="24">Santa Catarina
+    <OPTION VALUE="25">S&atilde;o Paulo
+    <OPTION VALUE="26">Sergipe
+    <OPTION VALUE="27">Tocantins
+    <OPTION VALUE="28">Ignorado/exterior
+  </SELECT>
+</div>
+<P>
+<div class="titulo_select"><img id="fig3" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S3','fig3','','','')">
+  <LABEL for="S3">Car&aacute;ter atendimento
+  </LABEL>
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SCaráter_atendimento" ID="S3" SIZE=7 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">Eletivo
+    <OPTION VALUE="2">Urg&ecirc;ncia
+    <OPTION VALUE="3">Acidente no local trabalho ou a serv da empresa
+    <OPTION VALUE="4">Acidente no trajeto para o trabalho
+    <OPTION VALUE="5">Outros tipo de acidente de tr&acirc;nsito
+    <OPTION VALUE="6">Out tp les&otilde;es e envenen por agent qu&iacute;m f&iacute;sicos
+  </SELECT>
+</div>
+<P>
+<div class="titulo_select"><img id="fig4" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S4','fig4','','','')">
+  <LABEL for="S4">Regime
+  </LABEL>
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SRegime" ID="S4" SIZE=4 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">P&uacute;blico
+    <OPTION VALUE="2">Privado
+    <OPTION VALUE="3">Ignorado
+  </SELECT>
+</div>
+<P>
+<div class="titulo_select"><img id="fig5" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S5','fig5','pesqmes5','listahidden5','bt_selecionar5')">
+  <LABEL for="S5">Cap&iacute;tulo CID-10
+  </LABEL>
+  <LABEL for="pesqmes5">&nbsp;
+  </LABEL><br />
+  <input name="pesqmes5" class="achefacil" id="pesqmes5"  value="Digite o texto e ache fácil"
+    onkeyup="acha(this,'S5',listahidden5,bt_selecionar5);"
+    onfocus="this.value = '';"
+    onkeypress="if(event.keyCode==13)return false;" />
+  <select name="listahidden5" id="listahidden5" class="boxescondido" multiple size=10
+    onblur="achaopcao(this,'S5',pesqmes5,bt_selecionar5);">
+  </select>
+  <input type="button" class="botaoescondido" name="bt_selecionar5" id="bt_selecionar5" value="" />
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SCapítulo_CID-10" ID="S5" SIZE=10 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">I.   Algumas doen&ccedil;as infecciosas e parasit&aacute;rias
+    <OPTION VALUE="2">II.  Neoplasias (tumores)
+    <OPTION VALUE="3">III. Doen&ccedil;as sangue &oacute;rg&atilde;os hemat e transt imunit&aacute;r
+    <OPTION VALUE="4">IV.  Doen&ccedil;as end&oacute;crinas nutricionais e metab&oacute;licas
+    <OPTION VALUE="5">V.   Transtornos mentais e comportamentais
+    <OPTION VALUE="6">VI.  Doen&ccedil;as do sistema nervoso
+    <OPTION VALUE="7">VII. Doen&ccedil;as do olho e anexos
+    <OPTION VALUE="8">VIII.Doen&ccedil;as do ouvido e da ap&oacute;fise mast&oacute;ide
+    <OPTION VALUE="9">IX.  Doen&ccedil;as do aparelho circulat&oacute;rio
+    <OPTION VALUE="10">X.   Doen&ccedil;as do aparelho respirat&oacute;rio
+    <OPTION VALUE="11">XI.  Doen&ccedil;as do aparelho digestivo
+    <OPTION VALUE="12">XII. Doen&ccedil;as da pele e do tecido subcut&acirc;neo
+    <OPTION VALUE="13">XIII.Doen&ccedil;as sist osteomuscular e tec conjuntivo
+    <OPTION VALUE="14">XIV. Doen&ccedil;as do aparelho geniturin&aacute;rio
+    <OPTION VALUE="15">XV.  Gravidez parto e puerp&eacute;rio
+    <OPTION VALUE="16">XVI. Algumas afec originadas no per&iacute;odo perinatal
+    <OPTION VALUE="17">XVII.Malf cong deformid e anomalias cromoss&ocirc;micas
+    <OPTION VALUE="18">XVIII.Sint sinais e achad anorm ex cl&iacute;n e laborat
+    <OPTION VALUE="19">XIX. Les&otilde;es enven e alg out conseq causas externas
+    <OPTION VALUE="20">XX.  Causas externas de morbidade e mortalidade
+    <OPTION VALUE="21">XXI. Contatos com servi&ccedil;os de sa&uacute;de
+    <OPTION VALUE="22">CID 10ª Revis&atilde;o n&atilde;o dispon&iacute;vel ou n&atilde;o preenchido
+  </SELECT>
+</div>
+<P>
+<div class="titulo_select"><img id="fig6" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S6','fig6','pesqmes6','listahidden6','bt_selecionar6')">
+  <LABEL for="S6">Lista Morb  CID-10
+  </LABEL>
+  <LABEL for="pesqmes6">&nbsp;
+  </LABEL><br />
+  <input name="pesqmes6" class="achefacil" id="pesqmes6"  value="Digite o texto e ache fácil"
+    onkeyup="acha(this,'S6',listahidden6,bt_selecionar6);"
+    onfocus="this.value = '';"
+    onkeypress="if(event.keyCode==13)return false;" />
+  <select name="listahidden6" id="listahidden6" class="boxescondido" multiple size=10
+    onblur="achaopcao(this,'S6',pesqmes6,bt_selecionar6);">
+  </select>
+  <input type="button" class="botaoescondido" name="bt_selecionar6" id="bt_selecionar6" value="" />
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SLista_Morb__CID-10" ID="S6" SIZE=10 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">C&oacute;lera
+    <OPTION VALUE="2">Febres tif&oacute;ide e paratif&oacute;ide
+    <OPTION VALUE="3">Shiguelose
+    <OPTION VALUE="4">Ameb&iacute;ase
+    <OPTION VALUE="5">Diarr&eacute;ia e gastroenterite origem infecc presum&iacute;vel
+    <OPTION VALUE="6">Outras doen&ccedil;as infecciosas intestinais
+    <OPTION VALUE="7">Tuberculose pulmonar
+    <OPTION VALUE="8">Outras tuberculoses respirat&oacute;rias
+    <OPTION VALUE="9">Restante de tuberculose respirat&oacute;ria
+    <OPTION VALUE="10">Tuberculose do sistema nervoso
+    <OPTION VALUE="11">Tuberc intest perit&ocirc;nio gl&acirc;ngl mesent&eacute;ricos
+    <OPTION VALUE="12">Tuberculose &oacute;ssea e das articula&ccedil;&otilde;es
+    <OPTION VALUE="13">Tuberculose do aparelho geniturin&aacute;rio
+    <OPTION VALUE="14">Tuberculose miliar
+    <OPTION VALUE="15">Restante de outras tuberculoses
+    <OPTION VALUE="16">Peste
+    <OPTION VALUE="17">Brucelose
+    <OPTION VALUE="18">Hansen&iacute;ase [lepra]
+    <OPTION VALUE="19">T&eacute;tano neonatal
+    <OPTION VALUE="20">Outros t&eacute;tanos
+    <OPTION VALUE="21">Difteria
+    <OPTION VALUE="22">Coqueluche
+    <OPTION VALUE="23">Infec&ccedil;&atilde;o meningoc&oacute;cica
+    <OPTION VALUE="24">Septicemia
+    <OPTION VALUE="25">Leptospirose icterohemorr&aacute;gica
+    <OPTION VALUE="26">Outras formas de leptospirose
+    <OPTION VALUE="27">Leptospirose n&atilde;o especificada
+    <OPTION VALUE="28">Restante de outras doen&ccedil;as bacterianas
+    <OPTION VALUE="29">S&iacute;filis cong&ecirc;nita
+    <OPTION VALUE="30">S&iacute;filis precoce
+    <OPTION VALUE="31">Outras s&iacute;filis
+    <OPTION VALUE="32">Infec&ccedil;&atilde;o gonoc&oacute;cica
+    <OPTION VALUE="33">Doen&ccedil;as por clam&iacute;dias transmitidas por via sexual
+    <OPTION VALUE="34">Outras infec&ccedil;&otilde;es com transm predominant sexual
+    <OPTION VALUE="35">Febres recorrentes
+    <OPTION VALUE="36">Tracoma
+    <OPTION VALUE="37">Tifo exantem&aacute;tico
+    <OPTION VALUE="38">Poliomielite aguda
+    <OPTION VALUE="39">Raiva
+    <OPTION VALUE="40">Encefalite viral
+    <OPTION VALUE="41">Febre amarela
+    <OPTION VALUE="42">Dengue [dengue cl&aacute;sssico]
+    <OPTION VALUE="43">Febre hemorr&aacute;gica devida ao v&iacute;rus da dengue
+    <OPTION VALUE="44">Restante de outr febr arbov&iacute;rus febr hemor v&iacute;rus
+    <OPTION VALUE="45">Infec&ccedil;&otilde;es pelo v&iacute;rus do herpes
+    <OPTION VALUE="46">Varicela e herpes zoster
+    <OPTION VALUE="47">Sarampo
+    <OPTION VALUE="48">Rub&eacute;ola
+    <OPTION VALUE="49">Hepatite aguda B
+    <OPTION VALUE="50">Outras hepatites virais
+    <OPTION VALUE="51">Doen&ccedil;a pelo v&iacute;rus da imunodefici&ecirc;ncia humana [HIV]
+    <OPTION VALUE="52">Caxumba [parotidite epid&ecirc;mica]
+    <OPTION VALUE="53">Meningite viral
+    <OPTION VALUE="54">Restante de outras doen&ccedil;as virais
+    <OPTION VALUE="55">Micoses
+    <OPTION VALUE="56">Mal&aacute;ria por Plasmodium falciparum
+    <OPTION VALUE="57">Mal&aacute;ria por Plasmodium vivax
+    <OPTION VALUE="58">Mal&aacute;ria por Plasmodium malariae
+    <OPTION VALUE="59">Outras formas mal&aacute;ria conf exames parasitol&oacute;g
+    <OPTION VALUE="60">Mal&aacute;ria n&atilde;o especificada
+    <OPTION VALUE="61">Leishmaniose visceral
+    <OPTION VALUE="62">Leishmaniose cut&acirc;nea
+    <OPTION VALUE="63">Leishmaniose cut&acirc;neo-mucosa
+    <OPTION VALUE="64">Leishmaniose n&atilde;o especificada
+    <OPTION VALUE="65">Tripanossom&iacute;ase
+    <OPTION VALUE="66">Esquistossomose
+    <OPTION VALUE="67">Outras infesta&ccedil;&otilde;es por tremat&oacute;deos
+    <OPTION VALUE="68">Equinococose
+    <OPTION VALUE="69">Dracuncul&iacute;ase
+    <OPTION VALUE="70">Oncocercose
+    <OPTION VALUE="71">Filariose
+    <OPTION VALUE="72">Ancilostom&iacute;ase
+    <OPTION VALUE="73">Outras helmint&iacute;ases
+    <OPTION VALUE="74">Seq&uuml;elas de tuberculose
+    <OPTION VALUE="75">Seq&uuml;elas de poliomielite
+    <OPTION VALUE="76">Seq&uuml;elas de hansen&iacute;ase [lepra]
+    <OPTION VALUE="77">Outras doen&ccedil;as infecciosas e parasit&aacute;rias
+    <OPTION VALUE="78">Neoplasia maligna do l&aacute;bio cavidade oral e faringe
+    <OPTION VALUE="79">Neoplasia maligna do es&ocirc;fago
+    <OPTION VALUE="80">Neoplasia maligna do est&ocirc;mago
+    <OPTION VALUE="81">Neoplasia maligna do c&oacute;lon
+    <OPTION VALUE="82">Neopl malig jun&ccedil;&atilde;o retossigm reto &acirc;nus canal anal
+    <OPTION VALUE="83">Neopl malig f&iacute;gado e vias biliares intra-hep&aacute;ticas
+    <OPTION VALUE="84">Neoplasia maligna do p&acirc;ncreas
+    <OPTION VALUE="85">Outras neoplasias malignas de &oacute;rg&atilde;os digestivos
+    <OPTION VALUE="86">Neoplasias malignas de laringe
+    <OPTION VALUE="87">Neoplasia maligna de traqu&eacute;ia br&ocirc;nquios e pulm&otilde;es
+    <OPTION VALUE="88">Outras neopl malig &oacute;rg respirat e intrator&aacute;cicos
+    <OPTION VALUE="89">Neoplasia maligna do osso e cartilagem articular
+    <OPTION VALUE="90">Neoplasia maligna da pele
+    <OPTION VALUE="91">Outras neoplasias malignas da pele
+    <OPTION VALUE="92">Neopl malig do tecido mesotelial e tecidos moles
+    <OPTION VALUE="93">Neoplasia maligna da mama
+    <OPTION VALUE="94">Neoplasia maligna do colo do &uacute;tero
+    <OPTION VALUE="95">Neopl malig outr por&ccedil;&otilde;es e por&ccedil;&otilde;es n&atilde;o espec &uacute;tero
+    <OPTION VALUE="96">Outras neopl malignas &oacute;rg&atilde;os genitais femininos
+    <OPTION VALUE="97">Neoplasia maligna da pr&oacute;stata
+    <OPTION VALUE="98">Outras neopl malignas &oacute;rg&atilde;os genitais masculinos
+    <OPTION VALUE="99">Neoplasia maligna da bexiga
+    <OPTION VALUE="100">Outras neoplasias malignas do trato urin&aacute;rio
+    <OPTION VALUE="101">Neoplasia maligna dos olhos e anexos
+    <OPTION VALUE="102">Neoplasia maligna do enc&eacute;falo
+    <OPTION VALUE="103">Neopl malig outras partes sistema nervoso central
+    <OPTION VALUE="104">Neopl malig outr localiz mal def secun e n&atilde;o espec
+    <OPTION VALUE="105">Doen&ccedil;a de Hodgkin
+    <OPTION VALUE="106">Linfoma n&atilde;o-Hodgkin
+    <OPTION VALUE="107">Leucemia
+    <OPTION VALUE="108">Outras neopl malig tecidos linf&oacute;id hematop e relac
+    <OPTION VALUE="109">Carcinoma in situ de colo do &uacute;tero
+    <OPTION VALUE="110">Neoplasia benigna da pele
+    <OPTION VALUE="111">Neoplasia benigna da mama
+    <OPTION VALUE="112">Leiomioma do &uacute;tero
+    <OPTION VALUE="113">Neoplasia benigna do ov&aacute;rio
+    <OPTION VALUE="114">Neoplasia benigna dos &oacute;rg&atilde;os urin&aacute;rios
+    <OPTION VALUE="115">Neopl benig enc&eacute;falo e outr part sist nerv central
+    <OPTION VALUE="116">Outr neopl in situ benigs e comport incert desconh
+    <OPTION VALUE="117">Anemia por defici&ecirc;ncia de ferro
+    <OPTION VALUE="118">Outras anemias
+    <OPTION VALUE="119">Afec&ccedil; hemorr&aacute;g e outr doen&ccedil; sang e &oacute;rg hematopo&eacute;t
+    <OPTION VALUE="120">Alguns transtornos envolvendo mecanismo imunit&aacute;rio
+    <OPTION VALUE="121">Transtornos tireoidianos relac defici&ecirc;ncia de iodo
+    <OPTION VALUE="122">Tireotoxicose
+    <OPTION VALUE="123">Outros transtornos tireoidianos
+    <OPTION VALUE="124">Diabetes mellitus
+    <OPTION VALUE="125">Desnutri&ccedil;&atilde;o
+    <OPTION VALUE="126">Defici&ecirc;ncia de vitamina A
+    <OPTION VALUE="127">Outras defici&ecirc;ncias vitam&iacute;nicas
+    <OPTION VALUE="128">Seq&uuml;elas de desnutri&ccedil;&atilde;o e de outras defic nutric
+    <OPTION VALUE="129">Obesidade
+    <OPTION VALUE="130">Deple&ccedil;&atilde;o de volume
+    <OPTION VALUE="131">Outros transt end&oacute;crinos nutricionais metab&oacute;licos
+    <OPTION VALUE="132">Dem&ecirc;ncia
+    <OPTION VALUE="133">Transt mentais e comportamentais dev uso de &aacute;lcool
+    <OPTION VALUE="134">Transt mentais comport dev uso outr subst psicoat
+    <OPTION VALUE="135">Esquizofrenia transt esquizot&iacute;picos e delirantes
+    <OPTION VALUE="136">Transtornos de humor [afetivos]
+    <OPTION VALUE="137">Transt neur&oacute;t e relacionados com stress e somatof
+    <OPTION VALUE="138">Retardo mental
+    <OPTION VALUE="139">Outros transtornos mentais e comportamentais
+    <OPTION VALUE="140">Meningite bacteriana n&atilde;o classif outra parte
+    <OPTION VALUE="141">Meningite em doen&ccedil;as bacters class outr parte
+    <OPTION VALUE="142">Mening em doen&ccedil; infec/parasit class outr part
+    <OPTION VALUE="143">Mening dev outras causas e causas n&atilde;o especif
+    <OPTION VALUE="144">Restante doen&ccedil;as inflamat sist nervoso central
+    <OPTION VALUE="145">Doen&ccedil;a de Parkinson
+    <OPTION VALUE="146">Doen&ccedil;a de Alzheimer
+    <OPTION VALUE="147">Esclerose m&uacute;ltiplas
+    <OPTION VALUE="148">Epilepsia
+    <OPTION VALUE="149">Enxaqueca e outras s&iacute;ndromes de algias cef&aacute;licos
+    <OPTION VALUE="150">Acid vascular cerebr isqu&ecirc;m transit e s&iacute;ndr correl
+    <OPTION VALUE="151">Transtornos dos nervos ra&iacute;zes e plexos nervosos
+    <OPTION VALUE="152">Paralisia cerebral e outras s&iacute;ndromes paral&iacute;ticas
+    <OPTION VALUE="153">Outras doen&ccedil;as do sistema nervoso
+    <OPTION VALUE="154">Inflama&ccedil;&atilde;o da p&aacute;lpebra
+    <OPTION VALUE="155">Conjuntivite e outros transtornos da conjuntiva
+    <OPTION VALUE="156">Ceratite e outros transtornos escler&oacute;tica e c&oacute;rnea
+    <OPTION VALUE="157">Catarata e outros transtornos do cristalino
+    <OPTION VALUE="158">Descolamentos e defeitos da retina
+    <OPTION VALUE="159">Glaucoma
+    <OPTION VALUE="160">Estrabismo
+    <OPTION VALUE="161">Transtornos da refra&ccedil;&atilde;o e da acomoda&ccedil;&atilde;o
+    <OPTION VALUE="162">Cegueira e vis&atilde;o subnormal
+    <OPTION VALUE="163">Outras doen&ccedil;as do olho e anexos
+    <OPTION VALUE="164">Otite m&eacute;dia e outr transt ouvido m&eacute;dio ap&oacute;f mast
+    <OPTION VALUE="165">Perda de audi&ccedil;&atilde;o
+    <OPTION VALUE="166">Outras doen&ccedil;as do ouvido e da ap&oacute;fise mast&oacute;ide
+    <OPTION VALUE="167">Febre reum&aacute;tica aguda
+    <OPTION VALUE="168">Doen&ccedil;a reum&aacute;tica cr&ocirc;nica do cora&ccedil;&atilde;o
+    <OPTION VALUE="169">Hipertens&atilde;o essencial (prim&aacute;ria)
+    <OPTION VALUE="170">Outras doen&ccedil;as hipertensivas
+    <OPTION VALUE="171">Infarto agudo do mioc&aacute;rdio
+    <OPTION VALUE="172">Outras doen&ccedil;as isqu&ecirc;micas do cora&ccedil;&atilde;o
+    <OPTION VALUE="173">Embolia pulmonar
+    <OPTION VALUE="174">Transtornos de condu&ccedil;&atilde;o e arritmias card&iacute;acas
+    <OPTION VALUE="175">Insufici&ecirc;ncia card&iacute;aca
+    <OPTION VALUE="176">Outras doen&ccedil;as do cora&ccedil;&atilde;o
+    <OPTION VALUE="177">Hemorragia intracraniana
+    <OPTION VALUE="178">Infarto cerebral
+    <OPTION VALUE="179">Acid vascular cerebr n&atilde;o espec hemorr&aacute;g ou isqu&ecirc;m
+    <OPTION VALUE="180">Outras doen&ccedil;as cerebrovasculares
+    <OPTION VALUE="181">Arteroesclerose
+    <OPTION VALUE="182">Outras doen&ccedil;as vasculares perif&eacute;ricas
+    <OPTION VALUE="183">Embolia e trombose arteriais
+    <OPTION VALUE="184">Outras doen&ccedil;as das art&eacute;rias arter&iacute;olas e capilares
+    <OPTION VALUE="185">Flebite tromboflebite embolia e trombose venosa
+    <OPTION VALUE="186">Veias varicosas das extremidades inferiores
+    <OPTION VALUE="187">Hemorr&oacute;idas
+    <OPTION VALUE="188">Outras doen&ccedil;as do aparelho circulat&oacute;rio
+    <OPTION VALUE="189">Faringite aguda e amigdalite aguda
+    <OPTION VALUE="190">Laringite e traque&iacute;te agudas
+    <OPTION VALUE="191">Outras infec&ccedil;&otilde;es agudas das vias a&eacute;reas superiores
+    <OPTION VALUE="192">Influenza [gripe]
+    <OPTION VALUE="193">Pneumonia
+    <OPTION VALUE="194">Bronquite aguda e bronquiolite aguda
+    <OPTION VALUE="195">Sinusite cr&ocirc;nica
+    <OPTION VALUE="196">Outras doen&ccedil;as do nariz e dos seios paranasais
+    <OPTION VALUE="197">Doen&ccedil;as cr&ocirc;nicas das am&iacute;gdalas e das aden&oacute;ides
+    <OPTION VALUE="198">Outras doen&ccedil;as do trato respirat&oacute;rio superior
+    <OPTION VALUE="199">Bronquite enfisema e outr doen&ccedil; pulm obstr cr&ocirc;nic
+    <OPTION VALUE="200">Asma
+    <OPTION VALUE="201">Bronquiectasia
+    <OPTION VALUE="202">Pneumoconiose
+    <OPTION VALUE="203">Outras doen&ccedil;as do aparelho respirat&oacute;rio
+    <OPTION VALUE="204">C&aacute;rie dent&aacute;ria
+    <OPTION VALUE="205">Outros transtornos dentes e estruturas de suporte
+    <OPTION VALUE="206">Outr doen&ccedil; cavidade oral gl&acirc;nd saliv e maxilares
+    <OPTION VALUE="207">&Uacute;lcera g&aacute;strica e duodenal
+    <OPTION VALUE="208">Gastrite e duodenite
+    <OPTION VALUE="209">Outras doen&ccedil;as do es&ocirc;fago est&ocirc;mago e duodeno
+    <OPTION VALUE="210">Doen&ccedil;as do ap&ecirc;ndice
+    <OPTION VALUE="211">H&eacute;rnia inguinal
+    <OPTION VALUE="212">Outras h&eacute;rnias
+    <OPTION VALUE="213">Doen&ccedil;a de Crohn e colite ulcerativa
+    <OPTION VALUE="214">Ileo paral&iacute;tico e obstru&ccedil;&atilde;o intestinal sem h&eacute;rnia
+    <OPTION VALUE="215">Doen&ccedil;a diverticular do intestino
+    <OPTION VALUE="216">Outras doen&ccedil;as dos intestinos e perit&ocirc;nio
+    <OPTION VALUE="217">Doen&ccedil;a alco&oacute;lica do f&iacute;gado
+    <OPTION VALUE="218">Outras doen&ccedil;as do f&iacute;gado
+    <OPTION VALUE="219">Colelit&iacute;ase e colecistite
+    <OPTION VALUE="220">Pancreatite aguda e outras doen&ccedil;as do p&acirc;ncreas
+    <OPTION VALUE="221">Outras doen&ccedil;as do aparelho digestivo
+    <OPTION VALUE="222">Infec&ccedil;&otilde;es da pele e do tecido subcut&acirc;neo
+    <OPTION VALUE="223">Outras doen&ccedil;as da pele e do tecido subcut&acirc;neo
+    <OPTION VALUE="224">Artrite reumat&oacute;ide e outr poliartropatias inflamat
+    <OPTION VALUE="225">Artrose
+    <OPTION VALUE="226">Deformidades adquiridas das articula&ccedil;&otilde;es
+    <OPTION VALUE="227">Outros transtronos articulares
+    <OPTION VALUE="228">Doen&ccedil;as sist&ecirc;micas do tecido conjuntivo
+    <OPTION VALUE="229">Transt discais cervic e outr transt disc intervert
+    <OPTION VALUE="230">Outras dorsopatias
+    <OPTION VALUE="231">Transtornos do tecido mole
+    <OPTION VALUE="232">Transtornos da densidade e da estrutura &oacute;sseas
+    <OPTION VALUE="233">Osteomielite
+    <OPTION VALUE="234">Outras doen&ccedil;as sist osteomuscular e tec conjuntivo
+    <OPTION VALUE="235">S&iacute;ndrome nefr&iacute;ticas aguda e rapidamente progressiv
+    <OPTION VALUE="236">Outras doen&ccedil;as glomerulares
+    <OPTION VALUE="237">Doen&ccedil;as renais t&uacute;bulo-intersticiais
+    <OPTION VALUE="238">Insufici&ecirc;ncia renal
+    <OPTION VALUE="239">Urolit&iacute;ase
+    <OPTION VALUE="240">Cistite
+    <OPTION VALUE="241">Outras doen&ccedil;as do aparelho urin&aacute;rio
+    <OPTION VALUE="242">Hiperplasia da pr&oacute;stata
+    <OPTION VALUE="243">Outros transtornos da pr&oacute;stata
+    <OPTION VALUE="244">Hidrocele e espermatocele
+    <OPTION VALUE="245">Prepr&uacute;cio redundante fimose e parafimose
+    <OPTION VALUE="246">Outras doen&ccedil;as dos &oacute;rg&atilde;os genitais masculinos
+    <OPTION VALUE="247">Transtornos da mama
+    <OPTION VALUE="248">Salpingite e ooforite
+    <OPTION VALUE="249">Doen&ccedil;a inflamat&oacute;ria do colo do &uacute;tero
+    <OPTION VALUE="250">Outras doen&ccedil;as inflamat &oacute;rg&atilde;os p&eacute;lvicos femininos
+    <OPTION VALUE="251">Endometriose
+    <OPTION VALUE="252">Prolapso genital feminino
+    <OPTION VALUE="253">Transt n&atilde;o-inflam ov&aacute;rio tromp Fal&oacute;pio ligam largo
+    <OPTION VALUE="254">Transtornos da menstrua&ccedil;&atilde;o
+    <OPTION VALUE="255">Transt menop&aacute;usicos e outr transt perimenop&aacute;usicos
+    <OPTION VALUE="256">Infertilidade feminina
+    <OPTION VALUE="257">Outros transtornos do aparelho geniturin&aacute;rio
+    <OPTION VALUE="258">Aborto espont&acirc;neo
+    <OPTION VALUE="259">Aborto por raz&otilde;es m&eacute;dicas e legais
+    <OPTION VALUE="260">Outras gravidezes que terminam em aborto
+    <OPTION VALUE="261">Edema protein transt hipertens gravid parto puerp
+    <OPTION VALUE="262">Placent pr&eacute;v descol premat placent hemorr antepart
+    <OPTION VALUE="263">Outr mot ass &agrave; m&atilde;e rel cav fetal amn pos prob part
+    <OPTION VALUE="264">Trabalho de parto obstru&iacute;do
+    <OPTION VALUE="265">Hemorragia p&oacute;s-parto
+    <OPTION VALUE="266">Outras complica&ccedil;&otilde;es da gravidez e do parto
+    <OPTION VALUE="267">Parto &uacute;nico espont&acirc;neo
+    <OPTION VALUE="268">Compl pred rel puerp&eacute;rio e outr afec&ccedil; obst&eacute;tr NCOP
+    <OPTION VALUE="269">Feto e rec-nasc afet fat mat e compl grav e parto
+    <OPTION VALUE="270">Ret cres fet desn fet tran rel gest curt baix peso
+    <OPTION VALUE="271">Trauma durante o nascimento
+    <OPTION VALUE="272">Hip&oacute;xia intrauterina e asfixia ao nascer
+    <OPTION VALUE="273">Outros transt respirat&oacute;rios orig per&iacute;odo perinatal
+    <OPTION VALUE="274">Doen&ccedil;as infecciosas e parasit&aacute;rias cong&ecirc;nitas
+    <OPTION VALUE="275">Outras infec&ccedil;&otilde;es espec&iacute;ficas do per&iacute;odo perinatal
+    <OPTION VALUE="276">Doen&ccedil;a hemol&iacute;tica do feto e do rec&eacute;m-nascido
+    <OPTION VALUE="277">Outras afec&ccedil;&otilde;es originadas no per&iacute;odo perinatal
+    <OPTION VALUE="278">Espinha b&iacute;fida
+    <OPTION VALUE="279">Outras malforma&ccedil;&otilde;es cong&ecirc;nitas do sistema nervoso
+    <OPTION VALUE="280">Malforma&ccedil;&otilde;es cong&ecirc;nitas do aparelho circulat&oacute;rio
+    <OPTION VALUE="281">Fenda labial e fenda palatina
+    <OPTION VALUE="282">Aus&ecirc;ncia atresia e estenose do intestino delgado
+    <OPTION VALUE="283">Outras malforma&ccedil;&otilde;es cong&ecirc;nitas aparelho digestivo
+    <OPTION VALUE="284">Testiculo n&atilde;o-descido
+    <OPTION VALUE="285">Outras malforma&ccedil;&otilde;es do aparelho geniturin&aacute;rio
+    <OPTION VALUE="286">Deformidades cong&ecirc;nitas do quadril
+    <OPTION VALUE="287">Deformidades cong&ecirc;nitas dos p&eacute;s
+    <OPTION VALUE="288">Outr malform e deform cong&ecirc;nit aparelho osteomusc
+    <OPTION VALUE="289">Outras malforma&ccedil;&otilde;es cong&ecirc;nitas
+    <OPTION VALUE="290">Anomalias cromoss&ocirc;micas NCOP
+    <OPTION VALUE="291">Dor abdominal e p&eacute;lvica
+    <OPTION VALUE="292">Febre de origem desconhecida
+    <OPTION VALUE="293">Senilidade
+    <OPTION VALUE="294">Outr sist sinais achad anorm ex cl&iacute;n laborat NCOP
+    <OPTION VALUE="295">Fratura do cr&acirc;nio e dos ossos da face
+    <OPTION VALUE="296">Fratura do pesco&ccedil;o t&oacute;rax ou pelve
+    <OPTION VALUE="297">Fratura do f&ecirc;mur
+    <OPTION VALUE="298">Fratura de outros ossos dos membros
+    <OPTION VALUE="299">Fraturas envolvendo m&uacute;ltiplas regi&otilde;es do corpo
+    <OPTION VALUE="300">Luxa&ccedil;&otilde;es entorse distens&atilde;o reg esp e m&uacute;ltip corpo
+    <OPTION VALUE="301">Traumatismo do olho e da &oacute;rbita ocular
+    <OPTION VALUE="302">Traumatismo intracraniano
+    <OPTION VALUE="303">Traumatismo de outros &oacute;rg&atilde;os internos
+    <OPTION VALUE="304">Les&otilde;es esmag amput traum&aacute;t reg esp e m&uacute;ltip corpo
+    <OPTION VALUE="305">Outr traum reg espec n&atilde;o espec e m&uacute;ltiplas corpo
+    <OPTION VALUE="306">Efeitos corpo estranho atrav&eacute;s de orif&iacute;cio natural
+    <OPTION VALUE="307">Queimadura e corros&otilde;es
+    <OPTION VALUE="308">Envenenamento por drogas e subst&acirc;ncias biol&oacute;gicas
+    <OPTION VALUE="309">Efeitos t&oacute;xicos subst origem princ n&atilde;o-medicinal
+    <OPTION VALUE="310">S&iacute;ndromes de maus tratos
+    <OPTION VALUE="311">Outros efeitos e n&atilde;o espec de causas externas
+    <OPTION VALUE="312">Cert compl prec traum compl cir&uacute;rg ass m&eacute;dic NCOP
+    <OPTION VALUE="313">Seq&uuml;el traum enven e outr conseq causas externas
+    <OPTION VALUE="314">Pessoas em contato com serv sa&uacute;de exame e investig
+    <OPTION VALUE="315">Estado infec assint v&iacute;rus da imunodef humana [HIV]
+    <OPTION VALUE="316">Outr pess riscos pot &agrave; sa&uacute;de rel doen&ccedil;as transmiss
+    <OPTION VALUE="317">Anticoncep&ccedil;&atilde;o
+    <OPTION VALUE="318">Rastreamento pr&eacute;-natal e outr superv da gravidez
+    <OPTION VALUE="319">Nascidos vivos segundo o local de nascimento
+    <OPTION VALUE="320">Assist&ecirc;ncia e exame p&oacute;s-natal
+    <OPTION VALUE="321">Pessoas contato serv sa&uacute;de cuidados proc espec&iacute;f
+    <OPTION VALUE="322">Pessoas contato serv sa&uacute;de por outras raz&otilde;es
+    <OPTION VALUE="323">Acidentes de transporte
+    <OPTION VALUE="324">Quedas
+    <OPTION VALUE="325">Afogamento e submers&atilde;o acidentamente
+    <OPTION VALUE="326">Exposi&ccedil;&atilde;o ao fumo ao fogo e &agrave;s chamas
+    <OPTION VALUE="327">Envenenamento intox exposi&ccedil;&atilde;o subst&acirc;ncias nocivas
+    <OPTION VALUE="328">Les&otilde;es autoprovocadas voluntariamente
+    <OPTION VALUE="329">Agress&otilde;es
+    <OPTION VALUE="330">Todas as outras causas externas
+    <OPTION VALUE="331">N&atilde;o preenchido
+    <OPTION VALUE="332">CID 10ª Revis&atilde;o n&atilde;o dispon&iacute;vel
+    <OPTION VALUE="333">CID inv&aacute;lido
+  </SELECT>
+</div>
+<P>
+<div class="titulo_select"><img id="fig7" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S7','fig7','pesqmes7','listahidden7','bt_selecionar7')">
+  <LABEL for="S7">Faixa Et&aacute;ria 1
+  </LABEL>
+  <LABEL for="pesqmes7">&nbsp;
+  </LABEL><br />
+  <input name="pesqmes7" class="achefacil" id="pesqmes7"  value="Digite o texto e ache fácil"
+    onkeyup="acha(this,'S7',listahidden7,bt_selecionar7);"
+    onfocus="this.value = '';"
+    onkeypress="if(event.keyCode==13)return false;" />
+  <select name="listahidden7" id="listahidden7" class="boxescondido" multiple size=10
+    onblur="achaopcao(this,'S7',pesqmes7,bt_selecionar7);">
+  </select>
+  <input type="button" class="botaoescondido" name="bt_selecionar7" id="bt_selecionar7" value="" />
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SFaixa_Etária_1" ID="S7" SIZE=10 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">Menor 1 ano
+    <OPTION VALUE="2">1 a 4 anos
+    <OPTION VALUE="3">5 a 9 anos
+    <OPTION VALUE="4">10 a 14 anos
+    <OPTION VALUE="5">15 a 19 anos
+    <OPTION VALUE="6">20 a 29 anos
+    <OPTION VALUE="7">30 a 39 anos
+    <OPTION VALUE="8">40 a 49 anos
+    <OPTION VALUE="9">50 a 59 anos
+    <OPTION VALUE="10">60 a 69 anos
+    <OPTION VALUE="11">70 a 79 anos
+    <OPTION VALUE="12">80 anos e mais
+    <OPTION VALUE="13">Idade ignorada
+  </SELECT>
+</div>
+<P>
+<div class="titulo_select"><img id="fig8" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S8','fig8','pesqmes8','listahidden8','bt_selecionar8')">
+  <LABEL for="S8">Faixa Et&aacute;ria 2
+  </LABEL>
+  <LABEL for="pesqmes8">&nbsp;
+  </LABEL><br />
+  <input name="pesqmes8" class="achefacil" id="pesqmes8"  value="Digite o texto e ache fácil"
+    onkeyup="acha(this,'S8',listahidden8,bt_selecionar8);"
+    onfocus="this.value = '';"
+    onkeypress="if(event.keyCode==13)return false;" />
+  <select name="listahidden8" id="listahidden8" class="boxescondido" multiple size=10
+    onblur="achaopcao(this,'S8',pesqmes8,bt_selecionar8);">
+  </select>
+  <input type="button" class="botaoescondido" name="bt_selecionar8" id="bt_selecionar8" value="" />
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SFaixa_Etária_2" ID="S8" SIZE=10 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">Menor 1 ano
+    <OPTION VALUE="2">1 a 4 anos
+    <OPTION VALUE="3">5 a 9 anos
+    <OPTION VALUE="4">10 a 14 anos
+    <OPTION VALUE="5">15 a 19 anos
+    <OPTION VALUE="6">20 a 24 anos
+    <OPTION VALUE="7">25 a 29 anos
+    <OPTION VALUE="8">30 a 34 anos
+    <OPTION VALUE="9">35 a 39 anos
+    <OPTION VALUE="10">40 a 44 anos
+    <OPTION VALUE="11">45 a 49 anos
+    <OPTION VALUE="12">50 a 54 anos
+    <OPTION VALUE="13">55 a 59 anos
+    <OPTION VALUE="14">60 a 64 anos
+    <OPTION VALUE="15">65 a 69 anos
+    <OPTION VALUE="16">70 a 74 anos
+    <OPTION VALUE="17">75 a 79 anos
+    <OPTION VALUE="18">80 anos e mais
+    <OPTION VALUE="19">Idade ignorada
+  </SELECT>
+</div>
+<P>
+<div class="titulo_select"><img id="fig9" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S9','fig9','','','')">
+  <LABEL for="S9">Sexo
+  </LABEL>
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SSexo" ID="S9" SIZE=4 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">Masc
+    <OPTION VALUE="2">Fem
+    <OPTION VALUE="3">Ign
+  </SELECT>
+</div>
+<P>
+<div class="titulo_select"><img id="fig10" src="/cgi/imagem/ico_mais_t.png"
+  onclick="exibirselect('S10','fig10','','','')">
+  <LABEL for="S10">Cor/ra&ccedil;a
+  </LABEL>
+  <SELECT scrolling="auto" class="fundo_select_tabnet" NAME="SCor/raça" ID="S10" SIZE=7 MULTIPLE>
+  <OPTION VALUE="TODAS_AS_CATEGORIAS__" SELECTED >Todas as categorias
+    <OPTION VALUE="1">Branca
+    <OPTION VALUE="2">Preta
+    <OPTION VALUE="3">Parda
+    <OPTION VALUE="4">Amarela
+    <OPTION VALUE="5">Ind&iacute;gena
+    <OPTION VALUE="6">Sem informa&ccedil;&atilde;o
+  </SELECT>
+</div>
+<P>
+<P>
+</div>
+</div>
+<div class="input">
+  <div class="marcadores">
+    <div  class="esq">
+      <input type="checkbox" name="opcoes" id="O" VALUE="ordenar" onclick ="marcaTodos(this,O1);"><label for="O">Ordenar pelos valores da coluna</label>&nbsp;&nbsp;
+      <input type="checkbox" name="zeradas" id="Z" VALUE="exibirlz"onclick ="marcaTodos(this,Z1);"><label for="Z">Exibir linhas zeradas</label>
+    </div>
+    <div class="dir">
+      <label class="formato" for="F">Formato</label>
+      <input type="radio" name="formato" id="F" VALUE="table" CHECKED onclick="selecao_sincrona(this.form,formato,formato1)">Tabela com bordas
+      <input type="radio" name="formato" id="F" VALUE="pre" onclick="selecao_sincrona(this.form,formato,formato1)">Texto pr&eacute;-formatado
+      <input type="radio" name="formato" id="F" VALUE="prn" onclick="selecao_sincrona(this.form,formato,formato1)">Colunas separadas por ";" <br />
+    </div>
+  </div>
+  <div class="botoes">
+    <input class="mostra" name="mostre" type="submit" VALUE=Mostra>
+    <input class="limpa" name="limpa" type="reset" VALUE=Limpa><br />
+  </div>
+</div>
+</FORM>
+</div>
+<div class="rodape_htm">
+ Fonte: Ministério da Saúde - Sistema de Informações Hospitalares do SUS (SIH/SUS)<br><br>
+ Notas:
+ <ol>
+ <li>Dados referentes aos últimos seis meses, sujeitos a atualização.
+ </ol>
+ <p>
+ <p>
+<hr class="escondido" align=center width="100%" size="2" />
+
+<table class="escondido" border="0">
+   <tr valign="middle" align="center">
+      <td>
+         <a href="https://datasus.saude.gov.br/transferencia-de-arquivos/">
+            <img src="http://tabnet.datasus.gov.br/cgi/imagem/tabwin.gif" height="66" border="0" alt="Nova Versão - 30/10/2009"></a></td>
+      <td>
+         <a href="https://datasus.saude.gov.br/transferencia-de-arquivos/"> Veja a versão do Tab para Windows (TABWIN)</a></td>
+   </tr>
+   </table>
+
+<hr class="escondido" align=center width="100%" size="2" />
+
+</div>
+</div>
+</BODY></HTML>

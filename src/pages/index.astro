@@ -1,0 +1,97 @@
+---
+import fs from 'node:fs';
+import Base from '../layouts/Base.astro';
+
+const UFS = [['AC', 'Acre'], ['AL', 'Alagoas'], ['AP', 'Amapá'], ['AM', 'Amazonas'], ['BA', 'Bahia'], ['CE', 'Ceará'], ['DF', 'Distrito Federal'], ['ES', 'Espírito Santo'], ['GO', 'Goiás'], ['MA', 'Maranhão'], ['MT', 'Mato Grosso'], ['MS', 'Mato Grosso do Sul'], ['MG', 'Minas Gerais'], ['PA', 'Pará'], ['PB', 'Paraíba'], ['PR', 'Paraná'], ['PE', 'Pernambuco'], ['PI', 'Piauí'], ['RJ', 'Rio de Janeiro'], ['RN', 'Rio Grande do Norte'], ['RS', 'Rio Grande do Sul'], ['RO', 'Rondônia'], ['RR', 'Roraima'], ['SC', 'Santa Catarina'], ['SP', 'São Paulo'], ['SE', 'Sergipe'], ['TO', 'Tocantins']];
+const ANOS = Array.from({ length: 16 }, (_, i) => 2010 + i);
+
+const linhas = fs.readFileSync(new URL('../../public/data/rotina.csv', import.meta.url), 'utf8').split(/\r?\n/).slice(1);
+const vacinas = [...new Set(linhas.map((l) => (l.startsWith('"') ? l.slice(1, l.indexOf('"', 1)) : l.split(',')[0])).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'pt-BR'));
+---
+<Base titulo="Vacinação e Infarto no Brasil" descricao="Consulte cobertura da vacina da gripe, óbitos e internações por infarto e a associação entre os dois nas 27 UFs, de 2010 a 2025." atual="painel">
+  <section class="stack" id="consulta" aria-labelledby="titulo-consulta">
+    <h1 id="titulo-consulta">O que você quer saber?</h1>
+    <p class="lead">Escolha uma pergunta, ajuste os filtros e clique em “Ver resultados”. Os números só aparecem depois da consulta. Veja de onde vêm os dados em <a href="/fontes/">Fontes</a> e como são calculados em <a href="/metodologia/">Metodologia</a>.</p>
+
+    <form id="form" class="stack" novalidate>
+      <fieldset class="perguntas">
+        <legend class="sr">Pergunta</legend>
+        <label class="opcao"><input type="radio" name="pergunta" value="cobertura" /><strong>Cobertura da vacina da gripe</strong><span>Quanto da população de 60 anos ou mais foi vacinada.</span></label>
+        <label class="opcao"><input type="radio" name="pergunta" value="infarto" /><strong>Óbitos ou internações por infarto</strong><span>Números e taxas por estado e ano.</span></label>
+        <label class="opcao"><input type="radio" name="pergunta" value="associacao" /><strong>Associação entre vacinação e infarto</strong><span>Se estados e anos com mais vacina têm menos infarto.</span></label>
+        <label class="opcao secundaria"><input type="radio" name="pergunta" value="outras" /><strong>Outras vacinas</strong><span>Seção secundária: vacinas de rotina e COVID-19.</span></label>
+      </fieldset>
+
+      <div class="card" id="filtros" hidden>
+        <div class="stack" data-grupo="cobertura" hidden>
+          <h2>Filtros da cobertura da gripe</h2>
+          <div class="campos">
+            <label class="campo">Local<select id="c-local"><option value="BR">Brasil</option>{UFS.map(([s, n]) => <option value={s}>{n}</option>)}</select></label>
+            <label class="campo">Período: de<select id="c-de">{ANOS.map((a) => <option value={a} selected={a === 2010}>{a}</option>)}</select></label>
+            <label class="campo">Período: até<select id="c-ate">{ANOS.map((a) => <option value={a} selected={a === 2025}>{a}</option>)}</select></label>
+          </div>
+          <p class="dica">Períodos com dados: cobertura por estado em 2011–2020 e 2024–2025. Em 2010 há só o número de doses. Em 2021–2023 há só o valor do Brasil. O grupo é sempre o de 60 anos ou mais.</p>
+        </div>
+
+        <div class="stack" data-grupo="infarto" hidden>
+          <h2>Filtros de infarto</h2>
+          <div class="campos">
+            <label class="campo">Desfecho<select id="i-desfecho"><option value="obitos">Óbitos (SIM)</option><option value="intern">Internações no SUS (SIH/SUS)</option></select></label>
+            <label class="campo">Faixa etária<select id="i-faixa"><option value="60">60 anos ou mais</option><option value="todas">Todas as idades</option></select></label>
+            <label class="campo">Local<select id="i-local"><option value="BR">Brasil</option>{UFS.map(([s, n]) => <option value={s}>{n}</option>)}</select></label>
+            <label class="campo">Período: de<select id="i-de">{ANOS.map((a) => <option value={a} selected={a === 2010}>{a}</option>)}</select></label>
+            <label class="campo">Período: até<select id="i-ate">{ANOS.map((a) => <option value={a} selected={a === 2025}>{a}</option>)}</select></label>
+          </div>
+          <p class="dica">Períodos com dados: 2010 a 2025 para os dois desfechos, em todos os estados. Os óbitos de 2025 são preliminares. Internações cobrem só o SUS.</p>
+        </div>
+
+        <div class="stack" data-grupo="associacao" hidden>
+          <h2>Filtros da associação</h2>
+          <div class="campos">
+            <label class="campo">Período de análise<select id="a-periodo"><option value="principal">2011–2019 (período comparável)</option><option value="sensibilidade">2011–2020 (sensibilidade, inclui 2020)</option><option value="recente">2024–2025 (série recente, RNDS)</option></select></label>
+            <label class="campo">Comparação<select id="a-modo"><option value="variacao">Variação anual dentro de cada estado</option><option value="nivel">Níveis (estado e ano)</option></select></label>
+            <label class="campo">Taxa de infarto<select id="a-taxa"><option value="padronizada">Padronizada por idade</option><option value="bruta">Bruta</option></select></label>
+            <label class="campo">Destacar um estado (opcional)<select id="a-local"><option value="BR">Nenhum</option>{UFS.map(([s, n]) => <option value={s}>{n}</option>)}</select></label>
+          </div>
+          <p class="dica">Períodos com dados: 2011–2020 pelo SI-PNI e 2024–2025 pela RNDS. Os dois métodos nunca entram no mesmo cálculo. Óbitos e internações são mostrados separadamente, sempre para 60 anos ou mais.</p>
+        </div>
+
+        <div class="stack" data-grupo="outras" hidden>
+          <h2>Filtros de outras vacinas</h2>
+          <div class="campos">
+            <label class="campo">Vacina<select id="o-vacina"><option value="COVID-19">COVID-19 (doses acumuladas)</option>{vacinas.map((v) => <option value={v}>{v} (rotina)</option>)}</select></label>
+            <label class="campo">Local<select id="o-local"><option value="BR">Brasil</option>{UFS.map(([s, n]) => <option value={s}>{n}</option>)}</select></label>
+          </div>
+          <p class="dica">Períodos com dados: vacinas de rotina de 2010 a 2022. COVID-19 só tem o total acumulado até abril de 2026, por estado. Estes dados são descritivos e não entram na análise de associação.</p>
+        </div>
+
+        <p class="msg erro" id="erro-form" role="alert" hidden></p>
+        <div class="acoes">
+          <button class="btn primario" type="submit">Ver resultados</button>
+          <button class="btn" type="button" id="limpar-form">Limpar consulta</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <div id="estado" aria-live="polite"></div>
+
+  <section class="stack" id="resultado" aria-labelledby="titulo-resultado" tabindex="-1" hidden>
+    <div class="resumo">
+      <div class="stack" style="gap:6px">
+        <h2 id="titulo-resultado">Resultado</h2>
+        <ul class="chips" id="chips" aria-label="Filtros aplicados"></ul>
+      </div>
+      <div class="acoes">
+        <button class="btn" type="button" id="editar">Editar consulta</button>
+        <button class="btn" type="button" id="limpar">Limpar consulta</button>
+        <button class="btn" type="button" id="baixar">Baixar dados da consulta</button>
+      </div>
+    </div>
+    <div class="stack" id="corpo"></div>
+  </section>
+</Base>
+
+<script>
+  import '../scripts/painel.ts';
+</script>

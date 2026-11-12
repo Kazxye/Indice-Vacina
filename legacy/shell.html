@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vacinação e Infarto no Brasil</title>
+<meta name="description" content="Cobertura vacinal e infarto (óbitos e internações) nas 27 unidades da federação, 2010 a 2025, com dados do SIM, SIH/SUS, SI-PNI e RNDS.">
+<style>
+:root{
+  color-scheme:light;
+  --color-fg:#14181d;--color-fg-muted:#5b6470;--color-bg:#f6f7f8;--color-panel:#ffffff;--color-border-line:#dfe3e8;
+  --color-ok:#0ca30c;--color-warn:#e09400;--color-bad:#d03b3b;
+  --s1:#2a78d6;--s2:#eb6834;
+  --font-anthropic-sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-anthropic-serif:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --cds-font-size-caption:12px;--cds-font-size-body:14px;--cds-font-size-heading:17px;--cds-font-size-title:22px;--cds-font-weight-medium:600;
+  --cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:12px;--cds-gap-lg:20px;--cds-gap-xl:40px;
+  --cds-pad-md:12px;--cds-pad-lg:18px;--cds-radius:10px;
+  --cds-chart-muted:#8a929c;--cds-chart-grid:#e6e9ed;--cds-chart-axis:#bcc3cb;--cds-chart-reference:#7a828c;
+  --cds-text-secondary:#5b6470;--cds-surface-popover:#ffffff;--cds-border:#cfd5dc;--cds-shadow-popover:0 4px 14px rgba(20,24,29,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --color-fg:#eef0f2;--color-fg-muted:#a3abb5;--color-bg:#0f1215;--color-panel:#181c21;--color-border-line:#2a3038;
+    --s1:#3987e5;--s2:#d95926;
+    --cds-chart-muted:#7d858f;--cds-chart-grid:#252b32;--cds-chart-axis:#3a424b;--cds-chart-reference:#8b939d;
+    --cds-text-secondary:#a3abb5;--cds-surface-popover:#20252b;--cds-border:#363d46;--cds-shadow-popover:0 4px 14px rgba(0,0,0,.5);
+  }
+}
+html{background:var(--color-bg)}
+body{margin:0;background:var(--color-bg);color:var(--color-fg);font:14px/1.4 var(--font-anthropic-sans)}
+#dash-root{padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dash-select{font:inherit;color:var(--color-fg);background-color:var(--color-bg);border:1px solid var(--color-border-line);border-radius:6px;padding:6px 8px;max-width:100%}
+.dash-select:focus-visible{outline:2px solid var(--s1);outline-offset:1px}
+.site-foot{max-width:1120px;margin:32px auto 0;font-size:12px;color:var(--color-fg-muted)}
+</style>
+</head>
+<body>
+<div id="dash-root">
+<template id="legacy-page-body"></template>
+<p class="site-foot">Dados extraídos em 11/11/2026 de sistemas públicos do Ministério da Saúde e do IBGE. As tabelas completas estão em <a href="data/painel.csv">painel.csv</a>, <a href="data/rotina.csv">rotina.csv</a>, <a href="data/correlacoes.csv">correlacoes.csv</a> e <a href="data/covid.csv">covid.csv</a>.</p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+const DATA = {}, draws = {};
+const dash = {
+  colors: ['var(--s1)', 'var(--s2)'],
+  data: (id) => DATA[id] ? {status: 'ok', data: DATA[id]} : {status: 'loading', data: []},
+  draw: (name, fn) => { if (fn) draws[name] = fn; else runDraw(name); },
+  onData: (fn) => fn(), params: () => ({}), setParams() {}, resetParams() {}, setLink() {},
+};
+function runDraw(name) {
+  if (!draws[name]) return;
+  document.querySelectorAll('[data-draw="' + name + '"]').forEach((el) => { try { draws[name](el); } catch (e) { console.error('desenho ' + name, e); } });
+}
+const runAll = () => Object.keys(draws).forEach(runDraw);
+window.addEventListener('DOMContentLoaded', () => {
+  Promise.all(['painel', 'rotina', 'correlacoes', 'covid'].map((id) => d3.csv('data/' + id + '.csv').then((rows) => { DATA[id] = rows; })))
+    .then(runAll)
+    .catch((e) => { console.error(e); document.querySelectorAll('.vi-note').forEach((n) => { n.textContent = 'Não foi possível carregar os dados (pasta data/). Abra o site por um servidor web, não pelo arquivo direto.'; }); });
+});
+let resizeTimer = 0;
+window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(runAll, 150); });
+</script>
+<script>
+void "legacy-page-script";
+</script>
+</body>
+</html>

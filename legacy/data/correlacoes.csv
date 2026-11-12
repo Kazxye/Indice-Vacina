@@ -1,0 +1,405 @@
+chave,vacina,desfecho,faixa,modo,pandemia,r,n
+"Gripe (idosos, campanha)|obitos|todas|nivel|com","Gripe (idosos, campanha)",obitos,todas,nivel,com,-0.14,270
+"Gripe (idosos, campanha)|obitos|todas|nivel|sem","Gripe (idosos, campanha)",obitos,todas,nivel,sem,-0.2,243
+"Gripe (idosos, campanha)|obitos|todas|variacao|com","Gripe (idosos, campanha)",obitos,todas,variacao,com,-0.11,270
+"Gripe (idosos, campanha)|obitos|todas|variacao|sem","Gripe (idosos, campanha)",obitos,todas,variacao,sem,0.03,243
+"Gripe (idosos, campanha)|obitos|60|nivel|com","Gripe (idosos, campanha)",obitos,60,nivel,com,-0.27,270
+"Gripe (idosos, campanha)|obitos|60|nivel|sem","Gripe (idosos, campanha)",obitos,60,nivel,sem,-0.24,243
+"Gripe (idosos, campanha)|obitos|60|variacao|com","Gripe (idosos, campanha)",obitos,60,variacao,com,-0.08,270
+"Gripe (idosos, campanha)|obitos|60|variacao|sem","Gripe (idosos, campanha)",obitos,60,variacao,sem,0.03,243
+"Gripe (idosos, campanha)|intern|todas|nivel|com","Gripe (idosos, campanha)",intern,todas,nivel,com,0.24,270
+"Gripe (idosos, campanha)|intern|todas|nivel|sem","Gripe (idosos, campanha)",intern,todas,nivel,sem,0.14,243
+"Gripe (idosos, campanha)|intern|todas|variacao|com","Gripe (idosos, campanha)",intern,todas,variacao,com,-0.15,270
+"Gripe (idosos, campanha)|intern|todas|variacao|sem","Gripe (idosos, campanha)",intern,todas,variacao,sem,0.01,243
+"Gripe (idosos, campanha)|intern|60|nivel|com","Gripe (idosos, campanha)",intern,60,nivel,com,0.26,270
+"Gripe (idosos, campanha)|intern|60|nivel|sem","Gripe (idosos, campanha)",intern,60,nivel,sem,0.23,243
+"Gripe (idosos, campanha)|intern|60|variacao|com","Gripe (idosos, campanha)",intern,60,variacao,com,-0.18,270
+"Gripe (idosos, campanha)|intern|60|variacao|sem","Gripe (idosos, campanha)",intern,60,variacao,sem,0.03,243
+BCG|obitos|todas|nivel|com,BCG,obitos,todas,nivel,com,-0.17,351
+BCG|obitos|todas|nivel|sem,BCG,obitos,todas,nivel,sem,-0.11,270
+BCG|obitos|todas|variacao|com,BCG,obitos,todas,variacao,com,0.01,324
+BCG|obitos|todas|variacao|sem,BCG,obitos,todas,variacao,sem,-0.04,243
+BCG|obitos|60|nivel|com,BCG,obitos,60,nivel,com,0.09,351
+BCG|obitos|60|nivel|sem,BCG,obitos,60,nivel,sem,0.08,270
+BCG|obitos|60|variacao|com,BCG,obitos,60,variacao,com,0.01,324
+BCG|obitos|60|variacao|sem,BCG,obitos,60,variacao,sem,-0.01,243
+BCG|intern|todas|nivel|com,BCG,intern,todas,nivel,com,-0.41,351
+BCG|intern|todas|nivel|sem,BCG,intern,todas,nivel,sem,-0.4,270
+BCG|intern|todas|variacao|com,BCG,intern,todas,variacao,com,0.18,324
+BCG|intern|todas|variacao|sem,BCG,intern,todas,variacao,sem,0.02,243
+BCG|intern|60|nivel|com,BCG,intern,60,nivel,com,-0.36,351
+BCG|intern|60|nivel|sem,BCG,intern,60,nivel,sem,-0.37,270
+BCG|intern|60|variacao|com,BCG,intern,60,variacao,com,0.16,324
+BCG|intern|60|variacao|sem,BCG,intern,60,variacao,sem,0.02,243
+Hepatite B idade <= 30 dias|obitos|todas|nivel|com,Hepatite B idade <= 30 dias,obitos,todas,nivel,com,-0.15,243
+Hepatite B idade <= 30 dias|obitos|todas|nivel|sem,Hepatite B idade <= 30 dias,obitos,todas,nivel,sem,-0.07,162
+Hepatite B idade <= 30 dias|obitos|todas|variacao|com,Hepatite B idade <= 30 dias,obitos,todas,variacao,com,0.04,216
+Hepatite B idade <= 30 dias|obitos|todas|variacao|sem,Hepatite B idade <= 30 dias,obitos,todas,variacao,sem,-0.05,135
+Hepatite B idade <= 30 dias|obitos|60|nivel|com,Hepatite B idade <= 30 dias,obitos,60,nivel,com,0.07,243
+Hepatite B idade <= 30 dias|obitos|60|nivel|sem,Hepatite B idade <= 30 dias,obitos,60,nivel,sem,0.09,162
+Hepatite B idade <= 30 dias|obitos|60|variacao|com,Hepatite B idade <= 30 dias,obitos,60,variacao,com,0.05,216
+Hepatite B idade <= 30 dias|obitos|60|variacao|sem,Hepatite B idade <= 30 dias,obitos,60,variacao,sem,-0.0,135
+Hepatite B idade <= 30 dias|intern|todas|nivel|com,Hepatite B idade <= 30 dias,intern,todas,nivel,com,-0.19,243
+Hepatite B idade <= 30 dias|intern|todas|nivel|sem,Hepatite B idade <= 30 dias,intern,todas,nivel,sem,-0.12,162
+Hepatite B idade <= 30 dias|intern|todas|variacao|com,Hepatite B idade <= 30 dias,intern,todas,variacao,com,0.25,216
+Hepatite B idade <= 30 dias|intern|todas|variacao|sem,Hepatite B idade <= 30 dias,intern,todas,variacao,sem,0.07,135
+Hepatite B idade <= 30 dias|intern|60|nivel|com,Hepatite B idade <= 30 dias,intern,60,nivel,com,-0.06,243
+Hepatite B idade <= 30 dias|intern|60|nivel|sem,Hepatite B idade <= 30 dias,intern,60,nivel,sem,-0.0,162
+Hepatite B idade <= 30 dias|intern|60|variacao|com,Hepatite B idade <= 30 dias,intern,60,variacao,com,0.22,216
+Hepatite B idade <= 30 dias|intern|60|variacao|sem,Hepatite B idade <= 30 dias,intern,60,variacao,sem,0.05,135
+Rotavírus Humano|obitos|todas|nivel|com,Rotavírus Humano,obitos,todas,nivel,com,0.25,351
+Rotavírus Humano|obitos|todas|nivel|sem,Rotavírus Humano,obitos,todas,nivel,sem,0.36,270
+Rotavírus Humano|obitos|todas|variacao|com,Rotavírus Humano,obitos,todas,variacao,com,0.04,324
+Rotavírus Humano|obitos|todas|variacao|sem,Rotavírus Humano,obitos,todas,variacao,sem,-0.01,243
+Rotavírus Humano|obitos|60|nivel|com,Rotavírus Humano,obitos,60,nivel,com,0.21,351
+Rotavírus Humano|obitos|60|nivel|sem,Rotavírus Humano,obitos,60,nivel,sem,0.24,270
+Rotavírus Humano|obitos|60|variacao|com,Rotavírus Humano,obitos,60,variacao,com,0.03,324
+Rotavírus Humano|obitos|60|variacao|sem,Rotavírus Humano,obitos,60,variacao,sem,-0.03,243
+Rotavírus Humano|intern|todas|nivel|com,Rotavírus Humano,intern,todas,nivel,com,0.16,351
+Rotavírus Humano|intern|todas|nivel|sem,Rotavírus Humano,intern,todas,nivel,sem,0.37,270
+Rotavírus Humano|intern|todas|variacao|com,Rotavírus Humano,intern,todas,variacao,com,0.1,324
+Rotavírus Humano|intern|todas|variacao|sem,Rotavírus Humano,intern,todas,variacao,sem,-0.02,243
+Rotavírus Humano|intern|60|nivel|com,Rotavírus Humano,intern,60,nivel,com,0.14,351
+Rotavírus Humano|intern|60|nivel|sem,Rotavírus Humano,intern,60,nivel,sem,0.34,270
+Rotavírus Humano|intern|60|variacao|com,Rotavírus Humano,intern,60,variacao,com,0.1,324
+Rotavírus Humano|intern|60|variacao|sem,Rotavírus Humano,intern,60,variacao,sem,0.01,243
+Meningococo C|obitos|todas|nivel|com,Meningococo C,obitos,todas,nivel,com,0.14,351
+Meningococo C|obitos|todas|nivel|sem,Meningococo C,obitos,todas,nivel,sem,0.17,270
+Meningococo C|obitos|todas|variacao|com,Meningococo C,obitos,todas,variacao,com,0.14,324
+Meningococo C|obitos|todas|variacao|sem,Meningococo C,obitos,todas,variacao,sem,0.15,243
+Meningococo C|obitos|60|nivel|com,Meningococo C,obitos,60,nivel,com,0.08,351
+Meningococo C|obitos|60|nivel|sem,Meningococo C,obitos,60,nivel,sem,0.08,270
+Meningococo C|obitos|60|variacao|com,Meningococo C,obitos,60,variacao,com,0.18,324
+Meningococo C|obitos|60|variacao|sem,Meningococo C,obitos,60,variacao,sem,0.18,243
+Meningococo C|intern|todas|nivel|com,Meningococo C,intern,todas,nivel,com,0.17,351
+Meningococo C|intern|todas|nivel|sem,Meningococo C,intern,todas,nivel,sem,0.24,270
+Meningococo C|intern|todas|variacao|com,Meningococo C,intern,todas,variacao,com,0.03,324
+Meningococo C|intern|todas|variacao|sem,Meningococo C,intern,todas,variacao,sem,0.01,243
+Meningococo C|intern|60|nivel|com,Meningococo C,intern,60,nivel,com,0.18,351
+Meningococo C|intern|60|nivel|sem,Meningococo C,intern,60,nivel,sem,0.24,270
+Meningococo C|intern|60|variacao|com,Meningococo C,intern,60,variacao,com,0.07,324
+Meningococo C|intern|60|variacao|sem,Meningococo C,intern,60,variacao,sem,0.05,243
+Hepatite B|obitos|todas|nivel|com,Hepatite B,obitos,todas,nivel,com,0.08,351
+Hepatite B|obitos|todas|nivel|sem,Hepatite B,obitos,todas,nivel,sem,0.14,270
+Hepatite B|obitos|todas|variacao|com,Hepatite B,obitos,todas,variacao,com,-0.03,324
+Hepatite B|obitos|todas|variacao|sem,Hepatite B,obitos,todas,variacao,sem,0.05,243
+Hepatite B|obitos|60|nivel|com,Hepatite B,obitos,60,nivel,com,0.16,351
+Hepatite B|obitos|60|nivel|sem,Hepatite B,obitos,60,nivel,sem,0.15,270
+Hepatite B|obitos|60|variacao|com,Hepatite B,obitos,60,variacao,com,-0.04,324
+Hepatite B|obitos|60|variacao|sem,Hepatite B,obitos,60,variacao,sem,-0.0,243
+Hepatite B|intern|todas|nivel|com,Hepatite B,intern,todas,nivel,com,-0.09,351
+Hepatite B|intern|todas|nivel|sem,Hepatite B,intern,todas,nivel,sem,0.01,270
+Hepatite B|intern|todas|variacao|com,Hepatite B,intern,todas,variacao,com,-0.0,324
+Hepatite B|intern|todas|variacao|sem,Hepatite B,intern,todas,variacao,sem,-0.07,243
+Hepatite B|intern|60|nivel|com,Hepatite B,intern,60,nivel,com,-0.1,351
+Hepatite B|intern|60|nivel|sem,Hepatite B,intern,60,nivel,sem,-0.01,270
+Hepatite B|intern|60|variacao|com,Hepatite B,intern,60,variacao,com,-0.03,324
+Hepatite B|intern|60|variacao|sem,Hepatite B,intern,60,variacao,sem,-0.06,243
+Penta|obitos|todas|nivel|com,Penta,obitos,todas,nivel,com,0.14,297
+Penta|obitos|todas|nivel|sem,Penta,obitos,todas,nivel,sem,0.16,216
+Penta|obitos|todas|variacao|com,Penta,obitos,todas,variacao,com,-0.06,270
+Penta|obitos|todas|variacao|sem,Penta,obitos,todas,variacao,sem,-0.06,189
+Penta|obitos|60|nivel|com,Penta,obitos,60,nivel,com,0.05,297
+Penta|obitos|60|nivel|sem,Penta,obitos,60,nivel,sem,0.07,216
+Penta|obitos|60|variacao|com,Penta,obitos,60,variacao,com,-0.07,270
+Penta|obitos|60|variacao|sem,Penta,obitos,60,variacao,sem,-0.09,189
+Penta|intern|todas|nivel|com,Penta,intern,todas,nivel,com,0.17,297
+Penta|intern|todas|nivel|sem,Penta,intern,todas,nivel,sem,0.18,216
+Penta|intern|todas|variacao|com,Penta,intern,todas,variacao,com,-0.11,270
+Penta|intern|todas|variacao|sem,Penta,intern,todas,variacao,sem,-0.15,189
+Penta|intern|60|nivel|com,Penta,intern,60,nivel,com,0.17,297
+Penta|intern|60|nivel|sem,Penta,intern,60,nivel,sem,0.18,216
+Penta|intern|60|variacao|com,Penta,intern,60,variacao,com,-0.09,270
+Penta|intern|60|variacao|sem,Penta,intern,60,variacao,sem,-0.11,189
+Pneumocócica|obitos|todas|nivel|com,Pneumocócica,obitos,todas,nivel,com,0.23,351
+Pneumocócica|obitos|todas|nivel|sem,Pneumocócica,obitos,todas,nivel,sem,0.27,270
+Pneumocócica|obitos|todas|variacao|com,Pneumocócica,obitos,todas,variacao,com,0.12,324
+Pneumocócica|obitos|todas|variacao|sem,Pneumocócica,obitos,todas,variacao,sem,0.13,243
+Pneumocócica|obitos|60|nivel|com,Pneumocócica,obitos,60,nivel,com,0.12,351
+Pneumocócica|obitos|60|nivel|sem,Pneumocócica,obitos,60,nivel,sem,0.14,270
+Pneumocócica|obitos|60|variacao|com,Pneumocócica,obitos,60,variacao,com,0.14,324
+Pneumocócica|obitos|60|variacao|sem,Pneumocócica,obitos,60,variacao,sem,0.13,243
+Pneumocócica|intern|todas|nivel|com,Pneumocócica,intern,todas,nivel,com,0.28,351
+Pneumocócica|intern|todas|nivel|sem,Pneumocócica,intern,todas,nivel,sem,0.35,270
+Pneumocócica|intern|todas|variacao|com,Pneumocócica,intern,todas,variacao,com,0.01,324
+Pneumocócica|intern|todas|variacao|sem,Pneumocócica,intern,todas,variacao,sem,-0.03,243
+Pneumocócica|intern|60|nivel|com,Pneumocócica,intern,60,nivel,com,0.29,351
+Pneumocócica|intern|60|nivel|sem,Pneumocócica,intern,60,nivel,sem,0.35,270
+Pneumocócica|intern|60|variacao|com,Pneumocócica,intern,60,variacao,com,0.05,324
+Pneumocócica|intern|60|variacao|sem,Pneumocócica,intern,60,variacao,sem,0.01,243
+Poliomielite|obitos|todas|nivel|com,Poliomielite,obitos,todas,nivel,com,0.06,351
+Poliomielite|obitos|todas|nivel|sem,Poliomielite,obitos,todas,nivel,sem,0.12,270
+Poliomielite|obitos|todas|variacao|com,Poliomielite,obitos,todas,variacao,com,0.0,324
+Poliomielite|obitos|todas|variacao|sem,Poliomielite,obitos,todas,variacao,sem,-0.04,243
+Poliomielite|obitos|60|nivel|com,Poliomielite,obitos,60,nivel,com,0.18,351
+Poliomielite|obitos|60|nivel|sem,Poliomielite,obitos,60,nivel,sem,0.16,270
+Poliomielite|obitos|60|variacao|com,Poliomielite,obitos,60,variacao,com,0.07,324
+Poliomielite|obitos|60|variacao|sem,Poliomielite,obitos,60,variacao,sem,0.05,243
+Poliomielite|intern|todas|nivel|com,Poliomielite,intern,todas,nivel,com,-0.14,351
+Poliomielite|intern|todas|nivel|sem,Poliomielite,intern,todas,nivel,sem,-0.04,270
+Poliomielite|intern|todas|variacao|com,Poliomielite,intern,todas,variacao,com,0.15,324
+Poliomielite|intern|todas|variacao|sem,Poliomielite,intern,todas,variacao,sem,0.02,243
+Poliomielite|intern|60|nivel|com,Poliomielite,intern,60,nivel,com,-0.14,351
+Poliomielite|intern|60|nivel|sem,Poliomielite,intern,60,nivel,sem,-0.05,270
+Poliomielite|intern|60|variacao|com,Poliomielite,intern,60,variacao,com,0.15,324
+Poliomielite|intern|60|variacao|sem,Poliomielite,intern,60,variacao,sem,0.04,243
+Poliomielite 4 anos|obitos|todas|nivel|com,Poliomielite 4 anos,obitos,todas,nivel,com,0.09,162
+Poliomielite 4 anos|obitos|todas|nivel|sem,Poliomielite 4 anos,obitos,todas,nivel,sem,0.12,81
+Poliomielite 4 anos|obitos|todas|variacao|com,Poliomielite 4 anos,obitos,todas,variacao,com,-0.07,135
+Poliomielite 4 anos|obitos|todas|variacao|sem,Poliomielite 4 anos,obitos,todas,variacao,sem,-0.01,54
+Poliomielite 4 anos|obitos|60|nivel|com,Poliomielite 4 anos,obitos,60,nivel,com,-0.25,162
+Poliomielite 4 anos|obitos|60|nivel|sem,Poliomielite 4 anos,obitos,60,nivel,sem,-0.25,81
+Poliomielite 4 anos|obitos|60|variacao|com,Poliomielite 4 anos,obitos,60,variacao,com,-0.08,135
+Poliomielite 4 anos|obitos|60|variacao|sem,Poliomielite 4 anos,obitos,60,variacao,sem,-0.04,54
+Poliomielite 4 anos|intern|todas|nivel|com,Poliomielite 4 anos,intern,todas,nivel,com,0.61,162
+Poliomielite 4 anos|intern|todas|nivel|sem,Poliomielite 4 anos,intern,todas,nivel,sem,0.64,81
+Poliomielite 4 anos|intern|todas|variacao|com,Poliomielite 4 anos,intern,todas,variacao,com,0.12,135
+Poliomielite 4 anos|intern|todas|variacao|sem,Poliomielite 4 anos,intern,todas,variacao,sem,-0.12,54
+Poliomielite 4 anos|intern|60|nivel|com,Poliomielite 4 anos,intern,60,nivel,com,0.59,162
+Poliomielite 4 anos|intern|60|nivel|sem,Poliomielite 4 anos,intern,60,nivel,sem,0.6,81
+Poliomielite 4 anos|intern|60|variacao|com,Poliomielite 4 anos,intern,60,variacao,com,0.1,135
+Poliomielite 4 anos|intern|60|variacao|sem,Poliomielite 4 anos,intern,60,variacao,sem,-0.17,54
+Febre Amarela|obitos|todas|nivel|com,Febre Amarela,obitos,todas,nivel,com,-0.42,351
+Febre Amarela|obitos|todas|nivel|sem,Febre Amarela,obitos,todas,nivel,sem,-0.47,270
+Febre Amarela|obitos|todas|variacao|com,Febre Amarela,obitos,todas,variacao,com,-0.06,324
+Febre Amarela|obitos|todas|variacao|sem,Febre Amarela,obitos,todas,variacao,sem,-0.07,243
+Febre Amarela|obitos|60|nivel|com,Febre Amarela,obitos,60,nivel,com,-0.38,351
+Febre Amarela|obitos|60|nivel|sem,Febre Amarela,obitos,60,nivel,sem,-0.41,270
+Febre Amarela|obitos|60|variacao|com,Febre Amarela,obitos,60,variacao,com,-0.03,324
+Febre Amarela|obitos|60|variacao|sem,Febre Amarela,obitos,60,variacao,sem,-0.05,243
+Febre Amarela|intern|todas|nivel|com,Febre Amarela,intern,todas,nivel,com,-0.05,351
+Febre Amarela|intern|todas|nivel|sem,Febre Amarela,intern,todas,nivel,sem,-0.13,270
+Febre Amarela|intern|todas|variacao|com,Febre Amarela,intern,todas,variacao,com,0.08,324
+Febre Amarela|intern|todas|variacao|sem,Febre Amarela,intern,todas,variacao,sem,0.03,243
+Febre Amarela|intern|60|nivel|com,Febre Amarela,intern,60,nivel,com,-0.0,351
+Febre Amarela|intern|60|nivel|sem,Febre Amarela,intern,60,nivel,sem,-0.06,270
+Febre Amarela|intern|60|variacao|com,Febre Amarela,intern,60,variacao,com,0.05,324
+Febre Amarela|intern|60|variacao|sem,Febre Amarela,intern,60,variacao,sem,-0.01,243
+Hepatite A|obitos|todas|nivel|com,Hepatite A,obitos,todas,nivel,com,0.13,243
+Hepatite A|obitos|todas|nivel|sem,Hepatite A,obitos,todas,nivel,sem,0.15,162
+Hepatite A|obitos|todas|variacao|com,Hepatite A,obitos,todas,variacao,com,0.07,216
+Hepatite A|obitos|todas|variacao|sem,Hepatite A,obitos,todas,variacao,sem,0.02,135
+Hepatite A|obitos|60|nivel|com,Hepatite A,obitos,60,nivel,com,0.0,243
+Hepatite A|obitos|60|nivel|sem,Hepatite A,obitos,60,nivel,sem,0.0,162
+Hepatite A|obitos|60|variacao|com,Hepatite A,obitos,60,variacao,com,0.09,216
+Hepatite A|obitos|60|variacao|sem,Hepatite A,obitos,60,variacao,sem,0.04,135
+Hepatite A|intern|todas|nivel|com,Hepatite A,intern,todas,nivel,com,0.26,243
+Hepatite A|intern|todas|nivel|sem,Hepatite A,intern,todas,nivel,sem,0.3,162
+Hepatite A|intern|todas|variacao|com,Hepatite A,intern,todas,variacao,com,0.06,216
+Hepatite A|intern|todas|variacao|sem,Hepatite A,intern,todas,variacao,sem,-0.02,135
+Hepatite A|intern|60|nivel|com,Hepatite A,intern,60,nivel,com,0.23,243
+Hepatite A|intern|60|nivel|sem,Hepatite A,intern,60,nivel,sem,0.28,162
+Hepatite A|intern|60|variacao|com,Hepatite A,intern,60,variacao,com,0.09,216
+Hepatite A|intern|60|variacao|sem,Hepatite A,intern,60,variacao,sem,0.01,135
+Pneumocócica(1º ref)|obitos|todas|nivel|com,Pneumocócica(1º ref),obitos,todas,nivel,com,0.19,270
+Pneumocócica(1º ref)|obitos|todas|nivel|sem,Pneumocócica(1º ref),obitos,todas,nivel,sem,0.26,189
+Pneumocócica(1º ref)|obitos|todas|variacao|com,Pneumocócica(1º ref),obitos,todas,variacao,com,0.06,243
+Pneumocócica(1º ref)|obitos|todas|variacao|sem,Pneumocócica(1º ref),obitos,todas,variacao,sem,-0.09,162
+Pneumocócica(1º ref)|obitos|60|nivel|com,Pneumocócica(1º ref),obitos,60,nivel,com,0.16,270
+Pneumocócica(1º ref)|obitos|60|nivel|sem,Pneumocócica(1º ref),obitos,60,nivel,sem,0.14,189
+Pneumocócica(1º ref)|obitos|60|variacao|com,Pneumocócica(1º ref),obitos,60,variacao,com,0.05,243
+Pneumocócica(1º ref)|obitos|60|variacao|sem,Pneumocócica(1º ref),obitos,60,variacao,sem,-0.08,162
+Pneumocócica(1º ref)|intern|todas|nivel|com,Pneumocócica(1º ref),intern,todas,nivel,com,0.12,270
+Pneumocócica(1º ref)|intern|todas|nivel|sem,Pneumocócica(1º ref),intern,todas,nivel,sem,0.29,189
+Pneumocócica(1º ref)|intern|todas|variacao|com,Pneumocócica(1º ref),intern,todas,variacao,com,0.22,243
+Pneumocócica(1º ref)|intern|todas|variacao|sem,Pneumocócica(1º ref),intern,todas,variacao,sem,0.02,162
+Pneumocócica(1º ref)|intern|60|nivel|com,Pneumocócica(1º ref),intern,60,nivel,com,0.13,270
+Pneumocócica(1º ref)|intern|60|nivel|sem,Pneumocócica(1º ref),intern,60,nivel,sem,0.28,189
+Pneumocócica(1º ref)|intern|60|variacao|com,Pneumocócica(1º ref),intern,60,variacao,com,0.23,243
+Pneumocócica(1º ref)|intern|60|variacao|sem,Pneumocócica(1º ref),intern,60,variacao,sem,0.02,162
+Meningococo C (1º ref)|obitos|todas|nivel|com,Meningococo C (1º ref),obitos,todas,nivel,com,0.14,270
+Meningococo C (1º ref)|obitos|todas|nivel|sem,Meningococo C (1º ref),obitos,todas,nivel,sem,0.19,189
+Meningococo C (1º ref)|obitos|todas|variacao|com,Meningococo C (1º ref),obitos,todas,variacao,com,0.1,243
+Meningococo C (1º ref)|obitos|todas|variacao|sem,Meningococo C (1º ref),obitos,todas,variacao,sem,0.07,162
+Meningococo C (1º ref)|obitos|60|nivel|com,Meningococo C (1º ref),obitos,60,nivel,com,0.11,270
+Meningococo C (1º ref)|obitos|60|nivel|sem,Meningococo C (1º ref),obitos,60,nivel,sem,0.1,189
+Meningococo C (1º ref)|obitos|60|variacao|com,Meningococo C (1º ref),obitos,60,variacao,com,0.1,243
+Meningococo C (1º ref)|obitos|60|variacao|sem,Meningococo C (1º ref),obitos,60,variacao,sem,0.05,162
+Meningococo C (1º ref)|intern|todas|nivel|com,Meningococo C (1º ref),intern,todas,nivel,com,0.12,270
+Meningococo C (1º ref)|intern|todas|nivel|sem,Meningococo C (1º ref),intern,todas,nivel,sem,0.27,189
+Meningococo C (1º ref)|intern|todas|variacao|com,Meningococo C (1º ref),intern,todas,variacao,com,0.13,243
+Meningococo C (1º ref)|intern|todas|variacao|sem,Meningococo C (1º ref),intern,todas,variacao,sem,0.01,162
+Meningococo C (1º ref)|intern|60|nivel|com,Meningococo C (1º ref),intern,60,nivel,com,0.14,270
+Meningococo C (1º ref)|intern|60|nivel|sem,Meningococo C (1º ref),intern,60,nivel,sem,0.28,189
+Meningococo C (1º ref)|intern|60|variacao|com,Meningococo C (1º ref),intern,60,variacao,com,0.14,243
+Meningococo C (1º ref)|intern|60|variacao|sem,Meningococo C (1º ref),intern,60,variacao,sem,0.03,162
+Poliomielite(1º ref)|obitos|todas|nivel|com,Poliomielite(1º ref),obitos,todas,nivel,com,0.11,270
+Poliomielite(1º ref)|obitos|todas|nivel|sem,Poliomielite(1º ref),obitos,todas,nivel,sem,0.13,189
+Poliomielite(1º ref)|obitos|todas|variacao|com,Poliomielite(1º ref),obitos,todas,variacao,com,0.0,243
+Poliomielite(1º ref)|obitos|todas|variacao|sem,Poliomielite(1º ref),obitos,todas,variacao,sem,-0.02,162
+Poliomielite(1º ref)|obitos|60|nivel|com,Poliomielite(1º ref),obitos,60,nivel,com,0.1,270
+Poliomielite(1º ref)|obitos|60|nivel|sem,Poliomielite(1º ref),obitos,60,nivel,sem,0.08,189
+Poliomielite(1º ref)|obitos|60|variacao|com,Poliomielite(1º ref),obitos,60,variacao,com,0.06,243
+Poliomielite(1º ref)|obitos|60|variacao|sem,Poliomielite(1º ref),obitos,60,variacao,sem,0.07,162
+Poliomielite(1º ref)|intern|todas|nivel|com,Poliomielite(1º ref),intern,todas,nivel,com,0.07,270
+Poliomielite(1º ref)|intern|todas|nivel|sem,Poliomielite(1º ref),intern,todas,nivel,sem,0.14,189
+Poliomielite(1º ref)|intern|todas|variacao|com,Poliomielite(1º ref),intern,todas,variacao,com,0.17,243
+Poliomielite(1º ref)|intern|todas|variacao|sem,Poliomielite(1º ref),intern,todas,variacao,sem,0.09,162
+Poliomielite(1º ref)|intern|60|nivel|com,Poliomielite(1º ref),intern,60,nivel,com,0.06,270
+Poliomielite(1º ref)|intern|60|nivel|sem,Poliomielite(1º ref),intern,60,nivel,sem,0.13,189
+Poliomielite(1º ref)|intern|60|variacao|com,Poliomielite(1º ref),intern,60,variacao,com,0.12,243
+Poliomielite(1º ref)|intern|60|variacao|sem,Poliomielite(1º ref),intern,60,variacao,sem,0.03,162
+Tríplice Viral D1|obitos|todas|nivel|com,Tríplice Viral D1,obitos,todas,nivel,com,0.08,351
+Tríplice Viral D1|obitos|todas|nivel|sem,Tríplice Viral D1,obitos,todas,nivel,sem,0.17,270
+Tríplice Viral D1|obitos|todas|variacao|com,Tríplice Viral D1,obitos,todas,variacao,com,0.12,324
+Tríplice Viral D1|obitos|todas|variacao|sem,Tríplice Viral D1,obitos,todas,variacao,sem,0.02,243
+Tríplice Viral D1|obitos|60|nivel|com,Tríplice Viral D1,obitos,60,nivel,com,0.2,351
+Tríplice Viral D1|obitos|60|nivel|sem,Tríplice Viral D1,obitos,60,nivel,sem,0.2,270
+Tríplice Viral D1|obitos|60|variacao|com,Tríplice Viral D1,obitos,60,variacao,com,0.09,324
+Tríplice Viral D1|obitos|60|variacao|sem,Tríplice Viral D1,obitos,60,variacao,sem,-0.0,243
+Tríplice Viral D1|intern|todas|nivel|com,Tríplice Viral D1,intern,todas,nivel,com,-0.17,351
+Tríplice Viral D1|intern|todas|nivel|sem,Tríplice Viral D1,intern,todas,nivel,sem,-0.09,270
+Tríplice Viral D1|intern|todas|variacao|com,Tríplice Viral D1,intern,todas,variacao,com,0.11,324
+Tríplice Viral D1|intern|todas|variacao|sem,Tríplice Viral D1,intern,todas,variacao,sem,-0.03,243
+Tríplice Viral D1|intern|60|nivel|com,Tríplice Viral D1,intern,60,nivel,com,-0.18,351
+Tríplice Viral D1|intern|60|nivel|sem,Tríplice Viral D1,intern,60,nivel,sem,-0.11,270
+Tríplice Viral D1|intern|60|variacao|com,Tríplice Viral D1,intern,60,variacao,com,0.11,324
+Tríplice Viral D1|intern|60|variacao|sem,Tríplice Viral D1,intern,60,variacao,sem,-0.03,243
+Tríplice Viral D2|obitos|todas|nivel|com,Tríplice Viral D2,obitos,todas,nivel,com,0.03,270
+Tríplice Viral D2|obitos|todas|nivel|sem,Tríplice Viral D2,obitos,todas,nivel,sem,0.07,189
+Tríplice Viral D2|obitos|todas|variacao|com,Tríplice Viral D2,obitos,todas,variacao,com,0.1,243
+Tríplice Viral D2|obitos|todas|variacao|sem,Tríplice Viral D2,obitos,todas,variacao,sem,0.06,162
+Tríplice Viral D2|obitos|60|nivel|com,Tríplice Viral D2,obitos,60,nivel,com,0.0,270
+Tríplice Viral D2|obitos|60|nivel|sem,Tríplice Viral D2,obitos,60,nivel,sem,-0.05,189
+Tríplice Viral D2|obitos|60|variacao|com,Tríplice Viral D2,obitos,60,variacao,com,0.12,243
+Tríplice Viral D2|obitos|60|variacao|sem,Tríplice Viral D2,obitos,60,variacao,sem,0.07,162
+Tríplice Viral D2|intern|todas|nivel|com,Tríplice Viral D2,intern,todas,nivel,com,0.11,270
+Tríplice Viral D2|intern|todas|nivel|sem,Tríplice Viral D2,intern,todas,nivel,sem,0.32,189
+Tríplice Viral D2|intern|todas|variacao|com,Tríplice Viral D2,intern,todas,variacao,com,0.19,243
+Tríplice Viral D2|intern|todas|variacao|sem,Tríplice Viral D2,intern,todas,variacao,sem,0.12,162
+Tríplice Viral D2|intern|60|nivel|com,Tríplice Viral D2,intern,60,nivel,com,0.11,270
+Tríplice Viral D2|intern|60|nivel|sem,Tríplice Viral D2,intern,60,nivel,sem,0.34,189
+Tríplice Viral D2|intern|60|variacao|com,Tríplice Viral D2,intern,60,variacao,com,0.21,243
+Tríplice Viral D2|intern|60|variacao|sem,Tríplice Viral D2,intern,60,variacao,sem,0.15,162
+Tetra Viral(SRC+VZ)|obitos|todas|nivel|com,Tetra Viral(SRC+VZ),obitos,todas,nivel,com,-0.16,270
+Tetra Viral(SRC+VZ)|obitos|todas|nivel|sem,Tetra Viral(SRC+VZ),obitos,todas,nivel,sem,-0.18,189
+Tetra Viral(SRC+VZ)|obitos|todas|variacao|com,Tetra Viral(SRC+VZ),obitos,todas,variacao,com,0.02,243
+Tetra Viral(SRC+VZ)|obitos|todas|variacao|sem,Tetra Viral(SRC+VZ),obitos,todas,variacao,sem,0.07,162
+Tetra Viral(SRC+VZ)|obitos|60|nivel|com,Tetra Viral(SRC+VZ),obitos,60,nivel,com,0.01,270
+Tetra Viral(SRC+VZ)|obitos|60|nivel|sem,Tetra Viral(SRC+VZ),obitos,60,nivel,sem,-0.11,189
+Tetra Viral(SRC+VZ)|obitos|60|variacao|com,Tetra Viral(SRC+VZ),obitos,60,variacao,com,0.05,243
+Tetra Viral(SRC+VZ)|obitos|60|variacao|sem,Tetra Viral(SRC+VZ),obitos,60,variacao,sem,0.08,162
+Tetra Viral(SRC+VZ)|intern|todas|nivel|com,Tetra Viral(SRC+VZ),intern,todas,nivel,com,-0.19,270
+Tetra Viral(SRC+VZ)|intern|todas|nivel|sem,Tetra Viral(SRC+VZ),intern,todas,nivel,sem,-0.0,189
+Tetra Viral(SRC+VZ)|intern|todas|variacao|com,Tetra Viral(SRC+VZ),intern,todas,variacao,com,0.09,243
+Tetra Viral(SRC+VZ)|intern|todas|variacao|sem,Tetra Viral(SRC+VZ),intern,todas,variacao,sem,0.09,162
+Tetra Viral(SRC+VZ)|intern|60|nivel|com,Tetra Viral(SRC+VZ),intern,60,nivel,com,-0.12,270
+Tetra Viral(SRC+VZ)|intern|60|nivel|sem,Tetra Viral(SRC+VZ),intern,60,nivel,sem,0.08,189
+Tetra Viral(SRC+VZ)|intern|60|variacao|com,Tetra Viral(SRC+VZ),intern,60,variacao,com,0.1,243
+Tetra Viral(SRC+VZ)|intern|60|variacao|sem,Tetra Viral(SRC+VZ),intern,60,variacao,sem,0.11,162
+DTP|obitos|todas|nivel|com,DTP,obitos,todas,nivel,com,0.06,351
+DTP|obitos|todas|nivel|sem,DTP,obitos,todas,nivel,sem,0.11,270
+DTP|obitos|todas|variacao|com,DTP,obitos,todas,variacao,com,-0.09,324
+DTP|obitos|todas|variacao|sem,DTP,obitos,todas,variacao,sem,-0.02,243
+DTP|obitos|60|nivel|com,DTP,obitos,60,nivel,com,0.15,351
+DTP|obitos|60|nivel|sem,DTP,obitos,60,nivel,sem,0.14,270
+DTP|obitos|60|variacao|com,DTP,obitos,60,variacao,com,-0.08,324
+DTP|obitos|60|variacao|sem,DTP,obitos,60,variacao,sem,-0.04,243
+DTP|intern|todas|nivel|com,DTP,intern,todas,nivel,com,-0.1,351
+DTP|intern|todas|nivel|sem,DTP,intern,todas,nivel,sem,-0.03,270
+DTP|intern|todas|variacao|com,DTP,intern,todas,variacao,com,0.02,324
+DTP|intern|todas|variacao|sem,DTP,intern,todas,variacao,sem,-0.06,243
+DTP|intern|60|nivel|com,DTP,intern,60,nivel,com,-0.11,351
+DTP|intern|60|nivel|sem,DTP,intern,60,nivel,sem,-0.04,270
+DTP|intern|60|variacao|com,DTP,intern,60,variacao,com,-0.01,324
+DTP|intern|60|variacao|sem,DTP,intern,60,variacao,sem,-0.04,243
+DTP REF (4 e 6 anos)|obitos|todas|nivel|com,DTP REF (4 e 6 anos),obitos,todas,nivel,com,0.06,216
+DTP REF (4 e 6 anos)|obitos|todas|nivel|sem,DTP REF (4 e 6 anos),obitos,todas,nivel,sem,0.06,135
+DTP REF (4 e 6 anos)|obitos|todas|variacao|com,DTP REF (4 e 6 anos),obitos,todas,variacao,com,-0.13,162
+DTP REF (4 e 6 anos)|obitos|todas|variacao|sem,DTP REF (4 e 6 anos),obitos,todas,variacao,sem,-0.05,81
+DTP REF (4 e 6 anos)|obitos|60|nivel|com,DTP REF (4 e 6 anos),obitos,60,nivel,com,-0.19,216
+DTP REF (4 e 6 anos)|obitos|60|nivel|sem,DTP REF (4 e 6 anos),obitos,60,nivel,sem,-0.09,135
+DTP REF (4 e 6 anos)|obitos|60|variacao|com,DTP REF (4 e 6 anos),obitos,60,variacao,com,-0.1,162
+DTP REF (4 e 6 anos)|obitos|60|variacao|sem,DTP REF (4 e 6 anos),obitos,60,variacao,sem,-0.02,81
+DTP REF (4 e 6 anos)|intern|todas|nivel|com,DTP REF (4 e 6 anos),intern,todas,nivel,com,0.42,216
+DTP REF (4 e 6 anos)|intern|todas|nivel|sem,DTP REF (4 e 6 anos),intern,todas,nivel,sem,0.3,135
+DTP REF (4 e 6 anos)|intern|todas|variacao|com,DTP REF (4 e 6 anos),intern,todas,variacao,com,-0.12,162
+DTP REF (4 e 6 anos)|intern|todas|variacao|sem,DTP REF (4 e 6 anos),intern,todas,variacao,sem,-0.06,81
+DTP REF (4 e 6 anos)|intern|60|nivel|com,DTP REF (4 e 6 anos),intern,60,nivel,com,0.4,216
+DTP REF (4 e 6 anos)|intern|60|nivel|sem,DTP REF (4 e 6 anos),intern,60,nivel,sem,0.3,135
+DTP REF (4 e 6 anos)|intern|60|variacao|com,DTP REF (4 e 6 anos),intern,60,variacao,com,-0.09,162
+DTP REF (4 e 6 anos)|intern|60|variacao|sem,DTP REF (4 e 6 anos),intern,60,variacao,sem,-0.0,81
+Tríplice Bacte(DTP)(1º ref)|obitos|todas|nivel|com,Tríplice Bacte(DTP)(1º ref),obitos,todas,nivel,com,0.03,270
+Tríplice Bacte(DTP)(1º ref)|obitos|todas|nivel|sem,Tríplice Bacte(DTP)(1º ref),obitos,todas,nivel,sem,0.02,189
+Tríplice Bacte(DTP)(1º ref)|obitos|todas|variacao|com,Tríplice Bacte(DTP)(1º ref),obitos,todas,variacao,com,-0.24,243
+Tríplice Bacte(DTP)(1º ref)|obitos|todas|variacao|sem,Tríplice Bacte(DTP)(1º ref),obitos,todas,variacao,sem,-0.11,162
+Tríplice Bacte(DTP)(1º ref)|obitos|60|nivel|com,Tríplice Bacte(DTP)(1º ref),obitos,60,nivel,com,0.03,270
+Tríplice Bacte(DTP)(1º ref)|obitos|60|nivel|sem,Tríplice Bacte(DTP)(1º ref),obitos,60,nivel,sem,0.05,189
+Tríplice Bacte(DTP)(1º ref)|obitos|60|variacao|com,Tríplice Bacte(DTP)(1º ref),obitos,60,variacao,com,-0.19,243
+Tríplice Bacte(DTP)(1º ref)|obitos|60|variacao|sem,Tríplice Bacte(DTP)(1º ref),obitos,60,variacao,sem,-0.04,162
+Tríplice Bacte(DTP)(1º ref)|intern|todas|nivel|com,Tríplice Bacte(DTP)(1º ref),intern,todas,nivel,com,0.03,270
+Tríplice Bacte(DTP)(1º ref)|intern|todas|nivel|sem,Tríplice Bacte(DTP)(1º ref),intern,todas,nivel,sem,-0.04,189
+Tríplice Bacte(DTP)(1º ref)|intern|todas|variacao|com,Tríplice Bacte(DTP)(1º ref),intern,todas,variacao,com,-0.09,243
+Tríplice Bacte(DTP)(1º ref)|intern|todas|variacao|sem,Tríplice Bacte(DTP)(1º ref),intern,todas,variacao,sem,0.02,162
+Tríplice Bacte(DTP)(1º ref)|intern|60|nivel|com,Tríplice Bacte(DTP)(1º ref),intern,60,nivel,com,0.01,270
+Tríplice Bacte(DTP)(1º ref)|intern|60|nivel|sem,Tríplice Bacte(DTP)(1º ref),intern,60,nivel,sem,-0.03,189
+Tríplice Bacte(DTP)(1º ref)|intern|60|variacao|com,Tríplice Bacte(DTP)(1º ref),intern,60,variacao,com,-0.1,243
+Tríplice Bacte(DTP)(1º ref)|intern|60|variacao|sem,Tríplice Bacte(DTP)(1º ref),intern,60,variacao,sem,0.08,162
+Dupla adulto e dTpa gestante|obitos|todas|nivel|com,Dupla adulto e dTpa gestante,obitos,todas,nivel,com,-0.01,270
+Dupla adulto e dTpa gestante|obitos|todas|nivel|sem,Dupla adulto e dTpa gestante,obitos,todas,nivel,sem,0.03,189
+Dupla adulto e dTpa gestante|obitos|todas|variacao|com,Dupla adulto e dTpa gestante,obitos,todas,variacao,com,0.01,243
+Dupla adulto e dTpa gestante|obitos|todas|variacao|sem,Dupla adulto e dTpa gestante,obitos,todas,variacao,sem,-0.19,162
+Dupla adulto e dTpa gestante|obitos|60|nivel|com,Dupla adulto e dTpa gestante,obitos,60,nivel,com,0.2,270
+Dupla adulto e dTpa gestante|obitos|60|nivel|sem,Dupla adulto e dTpa gestante,obitos,60,nivel,sem,0.14,189
+Dupla adulto e dTpa gestante|obitos|60|variacao|com,Dupla adulto e dTpa gestante,obitos,60,variacao,com,0.01,243
+Dupla adulto e dTpa gestante|obitos|60|variacao|sem,Dupla adulto e dTpa gestante,obitos,60,variacao,sem,-0.16,162
+Dupla adulto e dTpa gestante|intern|todas|nivel|com,Dupla adulto e dTpa gestante,intern,todas,nivel,com,-0.27,270
+Dupla adulto e dTpa gestante|intern|todas|nivel|sem,Dupla adulto e dTpa gestante,intern,todas,nivel,sem,-0.08,189
+Dupla adulto e dTpa gestante|intern|todas|variacao|com,Dupla adulto e dTpa gestante,intern,todas,variacao,com,0.23,243
+Dupla adulto e dTpa gestante|intern|todas|variacao|sem,Dupla adulto e dTpa gestante,intern,todas,variacao,sem,0.11,162
+Dupla adulto e dTpa gestante|intern|60|nivel|com,Dupla adulto e dTpa gestante,intern,60,nivel,com,-0.2,270
+Dupla adulto e dTpa gestante|intern|60|nivel|sem,Dupla adulto e dTpa gestante,intern,60,nivel,sem,0.01,189
+Dupla adulto e dTpa gestante|intern|60|variacao|com,Dupla adulto e dTpa gestante,intern,60,variacao,com,0.27,243
+Dupla adulto e dTpa gestante|intern|60|variacao|sem,Dupla adulto e dTpa gestante,intern,60,variacao,sem,0.12,162
+dTpa gestante|obitos|todas|nivel|com,dTpa gestante,obitos,todas,nivel,com,0.13,270
+dTpa gestante|obitos|todas|nivel|sem,dTpa gestante,obitos,todas,nivel,sem,0.14,189
+dTpa gestante|obitos|todas|variacao|com,dTpa gestante,obitos,todas,variacao,com,0.04,243
+dTpa gestante|obitos|todas|variacao|sem,dTpa gestante,obitos,todas,variacao,sem,-0.1,162
+dTpa gestante|obitos|60|nivel|com,dTpa gestante,obitos,60,nivel,com,-0.03,270
+dTpa gestante|obitos|60|nivel|sem,dTpa gestante,obitos,60,nivel,sem,0.03,189
+dTpa gestante|obitos|60|variacao|com,dTpa gestante,obitos,60,variacao,com,0.03,243
+dTpa gestante|obitos|60|variacao|sem,dTpa gestante,obitos,60,variacao,sem,-0.11,162
+dTpa gestante|intern|todas|nivel|com,dTpa gestante,intern,todas,nivel,com,0.3,270
+dTpa gestante|intern|todas|nivel|sem,dTpa gestante,intern,todas,nivel,sem,0.29,189
+dTpa gestante|intern|todas|variacao|com,dTpa gestante,intern,todas,variacao,com,0.08,243
+dTpa gestante|intern|todas|variacao|sem,dTpa gestante,intern,todas,variacao,sem,0.0,162
+dTpa gestante|intern|60|nivel|com,dTpa gestante,intern,60,nivel,com,0.32,270
+dTpa gestante|intern|60|nivel|sem,dTpa gestante,intern,60,nivel,sem,0.32,189
+dTpa gestante|intern|60|variacao|com,dTpa gestante,intern,60,variacao,com,0.13,243
+dTpa gestante|intern|60|variacao|sem,dTpa gestante,intern,60,variacao,sem,0.04,162
+Tetravalente(DTP/Hib)(TETRA)|obitos|todas|nivel|com,Tetravalente(DTP/Hib)(TETRA),obitos,todas,nivel,com,-0.02,189
+Tetravalente(DTP/Hib)(TETRA)|obitos|todas|nivel|sem,Tetravalente(DTP/Hib)(TETRA),obitos,todas,nivel,sem,-0.02,189
+Tetravalente(DTP/Hib)(TETRA)|obitos|todas|variacao|com,Tetravalente(DTP/Hib)(TETRA),obitos,todas,variacao,com,-0.01,162
+Tetravalente(DTP/Hib)(TETRA)|obitos|todas|variacao|sem,Tetravalente(DTP/Hib)(TETRA),obitos,todas,variacao,sem,-0.01,162
+Tetravalente(DTP/Hib)(TETRA)|obitos|60|nivel|com,Tetravalente(DTP/Hib)(TETRA),obitos,60,nivel,com,0.04,189
+Tetravalente(DTP/Hib)(TETRA)|obitos|60|nivel|sem,Tetravalente(DTP/Hib)(TETRA),obitos,60,nivel,sem,0.04,189
+Tetravalente(DTP/Hib)(TETRA)|obitos|60|variacao|com,Tetravalente(DTP/Hib)(TETRA),obitos,60,variacao,com,0.03,162
+Tetravalente(DTP/Hib)(TETRA)|obitos|60|variacao|sem,Tetravalente(DTP/Hib)(TETRA),obitos,60,variacao,sem,0.03,162
+Tetravalente(DTP/Hib)(TETRA)|intern|todas|nivel|com,Tetravalente(DTP/Hib)(TETRA),intern,todas,nivel,com,-0.09,189
+Tetravalente(DTP/Hib)(TETRA)|intern|todas|nivel|sem,Tetravalente(DTP/Hib)(TETRA),intern,todas,nivel,sem,-0.09,189
+Tetravalente(DTP/Hib)(TETRA)|intern|todas|variacao|com,Tetravalente(DTP/Hib)(TETRA),intern,todas,variacao,com,0.01,162
+Tetravalente(DTP/Hib)(TETRA)|intern|todas|variacao|sem,Tetravalente(DTP/Hib)(TETRA),intern,todas,variacao,sem,0.01,162
+Tetravalente(DTP/Hib)(TETRA)|intern|60|nivel|com,Tetravalente(DTP/Hib)(TETRA),intern,60,nivel,com,-0.09,189
+Tetravalente(DTP/Hib)(TETRA)|intern|60|nivel|sem,Tetravalente(DTP/Hib)(TETRA),intern,60,nivel,sem,-0.09,189
+Tetravalente(DTP/Hib)(TETRA)|intern|60|variacao|com,Tetravalente(DTP/Hib)(TETRA),intern,60,variacao,com,0.04,162
+Tetravalente(DTP/Hib)(TETRA)|intern|60|variacao|sem,Tetravalente(DTP/Hib)(TETRA),intern,60,variacao,sem,0.04,162
+Varicela|obitos|todas|nivel|com,Varicela,obitos,todas,nivel,com,0.32,81
+Varicela|obitos|todas|nivel|sem,Varicela,obitos,todas,nivel,sem,,0
+Varicela|obitos|todas|variacao|com,Varicela,obitos,todas,variacao,com,-0.18,54
+Varicela|obitos|todas|variacao|sem,Varicela,obitos,todas,variacao,sem,,0
+Varicela|obitos|60|nivel|com,Varicela,obitos,60,nivel,com,-0.14,81
+Varicela|obitos|60|nivel|sem,Varicela,obitos,60,nivel,sem,,0
+Varicela|obitos|60|variacao|com,Varicela,obitos,60,variacao,com,-0.2,54
+Varicela|obitos|60|variacao|sem,Varicela,obitos,60,variacao,sem,,0
+Varicela|intern|todas|nivel|com,Varicela,intern,todas,nivel,com,0.61,81
+Varicela|intern|todas|nivel|sem,Varicela,intern,todas,nivel,sem,,0
+Varicela|intern|todas|variacao|com,Varicela,intern,todas,variacao,com,0.1,54
+Varicela|intern|todas|variacao|sem,Varicela,intern,todas,variacao,sem,,0
+Varicela|intern|60|nivel|com,Varicela,intern,60,nivel,com,0.46,81
+Varicela|intern|60|nivel|sem,Varicela,intern,60,nivel,sem,,0
+Varicela|intern|60|variacao|com,Varicela,intern,60,variacao,com,0.12,54
+Varicela|intern|60|variacao|sem,Varicela,intern,60,variacao,sem,,0
+COVID-19|obitos|todas|transversal|-,COVID-19,obitos,todas,transversal,-,-0.48,27
+COVID-19|obitos|60|transversal|-,COVID-19,obitos,60,transversal,-,-0.48,27
+COVID-19|intern|todas|transversal|-,COVID-19,intern,todas,transversal,-,-0.39,27
+COVID-19|intern|60|transversal|-,COVID-19,intern,60,transversal,-,-0.32,27
